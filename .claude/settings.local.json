@@ -5,7 +5,8 @@
       "Bash(npx nuxi@latest init:*)",
       "Bash(ls:*)",
       "Bash(dir:*)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(npx nuxt build:*)"
     ]
   }
 }
