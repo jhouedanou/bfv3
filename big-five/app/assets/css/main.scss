@@ -9,7 +9,7 @@
   --color-primary-light: #4a2d8a;
   --color-accent-magenta: #c23a8e;
   --color-accent-purple: #7b3fa0;
-  
+  --legradient: linear-gradient(to bottom, #2d3173 0%, #4a3080 50%, #7b3090 100%);
   /* Gradients */
   --gradient-hero: linear-gradient(135deg, #1a0a3e 0%, #2d1b69 40%, #7b3fa0 70%, #c23a8e 100%);
   --gradient-card: linear-gradient(135deg, #2d1b69 0%, #7b3fa0 50%, #c23a8e 100%);
@@ -117,4 +117,11 @@ font-size: 65px !important;
 #agence{
   background-size:cover;
   background:url(images/sectionBg.jpg) !important;
+}
+
+body, html{
+background: linear-gradient(to bottom, #2d3173 0%, #4a3080 50%, #7b3090 100%);
+  section{
+    background: transparent !important;
+  }
 }

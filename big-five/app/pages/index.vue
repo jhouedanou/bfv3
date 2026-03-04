@@ -134,7 +134,7 @@ function onSlideChange(swiper: SwiperClass) {
 }
 
 .slide-gradient {
-  background: var(--gradient-hero);
+  //background: var(--gradient-hero);
 }
 
 .slide-footer {
