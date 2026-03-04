@@ -6,7 +6,10 @@
       "Bash(ls:*)",
       "Bash(dir:*)",
       "Bash(npm install:*)",
-      "Bash(npx nuxt build:*)"
+      "Bash(npx nuxt build:*)",
+      "Bash(node -e:*)",
+      "Bash(npm uninstall:*)",
+      "WebFetch(domain:use.typekit.net)"
     ]
   }
 }

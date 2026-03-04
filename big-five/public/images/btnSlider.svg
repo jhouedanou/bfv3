@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 1509 368" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-miterlimit:10;">
+    <rect id="Plan-de-travail1" serif:id="Plan de travail1" x="0" y="0" width="1508.271" height="367.088" style="fill:none;"/>
+    <clipPath id="_clip1">
+        <rect id="Plan-de-travail11" serif:id="Plan de travail1" x="0" y="0" width="1508.271" height="367.088"/>
+    </clipPath>
+    <g clip-path="url(#_clip1)">
+        <g transform="matrix(5.555556,0,0,5.555556,1324.727087,311.254865)">
+            <path d="M0,-45.976L-205.413,-45.976C-218.109,-45.976 -228.401,-35.684 -228.401,-22.988C-228.401,-10.292 -218.109,0 -205.413,0L0,0C12.696,0 22.988,-10.292 22.988,-22.988C22.988,-35.684 12.696,-45.976 0,-45.976Z" style="fill:rgb(21,9,104);fill-rule:nonzero;stroke:url(#_Linear2);stroke-width:2px;"/>
+        </g>
+    </g>
+    <defs>
+        <linearGradient id="_Linear2" x1="0" y1="0" x2="1" y2="0" gradientUnits="userSpaceOnUse" gradientTransform="matrix(252.613,-0,0,-395.906,-229.0127,-22.9883)"><stop offset="0" style="stop-color:rgb(41,53,139);stop-opacity:1"/><stop offset="1" style="stop-color:rgb(128,54,141);stop-opacity:1"/></linearGradient>
+    </defs>
+</svg>

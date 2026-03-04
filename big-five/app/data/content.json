@@ -1,0 +1,155 @@
+{
+  "meta": {
+    "siteUrl": "https://bigfiveabidjan.com",
+    "title": "Big Five Solutions — Conseil en Marketing Stratégique & Digital",
+    "description": "Big Five Solutions : agence de conseil en marketing stratégique, digital et solutions digitales sur-mesure. Abidjan, Paris, Cape Town. Transformer la performance en empreinte durable.",
+    "ogTitle": "Big Five Solutions",
+    "ogDescription": "Agence de conseil en marketing stratégique, digital et solutions digitales sur-mesure basée à Abidjan.",
+    "ogImage": "/images/og-image.png",
+    "ogSiteName": "Big Five Solutions",
+    "locale": "fr_FR",
+    "twitterCard": "summary_large_image"
+  },
+
+  "header": {
+    "logoTagline": "CONSEIL DIGITAL & STRATÉGIE",
+    "nav": [
+      { "label": "L'AGENCE", "slideIndex": 1 },
+      { "label": "SOLUTIONS", "slideIndex": 3 },
+      { "label": "OBSERVATOIRE", "slideIndex": 4 }
+    ],
+    "contactButton": "NOUS CONTACTER",
+    "searchLabel": "Rechercher",
+    "lang": "FR"
+  },
+
+  "hero": {
+    "lines": ["TRANSFORMER", "LA PERFORMANCE", "EN EMPREINTE", "DURABLE"],
+    "services": [
+      "Marketing Stratégique",
+      "Marketing Digital",
+      "Solutions digitales sur-mesure"
+    ],
+    "slides": [
+      {
+        "alt": "Afrofuturisme",
+        "bg": "linear-gradient(135deg, #1a0a3e 0%, #2d1b69 30%, #7b3fa0 60%, #c23a8e 100%)",
+        "image": "/images/slides/00.webp"
+      },
+      {
+        "alt": "Patrimoine africain",
+        "bg": "linear-gradient(135deg, #2d1b69 0%, #7b3fa0 40%, #c23a8e 80%, #1a0a3e 100%)",
+        "image": "/images/slides/01.webp"
+      },
+      {
+        "alt": "Modernité urbaine",
+        "bg": "linear-gradient(135deg, #1a0a3e 0%, #4a2d8a 50%, #7b3fa0 100%)",
+        "image": "/images/slides/03.webp"
+      }
+    ]
+  },
+
+  "agency": {
+    "sectionTitle": "L'AGENCE",
+    "subtitleLine1": "Plus de 15 ans d'expérience.",
+    "subtitleLine2": "Une nouvelle vision de la performance",
+    "description": "Nés dans l'opérationnel, nous avons grandi avec nos clients. Notre constat est clair : le marché n'a plus besoin de simples exécutants, mais de renforcement des compétences.",
+    "counters": [
+      { "target": 350, "prefix": "+", "suffix": "", "label": "PROJETS LIVRÉS" },
+      { "target": 17, "prefix": "", "suffix": "", "label": "PAYS COUVERTS" }
+    ],
+    "image": {
+      "src": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&auto=format",
+      "alt": "Jeune homme avec smartphone"
+    }
+  },
+
+  "team": {
+    "sectionTitle": "ÉQUIPE",
+    "members": [
+      { "name": "Yannick Boka", "role": "Responsable communication", "linkedin": "#" },
+      { "name": "Cossi Codjia", "role": "Chef de projet", "linkedin": "#" },
+      { "name": "Yadé Coulibaly", "role": "Directeur Artistique", "linkedin": "#" },
+      { "name": "Aminata Diallo", "role": "Social Media Manager", "linkedin": "#" },
+      { "name": "Kofi Mensah", "role": "Développeur Senior", "linkedin": "#" }
+    ],
+    "prevLabel": "Précédent",
+    "nextLabel": "Suivant"
+  },
+
+  "solutions": {
+    "sectionTitle": "SOLUTIONS",
+    "learnMoreLabel": "En savoir plus sur",
+    "items": [
+      {
+        "label": "Conseil &",
+        "highlight": "Stratégie",
+        "title": "Conseil & Stratégie",
+        "description": "Audit de positionnement et feuilles de route pour aligner votre image sur votre réalité business.",
+        "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80&auto=format"
+      },
+      {
+        "label": "Veille &",
+        "highlight": "Intelligence",
+        "title": "Veille & Intelligence",
+        "description": "Transformez le bruit médiatique en signaux faibles exploitables. Comprendre avant les autres.",
+        "image": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&q=80&auto=format"
+      },
+      {
+        "label": "Big Five",
+        "highlight": "Academy",
+        "title": "Big Five Academy",
+        "description": "Renforcement de capacité et transfert de compétences pour l'autonomie de vos équipes.",
+        "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80&auto=format"
+      },
+      {
+        "label": "Solutions",
+        "highlight": "Digitales",
+        "title": "Solutions Digitales",
+        "description": "Développement sur-mesure et IA appliquée. La technologie par la preuve.",
+        "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80&auto=format"
+      }
+    ]
+  },
+
+  "insights": {
+    "sectionTitle": "OBSERVATIONS",
+    "hero": {
+      "badge": "Big Five Insights",
+      "subtitle": "L'Observatoire des tendances Social Media",
+      "image": "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1200&q=80&auto=format",
+      "imageAlt": "Arbre africain au crépuscule"
+    },
+    "blocks": [
+      {
+        "title": "SOUVERAINETÉ NUMÉRIQUE",
+        "subtitle": "Pourquoi la data est le prochain combat des PME Ouest-Africaines.",
+        "description": "Analyse des nouvelles régulations et opportunités de croissance pour le secteur privé en zone UEMOA.",
+        "cta": "Lire l'analyse"
+      },
+      {
+        "title": "BAROMÈTRE DIGITAL 2026",
+        "bars": [
+          { "label": "Adoption Cloud", "value": 45, "suffix": "%" },
+          { "label": "Mobile Banking", "value": 72, "suffix": "%" },
+          { "label": "Cybersécurité", "value": 28, "suffix": "%" }
+        ],
+        "source": "Big Five Watch - Q1 2026"
+      }
+    ]
+  },
+
+  "footer": {
+    "contactLabel": "Votre email professionnel",
+    "email": "contacts@bigfiveabidjan.com",
+    "socialLabel": "Suivez nous aussi ici :",
+    "copyright": "Big Five Solutions. Tous droits réservés.",
+    "socials": [
+      { "name": "facebook", "label": "Facebook", "url": "#" },
+      { "name": "twitter", "label": "X / Twitter", "url": "#" },
+      { "name": "instagram", "label": "Instagram", "url": "#" },
+      { "name": "youtube", "label": "YouTube", "url": "#" },
+      { "name": "linkedin", "label": "LinkedIn", "url": "#" }
+    ]
+  }
+}

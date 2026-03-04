@@ -1,82 +1,65 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
-
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --color-dark: #1a1a1a;
-  --color-darker: #111111;
-  --color-light: #f5f5f5;
-  --color-white: #ffffff;
-  --color-accent: #c8a84e;
-  --color-accent-light: #dfc373;
-  --color-gray: #888888;
-  --color-gray-light: #cccccc;
-  --font-main: 'Montserrat', sans-serif;
+  /* Couleurs principales */
+  --color-primary-deep: #1a0a3e;
+  --color-primary: #2d1b69;
+  --color-primary-light: #4a2d8a;
+  --color-accent-magenta: #c23a8e;
+  --color-accent-purple: #7b3fa0;
+  
+  /* Gradients */
+  --gradient-hero: linear-gradient(135deg, #1a0a3e 0%, #2d1b69 40%, #7b3fa0 70%, #c23a8e 100%);
+  --gradient-card: linear-gradient(135deg, #2d1b69 0%, #7b3fa0 50%, #c23a8e 100%);
+  --gradient-button: linear-gradient(135deg, #4a2d8a 0%, #c23a8e 100%);
+  
+  /* Texte */
+  --color-text-white: #ffffff;
+  --color-text-light: rgba(255, 255, 255, 0.8);
+  --color-text-muted: rgba(255, 255, 255, 0.6);
+  
+  /* Footer */
+  --color-footer-bg: #0a0a0a;
+  --color-footer-text: rgba(255, 255, 255, 0.7);
+
+  /* Typographie */
+  --font-display: 'century-gothic', sans-serif;
+  --font-heading: 'helvetica-neue-lt-pro', sans-serif;
+  --font-body: 'helvetica-neue-lt-pro', sans-serif;
 }
 
-html,
 body {
-  height: 100%;
-  overflow: hidden;
-  font-family: var(--font-main);
-  background-color: var(--color-dark);
-  color: var(--color-light);
+  font-family: var(--font-body);
+  background-color: var(--color-primary-deep);
+  color: var(--color-text-white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#__nuxt {
-  height: 100%;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-ul {
-  list-style: none;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
-  line-height: 1.2;
+  font-family: var(--font-heading);
 }
 
-.swiper {
-  width: 100%;
-  height: 100vh;
+.font-display {
+  font-family: var(--font-display);
 }
 
-.swiper-slide {
-  height: 100vh;
-  overflow: hidden;
+/* Scrollbar personnalisée */
+::-webkit-scrollbar {
+  width: 8px;
 }
 
-/* Swiper pagination custom */
-.swiper-pagination-bullet {
-  background: var(--color-gray) !important;
-  opacity: 0.5 !important;
-  width: 10px !important;
-  height: 10px !important;
-  transition: all 0.3s ease !important;
+::-webkit-scrollbar-track {
+  background: var(--color-primary-deep);
 }
 
-.swiper-pagination-bullet-active {
-  background: var(--color-accent) !important;
-  opacity: 1 !important;
-  height: 28px !important;
-  border-radius: 5px !important;
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent-purple);
 }
