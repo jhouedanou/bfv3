@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4
   },
-  css: ['~/assets/css/main.css'],
+  css: ['~/assets/css/main.scss'],
   app: {
     head: {
       link: [

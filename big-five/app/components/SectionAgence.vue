@@ -33,7 +33,7 @@
   </section>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .section-agence {
   position: relative;
   width: 100%;

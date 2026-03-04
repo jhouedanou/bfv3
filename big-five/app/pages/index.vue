@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Mousewheel, Pagination, Keyboard, HashNavigation } from 'swiper/modules'
 import type { SwiperClass } from 'swiper/vue'
@@ -7,6 +7,7 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 
 const { meta } = useContent()
+const { registerSwiper, setActiveIndex } = useNavigation()
 
 const ogImageUrl = `${meta.siteUrl}${meta.ogImage}`
 
@@ -37,24 +38,14 @@ useSeoMeta({
 })
 
 const modules = [Mousewheel, Pagination, Keyboard, HashNavigation]
-const swiperInstance = ref<SwiperClass | null>(null)
-const activeIndex = ref(0)
 
 function onSwiper(swiper: SwiperClass) {
-  swiperInstance.value = swiper
+  registerSwiper((index: number) => swiper.slideTo(index))
 }
 
 function onSlideChange(swiper: SwiperClass) {
-  activeIndex.value = swiper.activeIndex
+  setActiveIndex(swiper.activeIndex)
 }
-
-/* Expose navigation for header links */
-function goToSlide(index: number) {
-  swiperInstance.value?.slideTo(index)
-}
-
-provide('goToSlide', goToSlide)
-provide('activeSlideIndex', activeIndex)
 </script>
 
 <template>

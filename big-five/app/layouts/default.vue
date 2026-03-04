@@ -21,7 +21,7 @@
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .layout-wrapper {
   background: var(--gradient-hero);
 }

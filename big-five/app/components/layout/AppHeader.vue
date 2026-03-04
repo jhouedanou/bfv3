@@ -1,16 +1,12 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, inject } from 'vue'
+import { ref, onMounted, onUnmounted, watch } from 'vue'
 import { Search, Menu, X } from 'lucide-vue-next'
 
 const { header } = useContent()
+const { goToSlide, activeIndex } = useNavigation()
 
 const scrolled = ref(false)
 const mobileOpen = ref(false)
-
-const goToSlide = inject<(index: number) => void>('goToSlide', () => {})
-
-/* Simulate scroll effect based on active slide */
-const activeSlideIndex = inject<{ value: number }>('activeSlideIndex', ref(0))
 
 function handleScroll() {
   scrolled.value = window.scrollY > 50
@@ -18,14 +14,8 @@ function handleScroll() {
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll, { passive: true })
-  /* Also track active slide for header bg */
-  const checkSlide = () => {
-    scrolled.value = (activeSlideIndex as any).value > 0
-  }
-  const interval = setInterval(checkSlide, 300)
   onUnmounted(() => {
     window.removeEventListener('scroll', handleScroll)
-    clearInterval(interval)
   })
 })
 
@@ -37,10 +27,11 @@ function navigateTo(index: number) {
 
 <template>
   <header
+  id="appheader"
     class="fixed top-0 left-0 w-full z-50 transition-all duration-500"
-    :class="scrolled || (activeSlideIndex as any).value > 0 ? 'header--scrolled' : 'header--transparent'"
+    :class="scrolled || activeIndex > 0 ? 'header--scrolled' : 'header--transparent'"
   >
-    <div class="max-w-[1440px] mx-auto flex items-center justify-between px-6 lg:px-12 py-4">
+    <div class="lepiutan max-w-[1440px] mx-auto flex items-center justify-between px-6 lg:px-12 py-4" >
       <!-- Logo -->
       <a
         href="#"
@@ -49,11 +40,10 @@ function navigateTo(index: number) {
         @click.prevent="navigateTo(0)"
       >
         <img src="/images/logo.svg" alt="Big Five Solutions Logo" class="logo" />
-
       </a>
 
       <!-- Desktop nav -->
-      <nav class="hidden lg:flex items-center gap-8" aria-label="Navigation principale">
+      <nav id="havoc" class="hidden lg:flex items-center gap-8" aria-label="Navigation principale">
         <button
           v-for="item in header.nav"
           :key="item.label"
@@ -62,7 +52,7 @@ function navigateTo(index: number) {
         >
           {{ item.label }}
         </button>
-        <button class="nav-contact" @click="navigateTo(4)">{{ header.contactButton }}</button>
+        <button class="nav-contact" id="lecharos"  @click="navigateTo(4)">{{ header.contactButton }}</button>
         <button class="nav-icon" :aria-label="header.searchLabel">
           <Search :size="18" />
         </button>
@@ -100,9 +90,13 @@ function navigateTo(index: number) {
   </header>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+#appheader{
+  padding-top: 52px; /* Account for fixed header */
+}
 .header--transparent {
   background: transparent;
+  margin-top:0px
 }
 .header--scrolled {
   background: rgba(26, 10, 62, 0.85);
@@ -112,14 +106,14 @@ function navigateTo(index: number) {
 }
 
 .logo {
-  width: 80px;
-  height: 60px;
+  width: 101px;
+  height:auto;
 }
 
 .nav-link {
   color: rgba(255, 255, 255, 0.85);
-  font-family: var(--font-body);
-  font-size: 0.8rem;
+font-family: var(--font-display);
+    font-size: 14px;
   font-weight: 500;
   letter-spacing: 0.1em;
   text-decoration: none;
@@ -135,7 +129,7 @@ function navigateTo(index: number) {
 
 .nav-contact {
   color: white;
-  font-family: var(--font-body);
+  font-family: var(--font-display);
   font-size: 0.8rem;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -210,5 +204,11 @@ function navigateTo(index: number) {
 .slide-leave-to {
   transform: translateX(100%);
   opacity: 0;
+}
+.lecheckpoint{
+  text-transform:uppercase;
+}
+#rage{
+  margin-top:0px;
 }
 </style>

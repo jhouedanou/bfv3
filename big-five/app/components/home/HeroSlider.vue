@@ -10,7 +10,7 @@ let interval: ReturnType<typeof setInterval>
 onMounted(() => {
   interval = setInterval(() => {
     currentSlide.value = (currentSlide.value + 1) % hero.slides.length
-  }, 5000)
+  }, 3000)
 })
 
 onUnmounted(() => clearInterval(interval))
@@ -35,39 +35,29 @@ onMounted(() => {
         :style="{
           backgroundImage: `url(${slide.image})`,
           transform: currentSlide === i ? 'scale(1.05)' : 'scale(1)',
-          transition: 'transform 6s ease-out'
+          transition: 'transform 3s ease-out'
         }"
       />
-      <!-- Dark overlay for text readability -->
-      <div class="absolute inset-0 bg-black/30" />
     </div>
 
     <!-- Content -->
-    <div class="relative z-10 flex flex-col justify-center h-full px-6 md:px-16 lg:px-24 max-w-[1440px] mx-auto">
-      <h1
-        class="hero-title font-display"
-        :class="{ 'hero-title--visible': heroReady }"
-      >
-        <span
-          v-for="(line, idx) in hero.lines"
-          :key="idx"
-          class="hero-line"
-          :style="{ '--delay': idx }"
-        >{{ line }}</span>
+    <div  id="metamorphosis" class="relative z-10 flex flex-col justify-center h-full px-6 md:px-16 lg:px-24 max-w-[1440px] mx-auto">
+      <h1 class="hero-title font-display">
+        {{ hero.lines.join(' ') }}
       </h1>
 
-      <div
-        class="flex flex-col gap-3 mt-10"
+      <ul
+        class="flex flex-col gap-3 mt-10 list-none p-0"
         :class="{ 'hero-buttons--visible': heroReady }"
       >
-        <UiPillButton
+        <li
           v-for="(service, idx) in hero.services"
           :key="idx"
-          :label="service"
           class="w-fit"
-          :style="{ '--btn-delay': idx }"
-        />
-      </div>
+        >
+          {{ service }}
+        </li>
+      </ul>
     </div>
 
     <!-- Slide indicators -->
@@ -84,7 +74,8 @@ onMounted(() => {
   </section>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+
 .hero-title {
   font-size: clamp(2rem, 6vw, 5rem);
   font-weight: 300;
@@ -93,19 +84,6 @@ onMounted(() => {
   letter-spacing: 0.04em;
   display: flex;
   flex-direction: column;
-}
-
-.hero-line {
-  display: block;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-  transition-delay: calc(var(--delay) * 0.15s + 0.3s);
-}
-
-.hero-title--visible .hero-line {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 .hero-buttons--visible :deep(.pill-button) {

@@ -75,7 +75,7 @@ onMounted(() => {
   </section>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .agency-section {
   position: relative;
 }
@@ -137,13 +137,6 @@ onMounted(() => {
 }
 
 .agency-image {
-  width: 100%;
-  max-width: 380px;
-  aspect-ratio: 3 / 4;
-  border-radius: 20px;
-  overflow: hidden;
-  margin-left: auto;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
 @media (max-height: 700px) {

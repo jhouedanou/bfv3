@@ -55,7 +55,7 @@
   </section>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .section-obs {
   position: relative;
   width: 100%;

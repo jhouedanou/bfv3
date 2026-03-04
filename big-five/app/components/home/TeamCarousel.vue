@@ -96,7 +96,7 @@ onMounted(() => {
   </section>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .team-card {
   display: flex;
   flex-direction: column;

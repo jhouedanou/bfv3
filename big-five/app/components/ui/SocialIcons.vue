@@ -33,7 +33,7 @@ const iconMap: Record<string, Component> = {
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .social-icon {
   display: flex;
   align-items: center;

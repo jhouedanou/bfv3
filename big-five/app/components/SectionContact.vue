@@ -75,7 +75,7 @@
   </section>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .section-contact {
   position: relative;
   width: 100%;

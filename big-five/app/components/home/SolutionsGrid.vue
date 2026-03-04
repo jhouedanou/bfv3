@@ -76,7 +76,7 @@ onMounted(() => {
   </section>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .solution-circle {
   display: flex;
   flex-direction: column;

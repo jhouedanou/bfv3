@@ -23,7 +23,7 @@ defineProps<{
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .solution-card-compact {
   display: flex;
   border-radius: 16px;

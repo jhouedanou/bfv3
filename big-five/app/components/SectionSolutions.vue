@@ -49,7 +49,7 @@
   </section>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .section-solutions {
   position: relative;
   width: 100%;

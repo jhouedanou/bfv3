@@ -46,7 +46,7 @@ const { footer } = useContent()
   </footer>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .footer {
   background-color: var(--color-footer-bg);
 }

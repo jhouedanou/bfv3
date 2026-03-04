@@ -93,7 +93,7 @@ onMounted(() => {
   </section>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .insights-hero {
   position: relative;
   border-radius: 20px;

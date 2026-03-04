@@ -51,7 +51,7 @@ function animateCounter() {
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .counter-up {
   display: flex;
   flex-direction: column;

@@ -10,13 +10,13 @@ defineProps<{
   </h2>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .section-title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+font-size: 65px;
   font-weight: 400;
   color: white;
-  letter-spacing: 0.15em;
   margin-bottom: 2rem;
   text-transform: uppercase;
+  font-weight:200;
 }
 </style>

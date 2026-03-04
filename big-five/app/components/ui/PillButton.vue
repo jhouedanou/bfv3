@@ -18,7 +18,7 @@ defineProps<{
   </component>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .pill-button {
   position: relative;
   display: inline-block;

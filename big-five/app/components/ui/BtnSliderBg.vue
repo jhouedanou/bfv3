@@ -33,7 +33,7 @@ const props = withDefaults(defineProps<{
   </svg>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .btn-slider-bg {
   position: absolute;
   inset: 0;
