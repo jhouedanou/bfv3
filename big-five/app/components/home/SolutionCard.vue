@@ -58,12 +58,12 @@ defineProps<{
   padding: 2rem 2.5rem 2rem 1rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   position: relative;
 }
 
 .card-title {
-  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-size: clamp(1.8rem, 4vw, 65px);
   font-weight: 800;
   color: white;
   margin-bottom: 1rem;
@@ -73,18 +73,18 @@ defineProps<{
 }
 
 .card-desc {
-  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  font-size: clamp(0.9rem, 1.5vw, 30px);
   color: rgba(255, 255, 255, 0.85);
   line-height: 1.6;
-  max-width: 320px;
+  //max-width: 320px;
 }
 
 .card-logo {
       position: absolute;
     bottom: 0.5rem;
     right: 0.5rem;
-    width: 101px;
-    height: 101px;
+    width: 180px;
+    height: 180px;
 }
 .card-logo-img {
   width: 100%;

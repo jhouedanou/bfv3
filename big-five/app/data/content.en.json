@@ -137,28 +137,28 @@
         "highlight": "Strategy",
         "title": "Consulting & Strategy",
         "description": "Positioning audits and roadmaps to align your brand image with your business reality.",
-        "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&q=80&auto=format"
+        "image": "/images/popup/conseil.webp"
       },
       {
         "label": "Monitoring &",
         "highlight": "Intelligence",
         "title": "Monitoring & Intelligence",
         "description": "Turn media noise into actionable weak signals. Understand before others do.",
-        "image": "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&q=80&auto=format"
+        "image": "/images/popup/veille.webp"
       },
       {
         "label": "Big Five",
         "highlight": "Academy",
         "title": "Big Five Academy",
         "description": "Capacity building and skills transfer for the autonomy of your teams.",
-        "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80&auto=format"
+        "image": "/images/popup/academy.webp"
       },
       {
         "label": "Digital",
         "highlight": "Solutions",
         "title": "Digital Solutions",
         "description": "Custom development and applied AI. Technology through evidence.",
-        "image": "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80&auto=format"
+        "image": "/images/popup/digitales.webp"
       }
     ]
   },
