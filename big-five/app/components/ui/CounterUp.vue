@@ -41,7 +41,8 @@ function animateCounter() {
 </script>
 
 <template>
-  <div ref="counterEl" class="counter-up">
+  <div class="bigho">
+ <div ref="counterEl" class="counter-up">
     <span class="counter-value font-heading">
       {{ prefix }}{{ display }}{{ suffix }}
     </span>
@@ -49,9 +50,20 @@ function animateCounter() {
       <slot />
     </span>
   </div>
+  </div>
+ 
 </template>
 
 <style scoped lang="scss">
+.bigho {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem !important;
+  background:rgba(255, 255, 255, 0);
+  border:1px solid white;
+  border-radius: 50%;
+}
 .counter-up {
   display: flex;
   flex-direction: column;
