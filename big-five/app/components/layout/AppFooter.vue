@@ -10,12 +10,7 @@ const { footer } = useContent()
       <div class="flex flex-col md:flex-row gap-10 items-center justify-between">
         <!-- Logo -->
         <div class="flex flex-col items-center md:items-start">
-          <svg class="footer-logo" viewBox="0 0 120 60" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <text x="5" y="22" font-family="Montserrat, sans-serif" font-weight="700" font-size="20" fill="white" letter-spacing="2">B</text>
-            <text x="28" y="22" font-family="Montserrat, sans-serif" font-weight="700" font-size="20" fill="white" letter-spacing="2">G</text>
-            <text x="5" y="48" font-family="Montserrat, sans-serif" font-weight="700" font-size="20" fill="white" letter-spacing="2">F</text>
-            <text x="28" y="35" font-family="Montserrat, sans-serif" font-weight="300" font-size="12" fill="white" letter-spacing="1">VE</text>
-          </svg>
+          <img src="/images/logo.svg" alt="Big Five Solutions Logo" class="footer-logo mb-4" />
         </div>
 
         <!-- Contact -->

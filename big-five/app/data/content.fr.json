@@ -164,11 +164,11 @@
   },
 
   "insights": {
-    "sectionTitle": "OBSERVATIONS",
+    "sectionTitle": "OBSERVATOIRE",
     "hero": {
       "badge": "Big Five Insights",
       "subtitle": "L'Observatoire des tendances Social Media",
-      "image": "https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=1200&q=80&auto=format",
+      "image": "/images/sans-titre5-grand.webp",
       "imageAlt": "Arbre africain au crépuscule"
     },
     "blocks": [

@@ -1,17 +1,12 @@
 <script setup lang="ts">
 const { insights } = useContent()
-
 </script>
 
 <template>
-  <section
-    class="insights-section h-full py-16 lg:py-20"
-  >
-    <div class="max-w-[1440px] mx-auto px-6 lg:px-12">
-      <UiSectionTitle :title="insights.sectionTitle" class="parallax-title" />
-
-      <!-- Insights Hero -->
-      <div class="insights-hero parallax-hero mb-10">
+  <section class="insights-section h-full relative">
+    <div class="insights-layout">
+      <!-- TOP: Hero zone with background image -->
+      <div class="insights-hero parallax-hero">
         <div class="insights-hero-bg">
           <img
             :src="insights.hero.image"
@@ -21,54 +16,57 @@ const { insights } = useContent()
           <div class="insights-overlay" />
         </div>
         <div class="insights-hero-content">
-          <span class="insights-badge font-body">{{ insights.hero.badge }}</span>
-          <h3 class="insights-subtitle font-heading">
-            {{ insights.hero.subtitle }}
-          </h3>
+          <UiSectionTitle :title="insights.sectionTitle" class="parallax-title insights-title-override" />
+          <h3 class="insights-badge font-heading">{{ insights.hero.badge }}</h3>
+          <p class="insights-subtitle font-body">{{ insights.hero.subtitle }}</p>
         </div>
       </div>
 
-      <!-- Two columns -->
-      <div class="flex flex-col lg:flex-row gap-8 lg:gap-12">
-        <!-- Block 1: Souveraineté Numérique -->
-        <div class="insight-block reveal-item" style="--block-delay: 0">
-          <h4 class="block-title font-heading">{{ insights.blocks[0].title }}</h4>
-          <p class="block-subtitle font-heading">
-            {{ insights.blocks[0].subtitle }}
-          </p>
-          <p class="block-desc font-body">
-            {{ insights.blocks[0].description }}
-          </p>
-          <UiPillButton :label="insights.blocks[0].cta" class="mt-4" />
-        </div>
-
-        <!-- Block 2: Baromètre Digital -->
-        <div class="insight-block reveal-item" style="--block-delay: 1">
-          <h4 class="block-title font-heading">{{ insights.blocks[1].title }}</h4>
-
-          <div class="bars-wrapper">
-            <div
-              v-for="(bar, idx) in insights.blocks[1].bars"
-              :key="bar.label"
-              class="bar-item"
+      <!-- BOTTOM: Two columns + footer -->
+      <div class="insights-bottom">
+        <div class="insights-columns">
+          <!-- Block 1: Souveraineté Numérique -->
+          <div class="insight-block reveal-item" style="--block-delay: 0">
+            <h4 class="block-title font-heading">{{ insights.blocks[0].title }}</h4>
+            <p class="block-subtitle font-heading">{{ insights.blocks[0].subtitle }}</p>
+            <p class="block-desc font-body">{{ insights.blocks[0].description }}</p>
+            <a
+              v-if="insights.blocks[0].ctaLink"
+              :href="insights.blocks[0].ctaLink"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block-cta"
             >
-              <div class="bar-header">
-                <span class="bar-label font-body">{{ bar.label }}</span>
-                <span class="bar-value font-heading">+{{ bar.value }}{{ bar.suffix }}</span>
-              </div>
-              <div class="bar-track">
-                <div
-                  class="bar-fill"
-                  :style="{
-                    '--target-width': bar.value + '%',
-                    '--bar-delay': idx * 0.2 + 's'
-                  }"
-                />
-              </div>
-            </div>
+              {{ insights.blocks[0].cta }}
+            </a>
           </div>
 
-          <p class="bar-source font-body">{{ insights.blocks[1].source }}</p>
+          <!-- Block 2: Baromètre Digital -->
+          <div class="insight-block reveal-item" style="--block-delay: 1">
+            <h4 class="block-title font-heading">{{ insights.blocks[1].title }}</h4>
+            <div class="bars-wrapper">
+              <div
+                v-for="(bar, idx) in insights.blocks[1].bars"
+                :key="bar.label"
+                class="bar-item"
+              >
+                <div class="bar-header">
+                  <span class="bar-label font-body">{{ bar.label }}</span>
+                  <span class="bar-value font-heading">+{{ bar.value }}{{ bar.suffix }}</span>
+                </div>
+                <div class="bar-track">
+                  <div
+                    class="bar-fill"
+                    :style="{
+                      '--target-width': bar.value + '%',
+                      '--bar-delay': idx * 0.2 + 's'
+                    }"
+                  />
+                </div>
+              </div>
+            </div>
+            <p class="bar-source font-body">*Source : {{ insights.blocks[1].source }}</p>
+          </div>
         </div>
       </div>
     </div>
@@ -76,13 +74,28 @@ const { insights } = useContent()
 </template>
 
 <style scoped lang="scss">
+.insights-section {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: #0a0620;
+}
+
+.insights-layout {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 100vh;
+}
+
+/* ---- HERO TOP ---- */
 .insights-hero {
   position: relative;
-  border-radius: 20px;
-  overflow: hidden;
-  min-height: 200px;
+  flex: 0 0 auto;
+  min-height: 50vh;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  padding: 2rem 0;
 }
 
 .insights-hero-bg {
@@ -94,36 +107,59 @@ const { insights } = useContent()
   height: 100%;
   object-fit: cover;
 }
-.insights-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(26, 10, 62, 0.95) 0%,
-    rgba(26, 10, 62, 0.4) 100%
-  );
-}
 
 .insights-hero-content {
   position: relative;
   z-index: 1;
-  padding: 2rem;
+  padding: 2rem 3rem;
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.insights-title-override {
+  margin-bottom: 0rem;
 }
 
 .insights-badge {
-  display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--color-accent-magenta);
+  font-size: clamp(2rem, 5vw, 85px);
+  font-weight: 800;
+  color: white;
+  line-height: 1.1;
   margin-bottom: 0.5rem;
 }
 
 .insights-subtitle {
-  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-  font-weight: 600;
+  font-size: clamp(0.9rem, 1.5vw, 30px);
+
   color: white;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  color: #fff;
+  font-family: var(--font-display);}
+
+/* ---- BOTTOM SECTION ---- */
+.insights-bottom {
+  flex: 1;
+  background: #0a0620;
+  padding: 2.5rem 3rem 1rem;
+  max-width: 100vw;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.insights-columns {
+  display: flex;
+  gap: 3rem;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 2rem;
+  }
 }
 
 .insight-block {
@@ -136,26 +172,68 @@ const { insights } = useContent()
 }
 
 .block-title {
-  font-size: clamp(0.95rem, 1.5vw, 1.15rem);
-  font-weight: 700;
-  color: white;
-  letter-spacing: 0.08em;
-  margin-bottom: 0.5rem;
+  font-size: clamp(1.1rem, 2vw, 42px);
+  font-weight: 800;
+    font-size: 42px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #bfb0ff;
+  font-family: var(--font-display);
 }
 
 .block-subtitle {
-  font-size: clamp(0.8rem, 1.2vw, 0.9rem);
+  margin-top: 2.25rem;
+  font-size: clamp(0.95rem, 1.5vw, 1.15rem);
+  font-weight: 700;
+  color: white;
+  font-size: 27px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.15;
+  letter-spacing: normal;
+  text-align: left;
+  color: #fff;
+  font-family: var(--font-display);
+
+}
+
+.block-desc {  margin-top: 2.25rem;
+  font-family: var(--font-display);
+
+  font-size: clamp(0.8rem, 1.2vw, 0.95rem);
+  font-size: 19px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.16;
+  letter-spacing: -0.67px;
+  text-align: left;
+  color: #bfb0ff;}
+
+.block-cta {
+  display: inline-block;
+  margin-top: 1.25rem;
+  padding: 0.6rem 1.8rem;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  font-size: 0.85rem;
   font-weight: 600;
-  color: var(--color-accent-magenta);
-  margin-bottom: 0.5rem;
+  text-decoration: none;
+  transition: background 0.3s, border-color 0.3s;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
+  }
 }
 
-.block-desc {
-  font-size: clamp(0.75rem, 1.1vw, 0.85rem);
-  color: var(--color-text-light);
-  line-height: 1.6;
-}
-
+/* ---- BAROMETER ---- */
 .bars-wrapper {
   display: flex;
   flex-direction: column;
@@ -165,42 +243,58 @@ const { insights } = useContent()
 
 .bar-header {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 0.3rem;
+  justify-content: flex-start;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 .bar-label {
-  font-size: clamp(0.7rem, 1.1vw, 0.8rem);
-  color: var(--color-text-light);
+  margin-top: 1.25rem;
+  font-size: clamp(0.8rem, 1.2vw, 21px);
+  font-weight: 700;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #bfb0ff;
+  margin-bottom:1.25rem;
 }
 .bar-value {
-  font-size: clamp(0.7rem, 1.1vw, 0.8rem);
-  font-weight: 600;
-  color: white;
+   margin-top: 1.25rem;
+  font-size: clamp(0.8rem, 1.2vw, 21px);
+  font-weight: 700;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-align: left;
+  color: #bfb0ff;
+  margin-bottom:1.25rem;
 }
 
 .bar-track {
-  height: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 5px;
   overflow: hidden;
 }
 
 .bar-fill {
   height: 100%;
   width: 0;
-  border-radius: 4px;
-  background: var(--gradient-button);
+  border-radius: 5px;
+  background: linear-gradient(to right, #2a3a9e, #c23a8e);
   transition: width 1.2s ease;
   transition-delay: var(--bar-delay, 0s);
 }
-.bar-fill-bar {
-  /* Animé via main.scss : #observatoire.swiper-slide-active */
-}
 
 .bar-source {
-  font-size: 0.7rem;
-  color: var(--color-text-muted);
-  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.35);
+  margin-top: 1rem;
   font-style: italic;
 }
 
