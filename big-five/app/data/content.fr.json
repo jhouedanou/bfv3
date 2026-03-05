@@ -68,39 +68,62 @@
   "team": {
     "sectionTitle": "ÉQUIPE",
     "members": [
-  {
-    "name": "Jérémie de Clercq",
-    "role": "Fondateur / Gérant",
-    "linkedin": "https://fr.linkedin.com/in/j%C3%A9r%C3%A9mie-de-clercq-45536248"
-  },
-  {
-    "name": "Bertrand Jame",
-    "role": "Fondateur / Gérant",
-    "linkedin": "https://za.linkedin.com/in/bertrand-jame-90680213"
-  },
-    {
-    "name": "Yannick Boka",
-    "role": "Directeur Marketing & Développement",
-    "linkedin": "https://fr.linkedin.com/in/yannick-boka-bigfive"
-  },
-  {
-    "name": "KOUAME Ulrich Kouadio",
-    "role": "Lead Développeur Fullstack",
-    "linkedin": "https://ci.linkedin.com/in/ulrichkouame/en"
-  },
-
-  {
-    "name": "Cossi CODJIA",
-    "role": "Chef Projet Marketing ",
-    "linkedin": "https://www.linkedin.com/in/cossicodjia "
-  }, 
-  
-  {
-    "name": "Jean-Luc Houedanou",
-    "role": "Directeur Solutions Digitales",
-    "linkedin": "https://ci.linkedin.com/in/jlhouedanou"
-  }
-],
+      {
+        "name": "Jérémie de Clercq",
+        "role": "Fondateur / Gérant",
+        "linkedin": "https://fr.linkedin.com/in/j%C3%A9r%C3%A9mie-de-clercq-45536248"
+      },
+      {
+        "name": "Bertrand Jame",
+        "role": "Fondateur / Gérant",
+        "linkedin": "https://za.linkedin.com/in/bertrand-jame-90680213"
+      },
+      {
+        "name": "Yannick Boka",
+        "role": "Directeur Marketing & Développement",
+        "linkedin": "https://fr.linkedin.com/in/yannick-boka-bigfive"
+      },
+      {
+        "name": "Jean-Luc Houedanou",
+        "role": "Directeur Solutions Digitales",
+        "linkedin": "https://ci.linkedin.com/in/jlhouedanou"
+      },
+      {
+        "name": "Yadé Coulibaly",
+        "role": "Directeur Artistique",
+        "linkedin": "https://www.linkedin.com/in/yad%C3%A9-coulibaly-921aa7175/"
+      },
+      {
+        "name": "KOUAME Ulrich Kouadio",
+        "role": "Lead Développeur Fullstack",
+        "linkedin": "https://ci.linkedin.com/in/ulrichkouame/en"
+      },
+      {
+        "name": "Ayite Emmanuel Herve Kouevi",
+        "role": "Développeur front end et mobile",
+        "linkedin": "https://ci.linkedin.com/in/ayite-emmanuel-herve-kouevi-345282274"
+      },
+      {
+        "name": "Cossi CODJIA",
+        "role": "Chef Projet Marketing",
+        "linkedin": "https://www.linkedin.com/in/cossicodjia"
+      },
+      {
+        "name": "Emilie Sekongo",
+        "role": "Chef de Projet Social Media",
+        "linkedin": "https://www.linkedin.com/in/emilie-sekongo-a212bb17a"
+      },
+      {
+        "name": "Stephanie Koffi",
+        "role": "Chargée de veille stratégique",
+        "linkedin": "https://www.linkedin.com/in/stephanie-isra%C3%ABl-d-l-koffi-022384356"
+      },
+      {
+        "name": "Ganet Franck Kouassi",
+        "role": "Chargé de veille stratégique data & digital",
+        "linkedin": "https://www.linkedin.com/in/franck-kouassi-ganet/"
+      }
+    ],
     "prevLabel": "Précédent",
     "nextLabel": "Suivant"
   },

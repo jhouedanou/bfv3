@@ -114,7 +114,7 @@ $btn-gradient-end: #80368d;
     position: absolute;
     inset: 0;
     border-radius: 50%;
-    padding: 2px;
+    padding: 7px;
     background: linear-gradient(to right, #29358b, #80368d);
     -webkit-mask:
       linear-gradient(#fff 0 0) content-box,
@@ -139,14 +139,17 @@ $btn-gradient-end: #80368d;
 }
 
 .circle-label {
-  font-size: clamp(0.65rem, 1.2vw, 0.8rem);
+  font-size: clamp(0.65rem, 35px, 35px);
   color: var(--color-text-light);
   position: relative;
+  font-weight: 100;
+  color: white;
   z-index: 1;
 }
 .circle-highlight {
-  font-size: clamp(0.8rem, 1.4vw, 1rem);
-  font-weight: 700;
+  font-size: clamp(0.8rem, 35px, 35px);
+  font-weight: 100;
+  font-family: var(--font-body);
   color: white;
   position: relative;
   z-index: 1;
@@ -154,8 +157,8 @@ $btn-gradient-end: #80368d;
 
 /* === btn-section (bouton +) === */
 .btn-section {
-  width: 36px;
-  height: 36px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   background: linear-gradient(to bottom, $btn-gradient-start, $btn-gradient-end);
   position: relative;
@@ -171,17 +174,17 @@ $btn-gradient-end: #80368d;
   }
 
   &__circle {
-    position: absolute;
-    width: 30px;
-    height: 30px;
+       position: absolute;
+    width: 53px;
+    height: 53px;
     border-radius: 50%;
-    border: 1.5px solid $btn-icon-color;
+    border: 4.5px solid #d7ccff;
   }
 
   &__icon {
     position: relative;
-    width: 14px;
-    height: 14px;
+    width: 30px;
+    height: 30px;
 
     &::before,
     &::after {
@@ -195,7 +198,7 @@ $btn-gradient-end: #80368d;
     // Barre horizontale
     &::before {
       width: 100%;
-      height: 2px;
+      height: 5px;
       top: 50%;
       left: 0;
       transform: translateY(-50%);
@@ -203,7 +206,7 @@ $btn-gradient-end: #80368d;
 
     // Barre verticale
     &::after {
-      width: 2px;
+      width: 5px;
       height: 100%;
       left: 50%;
       top: 0;
@@ -328,5 +331,11 @@ $btn-gradient-end: #80368d;
     width: 10px;
     height: 10px;
   }
+}
+.solutions-section{
+  height:100vh;
+
+    display: flex;
+    align-items: center;
 }
 </style>

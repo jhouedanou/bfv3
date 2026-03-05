@@ -130,6 +130,7 @@ onUnmounted(() => {
 
 <template>
   <div class="fullpage-wrapper">
+    <LayoutAppHeader />
     <Swiper
       :modules="modules"
       direction="vertical"
@@ -147,7 +148,6 @@ onUnmounted(() => {
       <!-- Slide 1: Hero -->
       <SwiperSlide data-hash="hero">
         <div class="slide-content">
-          <LayoutAppHeader />
           <HomeHeroSlider />
         </div>
       </SwiperSlide>

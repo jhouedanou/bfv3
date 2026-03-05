@@ -9,7 +9,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       link: [
-        { rel: 'stylesheet', href: 'https://use.typekit.net/cnu3eec.css' }
+        { rel: 'stylesheet', href: 'https://use.typekit.net/rfz7dco.css' }
       ]
     }
   },

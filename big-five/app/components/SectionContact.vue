@@ -196,7 +196,7 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   padding: 14px 16px;
-  font-family: var(--font-main);
+  font-family: var(--font-body);
   font-size: 0.9rem;
   color: var(--color-white);
   outline: none;
@@ -222,7 +222,7 @@
   border: none;
   border-radius: 8px;
   padding: 14px 36px;
-  font-family: var(--font-main);
+  font-family: var(--font-body);
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 0.05em;

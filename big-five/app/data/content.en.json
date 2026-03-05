@@ -84,9 +84,24 @@
         "linkedin": "https://fr.linkedin.com/in/yannick-boka-bigfive"
       },
       {
+        "name": "Jean-Luc Houedanou",
+        "role": "Digital Solutions Director",
+        "linkedin": "https://ci.linkedin.com/in/jlhouedanou"
+      },
+      {
+        "name": "Yadé Coulibaly",
+        "role": "Art Director",
+        "linkedin": "https://www.linkedin.com/in/yad%C3%A9-coulibaly-921aa7175/"
+      },
+      {
         "name": "KOUAME Ulrich Kouadio",
         "role": "Lead Fullstack Developer",
         "linkedin": "https://ci.linkedin.com/in/ulrichkouame/en"
+      },
+      {
+        "name": "Ayite Emmanuel Herve Kouevi",
+        "role": "Front-end & Mobile Developer",
+        "linkedin": "https://ci.linkedin.com/in/ayite-emmanuel-herve-kouevi-345282274"
       },
       {
         "name": "Cossi CODJIA",
@@ -94,9 +109,19 @@
         "linkedin": "https://www.linkedin.com/in/cossicodjia"
       },
       {
-        "name": "Jean-Luc Houedanou",
-        "role": "Digital Solutions Director",
-        "linkedin": "https://ci.linkedin.com/in/jlhouedanou"
+        "name": "Emilie Sekongo",
+        "role": "Social Media Project Manager",
+        "linkedin": "https://www.linkedin.com/in/emilie-sekongo-a212bb17a"
+      },
+      {
+        "name": "Stephanie Koffi",
+        "role": "Strategic Intelligence Officer",
+        "linkedin": "https://www.linkedin.com/in/stephanie-isra%C3%ABl-d-l-koffi-022384356"
+      },
+      {
+        "name": "Ganet Franck Kouassi",
+        "role": "Data & Digital Strategic Intelligence Officer",
+        "linkedin": "https://www.linkedin.com/in/franck-kouassi-ganet/"
       }
     ],
     "prevLabel": "Previous",

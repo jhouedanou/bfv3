@@ -4,7 +4,7 @@ import { ChevronRight, ChevronLeft } from 'lucide-vue-next'
 
 const { team } = useContent()
 
-const ITEMS_PER_SLIDE = 3
+const ITEMS_PER_SLIDE = 4
 const currentSlide = ref(0)
 
 const slides = computed(() => {
@@ -115,8 +115,11 @@ function scroll(dir: 'left' | 'right') {
 
 <style scoped lang="scss">
 .carousel-viewport {
-  overflow: hidden;
+  overflow: clip;
+  overflow-y: visible;
   width: 100%;
+  padding: 2rem 0;
+  margin: -2rem 0;
 }
 
 .carousel-track {
@@ -126,28 +129,38 @@ function scroll(dir: 'left' | 'right') {
 
 .carousel-slide {
   display: flex;
-  gap: 1.5rem;
+  gap: 3rem;
   justify-content: center;
   flex: 0 0 100%;
   min-width: 100%;
-  padding: 0 0.5rem;
+  padding: 0 1rem;
+  overflow: visible;
 }
 
 .team-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background: #0d0b2e;
-  border-radius: 16px;
+  border-radius: 50px;
   padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.25rem, 2vw, 2rem);
   flex: 1 1 0;
-  max-width: 320px;
+  width:100vw;
+  height:100vh;
+ max-width: 248px;
+  max-height: 341px;
   gap: 0.75rem;
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease, filter 0.2s ease;
 }
 .team-card:hover {
-  transform: translateY(-4px);
+  transform: scale(1.25);
+  z-index: 2;
+}
+
+.carousel-slide:hover .team-card:not(:hover) {
+  filter: brightness(0.35);
 }
 
 .linkedin-icon {
@@ -170,17 +183,27 @@ function scroll(dir: 'left' | 'right') {
 }
 
 .team-name {
-  font-size: clamp(0.9rem, 1.5vw, 1.15rem);
+  font-size: clamp(0.9rem, 1.5vw, 30px);
   font-weight: 700;
   color: white;
   text-align: center;
+  font-family: var(--font-display);
 }
 
 .team-role {
   font-size: clamp(0.75rem, 1.2vw, 0.85rem);
-  color: var(--color-text-light);
+  color: white;
   text-align: center;
-  font-style: italic;
+   font-size: 20px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: -0.5px;
+  text-align: center;
+  color: #fff;
+    font-family: var(--font-display);
+
 }
 
 .carousel-arrow {

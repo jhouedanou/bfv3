@@ -25,7 +25,7 @@
   --color-footer-text: rgba(255, 255, 255, 0.7);
 
   /* Typographie */
-  --font-display: 'century-gothic', sans-serif;
+  --font-display: 'century-gothic-std', sans-serif;
   --font-heading: 'helvetica-neue-lt-pro', sans-serif;
   --font-body: 'helvetica-neue-lt-pro', sans-serif;
 }
@@ -131,17 +131,17 @@ background: linear-gradient(to bottom, #2d3173 0%, #4a3080 50%, #7b3090 100%);
 
 #agence{
   &::after{
-    content:'';
-    position:absolute;
-    bottom:0;
-    width:100%;
-    height:10vh;
-    background:url('/images/deco.jpg') !important;
-    background-position: fixed;
-    background-size:cover !important;
-    background-position:center top;
-    background-repeat:no-repeat;
+        content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10vh;
+    background: url("/images/deco.jpg") !important;
+    background-position: 0px -9px !important;
+    background-repeat: no-repeat;
     z-index: 10000;
+    border: none;
+    background-size: cover !important;
   }
   .image-col{
     position:relative;
@@ -184,6 +184,10 @@ background: linear-gradient(to bottom, #2d3173 0%, #4a3080 50%, #7b3090 100%);
   .parallax-card {
     opacity: 1 !important;
     transform: translateY(0) !important;
+  }
+  .parallax-card:hover {
+    transform: scale(1.25) !important;
+    z-index: 2;
   }
   .team-section::before {
     opacity: 1 !important;
@@ -247,7 +251,7 @@ background: linear-gradient(to bottom, #2d3173 0%, #4a3080 50%, #7b3090 100%);
 }
 
 .imanotguoi{
-  padding:0.75rem;
+  padding:0.45rem;
   border:1px white solid;
   border-radius:100%;
 }

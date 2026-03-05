@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, watch } from 'vue'
-import { Search, Menu, X } from 'lucide-vue-next'
+import { Menu, X } from 'lucide-vue-next'
 
 const { header } = useContent()
 const { goToSlide, activeIndex } = useNavigation()
@@ -8,9 +8,9 @@ const { locale, setLocale } = useI18n()
 
 type LocaleCode = 'fr' | 'en'
 
-const languages: { code: LocaleCode; label: string; flag: string }[] = [
-  { code: 'fr', label: 'Français', flag: '🇫🇷' },
-  { code: 'en', label: 'English', flag: '🇬🇧' }
+const languages: { code: LocaleCode; label: string }[] = [
+  { code: 'fr', label: 'Français' },
+  { code: 'en', label: 'English' }
 ]
 
 const currentLang = computed(() => languages.find(l => l.code === locale.value)!)
@@ -89,12 +89,8 @@ function navigateTo(index: number) {
           {{ item.label }}
         </button>
         <button class="nav-contact" id="lecharos"  @click="navigateTo(4)">{{ header.contactButton }}</button>
-        <button class="nav-icon" :aria-label="header.searchLabel">
-          <Search :size="18" />
-        </button>
         <div ref="langDropdownRef" class="lang-selector">
           <button class="nav-lang" @click.stop="toggleLangDropdown">
-            <span class="lang-flag">{{ currentLang.flag }}</span>
             <span>{{ currentLang.code.toUpperCase() }}</span>
             <span class="lang-chevron" :class="{ 'lang-chevron--open': langDropdownOpen }">▾</span>
           </button>
@@ -107,7 +103,6 @@ function navigateTo(index: number) {
                 :class="{ 'lang-option--active': lang.code === locale }"
                 @click="selectLanguage(lang.code)"
               >
-                <span class="lang-flag">{{ lang.flag }}</span>
                 <span>{{ lang.label }}</span>
               </li>
             </ul>
@@ -147,7 +142,6 @@ function navigateTo(index: number) {
               :class="{ 'mobile-lang-btn--active': lang.code === locale }"
               @click="selectLanguage(lang.code)"
             >
-              <span class="lang-flag">{{ lang.flag }}</span>
               {{ lang.label }}
             </button>
           </div>
@@ -211,17 +205,6 @@ function navigateTo(index: number) {
   border-color: white;
 }
 
-.nav-icon {
-  color: rgba(255, 255, 255, 0.85);
-  transition: color 0.3s;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-.nav-icon:hover {
-  color: white;
-}
-
 /* ── Language selector ── */
 .lang-selector {
   position: relative;
@@ -247,11 +230,6 @@ function navigateTo(index: number) {
   color: white;
   border-color: rgba(255, 255, 255, 0.5);
   background: rgba(255, 255, 255, 0.05);
-}
-
-.lang-flag {
-  font-size: 1rem;
-  line-height: 1;
 }
 
 .lang-chevron {

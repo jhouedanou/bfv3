@@ -150,18 +150,32 @@ function onMouseLeave() {
 /* L'activation est gérée dans main.scss via .swiper-slide-active #agence */
 
 .subtitle {
-  font-size: clamp(1rem, 2.5vw, 1.6rem);
-  font-weight: 600;
-  color: white;
-  line-height: 1.3;
-  margin-bottom: 1rem;
+      font-size: clamp(1rem, 2.5vw, 32px);
+    color: white;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.06;
+    letter-spacing: -0.64px;
+    text-align: left;
+    color: #fff;
+    font-family: var(--font-body);
+    max-width: 286px;
 }
 
 .description {
-  font-size: clamp(0.8rem, 1.2vw, 0.95rem);
-  color: var(--color-text-light);
-  line-height: 1.7;
-  max-width: 500px;
+  font-size: clamp(0.8rem, 1.2vw, 16px);
+  color:white;
+  font-weight: 300;
+  font-family: var(--font-body);
+
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.13;
+  letter-spacing: 0.23px;
+  text-align: left;
+  color: #fff;  max-width: 296px;
 }
 
 @media (max-height: 700px) {
