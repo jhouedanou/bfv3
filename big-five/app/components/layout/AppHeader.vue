@@ -34,6 +34,7 @@ function handleClickOutside(e: MouseEvent) {
 
 const scrolled = ref(false)
 const mobileOpen = ref(false)
+const contactPopupOpen = ref(false)
 
 let scrollTicking = false
 function handleScroll() {
@@ -88,7 +89,7 @@ function navigateTo(index: number) {
         >
           {{ item.label }}
         </button>
-        <button class="nav-contact" id="lecharos"  @click="navigateTo(4)">{{ header.contactButton }}</button>
+        <button class="nav-contact" id="lecharos"  @click="contactPopupOpen = true">{{ header.contactButton }}</button>
         <div ref="langDropdownRef" class="lang-selector">
           <button class="nav-lang" @click.stop="toggleLangDropdown">
             <span>{{ currentLang.code.toUpperCase() }}</span>
@@ -133,7 +134,7 @@ function navigateTo(index: number) {
           >
             {{ item.label }}
           </button>
-          <button class="nav-contact" @click="navigateTo(4)">{{ header.contactButton }}</button>
+          <button class="nav-contact" @click="contactPopupOpen = true; mobileOpen = false">{{ header.contactButton }}</button>
           <div class="lang-selector lang-selector--mobile mt-4">
             <button
               v-for="lang in languages"
@@ -149,6 +150,8 @@ function navigateTo(index: number) {
       </div>
     </Transition>
   </header>
+
+  <ContactPopup :visible="contactPopupOpen" @close="contactPopupOpen = false" />
 </template>
 
 <style scoped lang="scss">
