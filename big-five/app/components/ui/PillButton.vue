@@ -39,7 +39,6 @@ defineProps<{
 
 .pill-bg {
   z-index: 0;
-  transition: opacity 0.3s ease, filter 0.3s ease;
 }
 
 .pill-label {
@@ -49,19 +48,9 @@ defineProps<{
 
 .pill-button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 20px rgba(128, 54, 141, 0.4);
-}
-
-.pill-button:hover .pill-bg {
-  filter: brightness(1.3);
-}
-
-.pill-button--filled .pill-bg {
-  filter: brightness(1.15);
 }
 
 .pill-button--filled:hover {
-  box-shadow: 0 6px 30px rgba(128, 54, 141, 0.5);
   transform: translateY(-2px);
 }
 </style>

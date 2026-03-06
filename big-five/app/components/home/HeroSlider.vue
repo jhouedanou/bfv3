@@ -43,7 +43,7 @@ onMounted(() => {
     <!-- Content -->
     <div  id="metamorphosis" class="relative z-10 flex flex-col justify-center h-full px-6 md:px-16 lg:px-24 max-w-[1440px] mx-auto">
       <h1 class="hero-title font-display">
-        {{ hero.lines.join(' ') }}
+        <span v-for="(line, idx) in hero.lines" :key="idx">{{ line }}</span>
       </h1>
 
       <ul
@@ -77,19 +77,20 @@ onMounted(() => {
 <style scoped lang="scss">
 
 .hero-title {
-  font-size: clamp(1.5rem, 5vw, 5rem);
-  font-weight: 300;
+  font-size: clamp(1.5rem,4vw, 5rem);
+  font-weight: 500;
   color: white;
-  line-height: 1.1;
-  letter-spacing: 0.04em;
+  line-height: 1;
+  letter-spacing: -1.22px;
   display: flex;
   flex-direction: column;
+  margin-bottom:53px;
 }
 
 .hero-service-item {
   font-size: clamp(0.8rem, 1.5vw, 1.1rem);
   color: rgba(255, 255, 255, 0.85);
-  letter-spacing: 0.05em;
+  color: white;
 }
 
 .hero-buttons--visible :deep(.pill-button) {

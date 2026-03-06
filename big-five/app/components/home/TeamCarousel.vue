@@ -1,35 +1,34 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
-import { ChevronRight, ChevronLeft, Linkedin } from 'lucide-vue-next'
+import { ref, computed } from 'vue'
+import { ChevronRight, ChevronLeft } from 'lucide-vue-next'
 
 const { team } = useContent()
 
-const carousel = ref<HTMLElement | null>(null)
-const canScrollLeft = ref(false)
-const canScrollRight = ref(true)
+const ITEMS_PER_SLIDE = 4
+const currentSlide = ref(0)
+
+const slides = computed(() => {
+  const result: typeof team.members[] = []
+  for (let i = 0; i < team.members.length; i += ITEMS_PER_SLIDE) {
+    result.push(team.members.slice(i, i + ITEMS_PER_SLIDE))
+  }
+  return result
+})
+
+const totalSlides = computed(() => slides.value.length)
+const canScrollLeft = computed(() => currentSlide.value > 0)
+const canScrollRight = computed(() => currentSlide.value < totalSlides.value - 1)
+const scrollProgress = computed(() =>
+  totalSlides.value > 1 ? currentSlide.value / (totalSlides.value - 1) : 0
+)
 
 function scroll(dir: 'left' | 'right') {
-  if (!carousel.value) return
-  const amount = 280
-  carousel.value.scrollBy({
-    left: dir === 'right' ? amount : -amount,
-    behavior: 'smooth',
-  })
-}
-
-function checkScroll() {
-  if (!carousel.value) return
-  canScrollLeft.value = carousel.value.scrollLeft > 10
-  canScrollRight.value =
-    carousel.value.scrollLeft < carousel.value.scrollWidth - carousel.value.clientWidth - 10
-}
-
-onMounted(() => {
-  if (carousel.value) {
-    carousel.value.addEventListener('scroll', checkScroll, { passive: true })
-    checkScroll()
+  if (dir === 'right' && canScrollRight.value) {
+    currentSlide.value++
+  } else if (dir === 'left' && canScrollLeft.value) {
+    currentSlide.value--
   }
-})
+}
 </script>
 
 <template>
@@ -41,21 +40,29 @@ onMounted(() => {
 
       <div class="relative mt-8">
         <!-- Carousel -->
-        <div
-          ref="carousel"
-          class="carousel flex gap-6 overflow-x-auto scrollbar-hide pb-4 snap-x snap-mandatory"
-        >
+        <div class="carousel-viewport">
           <div
-            v-for="(member, idx) in team.members"
-            :key="member.name"
-            class="team-card flex-shrink-0 snap-start parallax-card"
-            :style="{ '--card-delay': idx }"
+            class="carousel-track"
+            :style="{ transform: `translateX(-${currentSlide * 100}%)` }"
           >
-            <a :href="member.linkedin" class="linkedin-icon" aria-label="LinkedIn">
-              <Linkedin :size="20" />
-            </a>
-            <h4 class="team-name font-heading">{{ member.name }}</h4>
-            <p class="team-role font-body">{{ member.role }}</p>
+            <div
+              v-for="(slide, slideIdx) in slides"
+              :key="slideIdx"
+              class="carousel-slide"
+            >
+              <div
+                v-for="(member, idx) in slide"
+                :key="member.name"
+                class="team-card parallax-card"
+                :style="{ '--card-delay': slideIdx * ITEMS_PER_SLIDE + idx }"
+              >
+                <a :href="member.linkedin" target="_blank" rel="noopener noreferrer" class="linkedin-icon" aria-label="LinkedIn">
+                  <img src="/images/linkedInIcon.svg" alt="LinkedIn" class="linkedin-img" />
+                </a>
+                <h4 class="team-name font-heading">{{ member.name }}</h4>
+                <p class="team-role font-body">{{ member.role }}</p>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -77,27 +84,83 @@ onMounted(() => {
           <ChevronRight :size="28" />
         </button>
       </div>
+
+      <!-- Progress bar + nav buttons -->
+      <div class="carousel-controls">
+        <button
+          class="ctrl-arrow"
+          :disabled="!canScrollLeft"
+          aria-label="Précédent"
+          @click="scroll('left')"
+        >
+          <ChevronLeft :size="20" />
+        </button>
+
+        <div class="progress-track">
+          <div class="progress-fill" :style="{ width: scrollProgress * 100 + '%' }" />
+        </div>
+
+        <button
+          class="ctrl-arrow"
+          :disabled="!canScrollRight"
+          aria-label="Suivant"
+          @click="scroll('right')"
+        >
+          <ChevronRight :size="20" />
+        </button>
+      </div>
     </div>
   </section>
 </template>
 
 <style scoped lang="scss">
+.carousel-viewport {
+  overflow: clip;
+  overflow-y: visible;
+  width: 100%;
+  padding: 2rem 0;
+  margin: -2rem 0;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.carousel-slide {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  flex: 0 0 100%;
+  min-width: 100%;
+  padding: 0 1rem;
+  overflow: visible;
+}
+
 .team-card {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   background: #0d0b2e;
-  border-radius: 16px;
+  border-radius: 50px;
   padding: clamp(1.5rem, 3vw, 2.5rem) clamp(1.25rem, 2vw, 2rem);
-  min-width: 180px;
-  width: clamp(180px, 25vw, 240px);
+  flex: 1 1 0;
+  width:100vw;
+  height:100vh;
+ max-width: 248px;
+  max-height: 341px;
   gap: 0.75rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.2s ease, filter 0.2s ease;
 }
 .team-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(123, 63, 160, 0.3);
+  transform: scale(1.25);
+  z-index: 2;
+}
+
+.carousel-slide:hover .team-card:not(:hover) {
+  filter: brightness(0.35);
 }
 
 .linkedin-icon {
@@ -107,27 +170,40 @@ onMounted(() => {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-  background: white;
-  color: #0d0b2e;
-  transition: all 0.3s;
+  overflow: hidden;
+  transition: transform 0.3s;
 }
 .linkedin-icon:hover {
-  background: var(--color-accent-magenta);
-  color: white;
+  transform: scale(1.1);
+}
+.linkedin-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .team-name {
-  font-size: clamp(0.9rem, 1.5vw, 1.15rem);
+  font-size: clamp(0.9rem, 1.5vw, 30px);
   font-weight: 700;
   color: white;
   text-align: center;
+  font-family: var(--font-display);
 }
 
 .team-role {
   font-size: clamp(0.75rem, 1.2vw, 0.85rem);
-  color: var(--color-text-light);
+  color: white;
   text-align: center;
-  font-style: italic;
+   font-size: 20px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: -0.5px;
+  text-align: center;
+  color: #fff;
+    font-family: var(--font-display);
+
 }
 
 .carousel-arrow {
@@ -139,8 +215,7 @@ onMounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 50%;
   color: white;
@@ -158,12 +233,50 @@ onMounted(() => {
   right: -20px;
 }
 
-.scrollbar-hide {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+/* Controls: arrows + progress bar */
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 1.5rem;
+  max-width: 100vw;
 }
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
+
+.ctrl-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: transparent;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.ctrl-arrow:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.15);
+}
+.ctrl-arrow:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.progress-track {
+  flex: 1;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(to right, var(--color-accent-purple), var(--color-accent-magenta));
+  border-radius: 2px;
+  transition: width 0.15s ease-out;
+  min-width: 8%;
 }
 
 /* Parallax d'entrée */

@@ -8,12 +8,13 @@ import 'swiper/css/pagination'
 
 const { meta } = useContent()
 const { registerSwiper, setActiveIndex } = useNavigation()
+const { locale } = useI18n()
 
 const ogImageUrl = `${meta.siteUrl}${meta.ogImage}`
 
 useHead({
   title: meta.title,
-  htmlAttrs: { lang: 'fr' },
+  htmlAttrs: { lang: locale.value },
 })
 
 useSeoMeta({
@@ -129,6 +130,7 @@ onUnmounted(() => {
 
 <template>
   <div class="fullpage-wrapper">
+    <LayoutAppHeader />
     <Swiper
       :modules="modules"
       direction="vertical"
@@ -146,7 +148,6 @@ onUnmounted(() => {
       <!-- Slide 1: Hero -->
       <SwiperSlide data-hash="hero">
         <div class="slide-content">
-          <LayoutAppHeader />
           <HomeHeroSlider />
         </div>
       </SwiperSlide>

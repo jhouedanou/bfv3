@@ -1,7 +1,7 @@
 <template>
   <section class="section-solutions">
     <div class="section-solutions__bg">
-      <img src="/images/12-grand.webp" alt="Big Five Solutions" />
+      <img src="/images/12-grand.webp" alt="Big Five" />
     </div>
     <div class="section-solutions__overlay"></div>
     <div class="section-solutions__content">

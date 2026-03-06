@@ -1,12 +1,15 @@
 export default defineI18nConfig(() => ({
     legacy: false,
     locale: 'fr',
+    fallbackLocale: 'fr',
     messages: {
         fr: {
-            welcome: 'Bienvenue'
+            welcome: 'Bienvenue',
+            langSwitch: 'English'
         },
         en: {
-            welcome: 'Welcome'
+            welcome: 'Welcome',
+            langSwitch: 'Français'
         }
     }
 }))

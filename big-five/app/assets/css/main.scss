@@ -25,7 +25,7 @@
   --color-footer-text: rgba(255, 255, 255, 0.7);
 
   /* Typographie */
-  --font-display: 'century-gothic', sans-serif;
+  --font-display: 'century-gothic-std', sans-serif;
   --font-heading: 'helvetica-neue-lt-pro', sans-serif;
   --font-body: 'helvetica-neue-lt-pro', sans-serif;
 }
@@ -94,9 +94,9 @@ h1, h2, h3, h4, h5, h6 {
     background: 
   linear-gradient(#150968, #150968) padding-box,
   linear-gradient(to right, #29358B, #80368D) border-box;
-border: 2px solid transparent;
+border: 4px solid transparent;
 border-radius: 50px; /* ajuste selon le rayon voulu */
-    margin:0.5px 0;
+    margin:0.25px 0;
     padding:0.5em 1em;
     font-size: 30px;
     font-family: var(--font-display);
@@ -136,17 +136,17 @@ background: linear-gradient(to bottom, #2d3173 0%, #4a3080 50%, #7b3090 100%);
 }
 #agence{
   &::after{
-    content:'';
-    position:absolute;
-    bottom:0;
-    width:100%;
-    height:10vh;
-    background:url('/images/deco.jpg') !important;
-    background-position: fixed;
-    background-size:cover !important;
-    background-position:center top;
-    background-repeat:no-repeat;
+        content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10vh;
+    background: url("/images/deco.jpg") !important;
+    background-position: 0px -9px !important;
+    background-repeat: no-repeat;
     z-index: 10000;
+    border: none;
+    background-size: cover !important;
   }
   .image-col{
     position:relative;
@@ -183,8 +183,8 @@ background: linear-gradient(to bottom, #2d3173 0%, #4a3080 50%, #7b3090 100%);
     transform: translateY(0) !important;
   }
   .image-col {
+    display:flex;
     opacity: 1 !important;
-    // transform géré par le JS tilt — ne pas forcer ici
   }
   .image-col-bg,
   .agency-img {
@@ -197,6 +197,10 @@ background: linear-gradient(to bottom, #2d3173 0%, #4a3080 50%, #7b3090 100%);
   .parallax-card {
     opacity: 1 !important;
     transform: translateY(0) !important;
+  }
+  .parallax-card:hover {
+    transform: scale(1.25) !important;
+    z-index: 2;
   }
   .team-section::before {
     opacity: 1 !important;
@@ -253,4 +257,23 @@ background: linear-gradient(to bottom, #2d3173 0%, #4a3080 50%, #7b3090 100%);
 }
 .solutions-section::before {
   background-image: url('/images/logo_5.svg');
+}
+.agency-image{
+  
+  display:flex ;
+}
+
+.imanotguoi{
+  padding:0.45rem;
+  border:1px white solid;
+  border-radius:100%;
+}
+.btn-section{
+position:absolute !important;
+bottom:0;
+right:45px;
+}
+.solution-item{
+  position:relative;
+
 }

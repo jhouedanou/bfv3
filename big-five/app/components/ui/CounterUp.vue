@@ -41,8 +41,8 @@ function animateCounter() {
 </script>
 
 <template>
-  <div class="bigho">
- <div ref="counterEl" class="counter-up">
+  <div class="imanotguoi">
+<div ref="counterEl" class="counter-up">
     <span class="counter-value font-heading">
       {{ prefix }}{{ display }}{{ suffix }}
     </span>
@@ -51,19 +51,10 @@ function animateCounter() {
     </span>
   </div>
   </div>
- 
+  
 </template>
 
 <style scoped lang="scss">
-.bigho {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.5rem !important;
-  background:rgba(255, 255, 255, 0);
-  border:1px solid white;
-  border-radius: 50%;
-}
 .counter-up {
   display: flex;
   flex-direction: column;
@@ -76,15 +67,17 @@ function animateCounter() {
   text-align: center;
 }
 .counter-value {
+    font-family: var(--font-display);
+
   font-size: 2.5rem;
-  font-weight: 300;
+  font-weight: 100;
   color: white;
   line-height: 1;
 }
 .counter-label {
-  font-family: var(--font-body);
+  font-family: var(--font-display);
   font-size: 0.7rem;
-  color: var(--color-text-light);
+  color: white;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-top: 0.25rem;

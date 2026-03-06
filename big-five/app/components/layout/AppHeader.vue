@@ -1,22 +1,59 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, watch } from 'vue'
-import { Search, Menu, X } from 'lucide-vue-next'
+import { Menu, X } from 'lucide-vue-next'
 
 const { header } = useContent()
 const { goToSlide, activeIndex } = useNavigation()
+const { locale, setLocale } = useI18n()
+
+type LocaleCode = 'fr' | 'en'
+
+const languages: { code: LocaleCode; label: string }[] = [
+  { code: 'fr', label: 'Français' },
+  { code: 'en', label: 'English' }
+]
+
+const currentLang = computed(() => languages.find(l => l.code === locale.value)!)
+const langDropdownOpen = ref(false)
+const langDropdownRef = ref<HTMLElement | null>(null)
+
+function selectLanguage(code: LocaleCode) {
+  setLocale(code)
+  langDropdownOpen.value = false
+}
+
+function toggleLangDropdown() {
+  langDropdownOpen.value = !langDropdownOpen.value
+}
+
+function handleClickOutside(e: MouseEvent) {
+  if (langDropdownRef.value && !langDropdownRef.value.contains(e.target as Node)) {
+    langDropdownOpen.value = false
+  }
+}
 
 const scrolled = ref(false)
 const mobileOpen = ref(false)
+const contactPopupOpen = ref(false)
 
+let scrollTicking = false
 function handleScroll() {
-  scrolled.value = window.scrollY > 50
+  if (scrollTicking) return
+  scrollTicking = true
+  requestAnimationFrame(() => {
+    scrolled.value = window.scrollY > 50
+    scrollTicking = false
+  })
 }
 
 onMounted(() => {
+  document.addEventListener('click', handleClickOutside)
   window.addEventListener('scroll', handleScroll, { passive: true })
-  onUnmounted(() => {
-    window.removeEventListener('scroll', handleScroll)
-  })
+})
+
+onUnmounted(() => {
+  document.removeEventListener('click', handleClickOutside)
+  window.removeEventListener('scroll', handleScroll)
 })
 
 function navigateTo(index: number) {
@@ -36,10 +73,10 @@ function navigateTo(index: number) {
       <a
         href="#"
         class="logo-wrapper flex-shrink-0"
-        aria-label="Big Five Solutions"
+        aria-label="Big Five"
         @click.prevent="navigateTo(0)"
       >
-        <img src="/images/logo.svg" alt="Big Five Solutions Logo" class="logo" />
+        <img src="/images/logo.svg" alt="Big Five Logo" class="logo" />
       </a>
 
       <!-- Desktop nav -->
@@ -52,11 +89,26 @@ function navigateTo(index: number) {
         >
           {{ item.label }}
         </button>
-        <button class="nav-contact" id="lecharos"  @click="navigateTo(4)">{{ header.contactButton }}</button>
-        <button class="nav-icon" :aria-label="header.searchLabel">
-          <Search :size="18" />
-        </button>
-        <button class="nav-lang">{{ header.lang }} <span class="text-xs">▾</span></button>
+        <button class="nav-contact" id="lecharos"  @click="contactPopupOpen = true">{{ header.contactButton }}</button>
+        <div ref="langDropdownRef" class="lang-selector">
+          <button class="nav-lang" @click.stop="toggleLangDropdown">
+            <span>{{ currentLang.code.toUpperCase() }}</span>
+            <span class="lang-chevron" :class="{ 'lang-chevron--open': langDropdownOpen }">▾</span>
+          </button>
+          <Transition name="dropdown">
+            <ul v-if="langDropdownOpen" class="lang-dropdown">
+              <li
+                v-for="lang in languages"
+                :key="lang.code"
+                class="lang-option"
+                :class="{ 'lang-option--active': lang.code === locale }"
+                @click="selectLanguage(lang.code)"
+              >
+                <span>{{ lang.label }}</span>
+              </li>
+            </ul>
+          </Transition>
+        </div>
       </nav>
 
       <!-- Mobile toggle -->
@@ -82,12 +134,24 @@ function navigateTo(index: number) {
           >
             {{ item.label }}
           </button>
-          <button class="nav-contact" @click="navigateTo(4)">{{ header.contactButton }}</button>
-          <button class="nav-lang mt-4">{{ header.lang }} <span class="text-xs">▾</span></button>
+          <button class="nav-contact" @click="contactPopupOpen = true; mobileOpen = false">{{ header.contactButton }}</button>
+          <div class="lang-selector lang-selector--mobile mt-4">
+            <button
+              v-for="lang in languages"
+              :key="lang.code"
+              class="mobile-lang-btn"
+              :class="{ 'mobile-lang-btn--active': lang.code === locale }"
+              @click="selectLanguage(lang.code)"
+            >
+              {{ lang.label }}
+            </button>
+          </div>
         </nav>
       </div>
     </Transition>
   </header>
+
+  <ContactPopup :visible="contactPopupOpen" @close="contactPopupOpen = false" />
 </template>
 
 <style scoped lang="scss">
@@ -99,10 +163,8 @@ function navigateTo(index: number) {
   margin-top:0px
 }
 .header--scrolled {
-  background: rgba(26, 10, 62, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  background: rgba(26, 10, 62, 0.92);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .logo {
@@ -111,7 +173,8 @@ function navigateTo(index: number) {
 }
 
 .nav-link {
-  color: rgba(255, 255, 255, 0.85);
+  margin-left:50px;
+  color:white;
   font-family: var(--font-display);
   font-size: clamp(11px, 1.1vw, 14px);
   font-weight: 500;
@@ -145,30 +208,121 @@ function navigateTo(index: number) {
   border-color: white;
 }
 
-.nav-icon {
-  color: rgba(255, 255, 255, 0.85);
-  transition: color 0.3s;
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-.nav-icon:hover {
-  color: white;
+/* ── Language selector ── */
+.lang-selector {
+  position: relative;
 }
 
 .nav-lang {
+  display: flex;
+  align-items: center;
+  gap: 6px;
   color: rgba(255, 255, 255, 0.85);
   font-family: var(--font-body);
   font-size: 0.8rem;
   font-weight: 500;
   letter-spacing: 0.05em;
   background: none;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  padding: 0.35rem 0.75rem;
   cursor: pointer;
-  transition: color 0.3s;
+  transition: all 0.3s;
 }
 .nav-lang:hover {
   color: white;
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.lang-chevron {
+  font-size: 0.7rem;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+.lang-chevron--open {
+  transform: rotate(180deg);
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 150px;
+  background: rgba(26, 10, 62, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  padding: 6px;
+  list-style: none;
+  margin: 0;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.5rem 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.lang-option:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+.lang-option--active {
+  color: white;
+  background: rgba(194, 58, 142, 0.25);
+  font-weight: 600;
+}
+
+/* Dropdown transition */
+.dropdown-enter-active,
+.dropdown-leave-active {
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  transform-origin: top right;
+}
+.dropdown-enter-from,
+.dropdown-leave-to {
+  opacity: 0;
+  transform: scaleY(0.8) translateY(-4px);
+}
+
+/* Mobile language buttons */
+.lang-selector--mobile {
+  display: flex;
+  gap: 12px;
+}
+.mobile-lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.mobile-lang-btn:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  color: white;
+}
+.mobile-lang-btn--active {
+  color: white;
+  border-color: rgba(194, 58, 142, 0.6);
+  background: rgba(194, 58, 142, 0.2);
+  font-weight: 600;
 }
 
 /* Mobile menu */
@@ -178,8 +332,7 @@ function navigateTo(index: number) {
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(26, 10, 62, 0.97);
-  backdrop-filter: blur(20px);
+  background: rgba(26, 10, 62, 0.98);
   padding-top: 80px;
 }
 

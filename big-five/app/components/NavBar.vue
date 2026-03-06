@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar">
     <div class="navbar__logo">
-    <img src="/images/logo.svg" alt="Big Five Solutions Logo" class="navbar__logo-image" />  
+    <img src="/images/logo.svg" alt="Big Five Logo" class="navbar__logo-image" />  
     </div>
     <ul class="navbar__links">
       <li

@@ -9,7 +9,11 @@
       "Bash(npx nuxt build:*)",
       "Bash(node -e:*)",
       "Bash(npm uninstall:*)",
-      "WebFetch(domain:use.typekit.net)"
+      "WebFetch(domain:use.typekit.net)",
+      "Bash(sort -k5 -hr)",
+      "Bash(xargs grep -l \"mousemove\\\\|scroll\\\\|resize\")",
+      "Bash(grep -n \"backdrop-filter\\\\|filter:\\\\|box-shadow\\\\|infinite\" /d/bfv3/big-five/app/components/**/*.vue)",
+      "Bash(sort -k5 -rn)"
     ]
   }
 }
