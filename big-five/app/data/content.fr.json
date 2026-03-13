@@ -88,11 +88,7 @@
         "role": "Directeur Solutions Digitales",
         "linkedin": "https://ci.linkedin.com/in/jlhouedanou"
       },
-      {
-        "name": "Yadé Coulibaly",
-        "role": "Directeur Artistique",
-        "linkedin": "https://www.linkedin.com/in/yad%C3%A9-coulibaly-921aa7175/"
-      },
+    
       {
         "name": "KOUAME Ulrich Kouadio",
         "role": "Lead Développeur Fullstack",
@@ -112,6 +108,11 @@
         "name": "Emilie Sekongo",
         "role": "Chef de Projet Social Media",
         "linkedin": "https://www.linkedin.com/in/emilie-sekongo-a212bb17a"
+      },
+        {
+        "name": "Yadé Coulibaly",
+        "role": "Directeur Artistique",
+        "linkedin": "https://www.linkedin.com/in/yad%C3%A9-coulibaly-921aa7175/"
       },
       {
         "name": "Stephanie Koffi",

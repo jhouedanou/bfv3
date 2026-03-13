@@ -97,27 +97,39 @@ defineProps<{
   .solution-card-compact {
     flex-direction: column;
     min-height: auto;
-    border-radius: 20px;
+    border-radius: 32px;
+    max-width: 100%;
+    width: 100%;
+    max-height: 85dvh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
   }
   .card-image {
     flex: 0 0 auto;
     padding: 1rem 1rem 0;
   }
   .card-image img {
-    max-height: 200px;
-    border-radius: 16px;
+    max-height: 350px;
+    border-radius: 20px;
+    width: 100%;
+    object-fit: cover;
   }
   .card-content {
-    padding: 1.25rem 1.5rem 3.5rem;
+    padding: 1.25rem 1.5rem 4rem;
   }
   .card-title {
-    font-size: 1.6rem;
+    font-size: 1.75rem;
+    line-height: 1.15;
+  }
+  .card-desc {
+    font-size: 0.9rem;
+    line-height: 1.5;
   }
   .card-logo {
     bottom: 1rem;
     right: 1rem;
-    width: 45px;
-    height: 45px;
+    width: 52px;
+    height: 52px;
   }
 }
 </style>

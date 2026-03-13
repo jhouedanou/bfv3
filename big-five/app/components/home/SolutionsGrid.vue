@@ -14,7 +14,7 @@ function toggleSolution(idx: number) {
   <section
     class="solutions-section h-full py-16 lg:py-20 relative overflow-hidden"
   >
-    <div class="max-w-[1440px] mx-auto px-6 lg:px-12 relative z-10">
+    <div id="gertafeule" class="max-w-[1440px] mx-auto px-6 lg:px-12 relative z-10">
       <UiSectionTitle :title="solutions.sectionTitle" class="parallax-title" />
 
       <!-- Circles -->
@@ -245,44 +245,90 @@ $btn-gradient-end: #80368d;
 }
 /* Activation via main.scss : #solutions.swiper-slide-active */
 
-@media (max-width: 768px) {
+/* ── Tablet : iPad Mini & iPad ── */
+@media (min-width: 769px) and (max-width: 1024px) {
   .circles-wrap {
-    max-width: 100%;
-    gap: 0.75rem;
-    overflow-x: auto;
+    gap: 1.25rem;
   }
   .solution-item {
-    flex: 0 0 140px;
-    max-width: 140px;
+    flex: 0 0 200px;
+    max-width: 200px;
   }
   .bg-section {
-    width: 140px;
-    height: 140px;
+    width: 200px;
+    height: 200px;
   }
   .circle-label {
-    font-size: 0.6rem;
+    font-size: 14px;
   }
   .circle-highlight {
-    font-size: 0.75rem;
+    font-size: 18px;
   }
   .btn-section {
-    width: 28px;
-    height: 28px;
+    width: 44px;
+    height: 44px;
   }
   .btn-section__circle {
-    width: 22px;
-    height: 22px;
+    width: 40px;
+    height: 40px;
   }
   .btn-section__icon {
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .circles-wrap {
+    flex-wrap: wrap;
+    overflow-x: unset;
+    gap: 1.25rem;
+    justify-content: center;
+    max-width: 340px;
+    margin: 1rem auto 1.5rem;
+  }
+  .solution-item {
+    flex: 0 0 148px;
+    max-width: 148px;
+  }
+  .bg-section {
+    width: 148px;
+    height: 148px;
+  }
+  .circle-label {
+    font-size: 0.75rem;
+  }
+  .circle-highlight {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  .btn-section {
+    width: 36px;
+    height: 36px;
+    right: 30px !important;
+  }
+  .btn-section__circle {
+    width: 30px;
+    height: 30px;
+  }
+  .btn-section__icon {
+    width: 14px;
+    height: 14px;
   }
 }
 .solutions-section{
-  height:100vh;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
 
-    display: flex;
-    align-items: center;
+  @media (max-width: 768px) {
+    height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    align-items: flex-start;
+    padding-top: 80px;
+  }
 }
 </style>
 
@@ -302,9 +348,36 @@ $btn-gradient-end: #80368d;
 .solution-detail-wrapper {
   position: relative;
   width: 100%;
-  max-width:76vw;
+  max-width: 76vw;
   display: flex;
   justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .solution-overlay {
+    padding: 0;
+    align-items: flex-end;
+    background: rgba(10, 6, 30, 0.85);
+  }
+  .solution-detail-wrapper {
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    max-height: 85dvh;
+    max-width: 85dvw;
+    margin: auto;
+    border-radius: 50px;
+    height: auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .overlay-close {
+    top: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
 }
 
 .overlay-close {

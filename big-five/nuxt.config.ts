@@ -14,7 +14,7 @@ export default defineNuxtConfig({
     head: {
       htmlAttrs: { lang: 'fr' },
       charset: 'utf-8',
-      viewport: 'width=device-width, initial-scale=1',
+      viewport: 'width=device-width, initial-scale=1, viewport-fit=cover',
       title: 'Big Five — Conseil en Marketing Stratégique & Digital',
       meta: [
         { name: 'description', content: 'Big Five : agence de conseil en marketing stratégique, digital et solutions digitales sur-mesure. Abidjan, Paris, Cape Town.' },

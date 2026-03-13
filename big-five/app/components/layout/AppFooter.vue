@@ -44,6 +44,7 @@ const { footer } = useContent()
 <style scoped lang="scss">
 .footer {
   background-color: var(--color-footer-bg);
+  flex-shrink: 0;
 }
 .footer-logo {
   width: 80px;
@@ -70,4 +71,10 @@ const { footer } = useContent()
   color: #fff;
   font-family: var(--font-display);
 }
+@media (max-width: 768px) {
+  
+  .footer-logo {
+    //display: none !important;
+  }
+  }
 </style>

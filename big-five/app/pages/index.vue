@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Pagination, Keyboard, HashNavigation } from 'swiper/modules'
 import type SwiperType from 'swiper'
@@ -39,6 +39,12 @@ useSeoMeta({
 })
 
 const modules = [Pagination, Keyboard, HashNavigation]
+
+const isMobile = ref(false)
+if (import.meta.client) {
+  isMobile.value = window.innerWidth <= 768
+}
+const swiperSpeed = computed(() => isMobile.value ? 450 : 900)
 
 let swiperInstance: SwiperType | null = null
 let isTransitioning = false
@@ -104,11 +110,10 @@ function onSlideChange(swiper: SwiperType) {
 }
 
 function onTransitionEnd() {
-  // Délai supplémentaire pour éviter les changements en cascade
   setTimeout(() => {
     isTransitioning = false
     wheelAccumulator = 0
-  }, 200)
+  }, isMobile.value ? 50 : 200)
 }
 
 onMounted(() => {
@@ -135,11 +140,15 @@ onUnmounted(() => {
       :modules="modules"
       direction="vertical"
       :slides-per-view="1"
-      :speed="900"
+      :speed="swiperSpeed"
       :keyboard="{ enabled: true }"
       :pagination="{ clickable: true, el: '.fp-pagination' }"
       :hash-navigation="{ watchState: true }"
+      :touch-ratio="1.5"
+      :short-swipes="true"
+      :long-swipes-ratio="0.3"
       :allow-touch-move="true"
+      :css-mode="false"
       class="fullpage-swiper"
       @swiper="onSwiper"
       @slideChange="onSlideChange"
@@ -173,10 +182,17 @@ onUnmounted(() => {
         </div>
       </SwiperSlide>
 
-      <!-- Slide 5: Observations + Contact -->
+      <!-- Slide 5: Observations (+ footer sur desktop) -->
       <SwiperSlide id="observatoire" data-hash="observatoire">
-        <div class="slide-content slide-gradient slide-scrollable">
+        <div class="slide-content slide-gradient" :class="{ 'slide-scrollable': !isMobile }">
           <HomeInsightsSection />
+          <LayoutAppFooter v-if="!isMobile" />
+        </div>
+      </SwiperSlide>
+
+      <!-- Slide 6: Footer (mobile uniquement) -->
+      <SwiperSlide v-if="isMobile" id="contact" data-hash="contact">
+        <div class="slide-content slide-footer-wrap">
           <LayoutAppFooter />
         </div>
       </SwiperSlide>
@@ -193,6 +209,7 @@ onUnmounted(() => {
   position: relative;
   width: 100%;
   height: 100vh;
+  height: 100dvh;
   overflow: hidden;
 }
 
@@ -203,7 +220,21 @@ onUnmounted(() => {
 
 .fullpage-swiper .swiper-slide {
   height: 100vh !important;
+  height: 100dvh !important;
   overflow: hidden;
+}
+
+/* Permettre le scroll interne sur les slides scrollables */
+.fullpage-swiper #solutions,
+.fullpage-swiper #observatoire {
+  overflow: auto !important;
+  -webkit-overflow-scrolling: touch;
+}
+/* Sur mobile, observatoire n'a plus besoin de scroll (footer dans sa propre slide) */
+@media (max-width: 768px) {
+  .fullpage-swiper #observatoire {
+    overflow: hidden !important;
+  }
 }
 
 .slide-content {
@@ -215,17 +246,20 @@ onUnmounted(() => {
   position: relative;
 }
 
-.slide-footer {
+.slide-footer-wrap {
+  justify-content: flex-end;
   background: var(--color-footer-bg);
-  justify-content: center;
 }
 
 /* Allow internal scroll for long sections */
 .slide-scrollable {
   overflow-y: auto;
   justify-content: flex-start;
+  height: auto;
+  min-height: 100%;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
 }
 .slide-scrollable::-webkit-scrollbar {
   display: none;

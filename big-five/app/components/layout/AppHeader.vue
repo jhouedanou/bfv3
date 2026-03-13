@@ -125,6 +125,9 @@ function navigateTo(index: number) {
     <!-- Mobile menu -->
     <Transition name="slide">
       <div v-if="mobileOpen" class="mobile-menu lg:hidden">
+        <a href="#" class="mobile-menu-logo" @click.prevent="navigateTo(0)">
+          <img src="/images/logo.svg" alt="Big Five" />
+        </a>
         <nav class="flex flex-col items-center gap-6 pt-8">
           <button
             v-for="item in header.nav"
@@ -134,16 +137,16 @@ function navigateTo(index: number) {
           >
             {{ item.label }}
           </button>
-          <button class="nav-contact" @click="contactPopupOpen = true; mobileOpen = false">{{ header.contactButton }}</button>
-          <div class="lang-selector lang-selector--mobile mt-4">
+          <button class="mobile-contact-link" @click="contactPopupOpen = true; mobileOpen = false">{{ header.contactButton }}</button>
+          <div class="mobile-lang-row mt-6">
             <button
               v-for="lang in languages"
               :key="lang.code"
-              class="mobile-lang-btn"
-              :class="{ 'mobile-lang-btn--active': lang.code === locale }"
+              class="mobile-lang-text"
+              :class="{ 'mobile-lang-text--active': lang.code === locale }"
               @click="selectLanguage(lang.code)"
             >
-              {{ lang.label }}
+              {{ lang.code.toUpperCase() }}
             </button>
           </div>
         </nav>
@@ -163,8 +166,8 @@ function navigateTo(index: number) {
   margin-top:0px
 }
 .header--scrolled {
-  background: rgba(26, 10, 62, 0.92);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  background:rgba(28, 39, 134, 0.92);
+  //box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .logo {
@@ -294,59 +297,95 @@ function navigateTo(index: number) {
   transform: scaleY(0.8) translateY(-4px);
 }
 
-/* Mobile language buttons */
-.lang-selector--mobile {
-  display: flex;
-  gap: 12px;
-}
-.mobile-lang-btn {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color: rgba(255, 255, 255, 0.6);
-  font-family: var(--font-body);
-  font-size: 1rem;
-  font-weight: 500;
-  background: none;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-.mobile-lang-btn:hover {
-  border-color: rgba(255, 255, 255, 0.5);
-  color: white;
-}
-.mobile-lang-btn--active {
-  color: white;
-  border-color: rgba(194, 58, 142, 0.6);
-  background: rgba(194, 58, 142, 0.2);
-  font-weight: 600;
-}
-
-/* Mobile menu */
-.mobile-menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background: rgba(26, 10, 62, 0.98);
-  padding-top: 80px;
-}
-
-.mobile-link {
+/* Mobile contact link (plain text, no border) */
+.mobile-contact-link {
   color: white;
   font-family: var(--font-heading);
   font-size: 1.25rem;
   font-weight: 500;
   letter-spacing: 0.15em;
+  text-transform: uppercase;
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.75;
+  transition: opacity 0.3s;
+}
+.mobile-contact-link:hover {
+  opacity: 1;
+}
+
+/* Mobile language — simple FR / EN texte */
+.mobile-lang-row {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.mobile-lang-text {
+  color: rgba(255, 255, 255, 0.4);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.3s;
+  padding: 0;
+}
+.mobile-lang-text:hover {
+  color: rgba(255, 255, 255, 0.7);
+}
+.mobile-lang-text--active {
+  color: white;
+  font-weight: 600;
+}
+
+/* Mobile menu */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    background: #0000002e;
+    padding-top: 80px;
+    padding-bottom: env(safe-area-inset-bottom, 0);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mobile-menu-logo {
+  position: absolute;
+  top: 20px;
+  left: 24px;
+  z-index: 51;
+
+  img {
+    width: 75px;
+    height: auto;
+  }
+}
+
+.mobile-link {
+  color: white;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
   text-decoration: none;
   text-transform: uppercase;
   background: none;
   border: none;
   cursor: pointer;
+  transition: opacity 0.3s;
+}
+.mobile-link:hover {
+  opacity: 0.7;
 }
 
 .slide-enter-active,

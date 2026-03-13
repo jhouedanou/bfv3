@@ -29,6 +29,25 @@ function scroll(dir: 'left' | 'right') {
     currentSlide.value--
   }
 }
+
+/* ── Swipe tactile ── */
+let touchStartX = 0
+let touchStartY = 0
+const SWIPE_THRESHOLD = 50
+
+function onTouchStart(e: TouchEvent) {
+  touchStartX = e.touches[0].clientX
+  touchStartY = e.touches[0].clientY
+}
+
+function onTouchEnd(e: TouchEvent) {
+  const dx = e.changedTouches[0].clientX - touchStartX
+  const dy = e.changedTouches[0].clientY - touchStartY
+  // Ignore si le geste est plus vertical qu'horizontal (laisser Swiper gérer)
+  if (Math.abs(dy) > Math.abs(dx)) return
+  if (dx < -SWIPE_THRESHOLD) scroll('right')
+  else if (dx > SWIPE_THRESHOLD) scroll('left')
+}
 </script>
 
 <template>
@@ -40,7 +59,11 @@ function scroll(dir: 'left' | 'right') {
 
       <div class="relative mt-8">
         <!-- Carousel -->
-        <div class="carousel-viewport">
+        <div
+          class="carousel-viewport"
+          @touchstart.passive="onTouchStart"
+          @touchend="onTouchEnd"
+        >
           <div
             class="carousel-track"
             :style="{ transform: `translateX(-${currentSlide * 100}%)` }"
@@ -292,4 +315,80 @@ function scroll(dir: 'left' | 'right') {
   transition-delay: calc(var(--card-delay, 0) * 0.08s + 0.15s);
 }
 /* Activation via main.scss : #equipe.swiper-slide-active */
+
+/* ── Tablet : iPad Mini & iPad ── */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .carousel-slide {
+    gap: 1.5rem;
+    padding: 0 0.5rem;
+  }
+  .team-card {
+    max-width: 200px;
+    max-height: 280px;
+    border-radius: 36px;
+    padding: 1.25rem 1rem;
+  }
+  .team-name {
+    font-size: 0.95rem;
+  }
+  .team-role {
+    font-size: 14px;
+  }
+  .linkedin-icon {
+    width: 40px;
+    height: 40px;
+  }
+  .carousel-arrow {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* ── Mobile : grille 2×2 ── */
+@media (max-width: 768px) {
+  .carousel-slide {
+    flex-wrap: wrap;
+    gap: 0.85rem;
+    justify-content: center;
+    padding: 0 0.25rem;
+  }
+
+  .team-card {
+    flex: 0 0 calc(50% - 0.5rem);
+    width: calc(50% - 0.5rem);
+    max-width: 160px;
+    height: 190px;
+    max-height: 190px;
+    border-radius: 24px;
+    padding: 1rem 0.75rem;
+    gap: 0.5rem;
+  }
+
+  .team-card:hover {
+    transform: scale(1.05);
+  }
+
+  .linkedin-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .team-name {
+    font-size: 0.85rem;
+  }
+
+  .team-role {
+    font-size: 0.65rem;
+    line-height: 1.3;
+  }
+
+  /* Cacher les flèches latérales sur mobile, garder la barre de progression */
+  .carousel-arrow {
+    display: none;
+  }
+
+  .carousel-controls {
+    margin-top: 1rem;
+  }
+}
 </style>

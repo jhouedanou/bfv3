@@ -183,4 +183,32 @@ function onMouseLeave() {
     max-width: 280px;
   }
 }
+
+/* ── Tablet : iPad Mini & iPad ── */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .content-col {
+    flex: 0 0 45%;
+  }
+  .image-col {
+    flex: 0 0 50%;
+  }
+  .subtitle {
+    font-size: 24px;
+    max-width: 100%;
+  }
+  .description {
+    font-size: 14px;
+    max-width: 100%;
+  }
+  .agency-image {
+    max-height: 50vh;
+    max-height: 50dvh;
+    overflow: hidden;
+    border-radius: 20px;
+  }
+  .deco-circle {
+    width: 250px;
+    height: 250px;
+  }
+}
 </style>

@@ -13,7 +13,8 @@
       "Bash(sort -k5 -hr)",
       "Bash(xargs grep -l \"mousemove\\\\|scroll\\\\|resize\")",
       "Bash(grep -n \"backdrop-filter\\\\|filter:\\\\|box-shadow\\\\|infinite\" /d/bfv3/big-five/app/components/**/*.vue)",
-      "Bash(sort -k5 -rn)"
+      "Bash(sort -k5 -rn)",
+      "Bash(ipconfig)"
     ]
   }
 }

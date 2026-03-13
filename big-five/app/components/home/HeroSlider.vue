@@ -1,19 +1,41 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 
 const { hero } = useContent()
+
+const mobileImages = [
+  '/images/mobile/bg1.webp',
+  '/images/mobile/bg2.webp',
+  '/images/mobile/bg3.webp',
+]
+
+const isMobile = ref(false)
+
+function checkMobile() {
+  isMobile.value = window.innerWidth <= 768
+}
 
 const currentSlide = ref(0)
 
 let interval: ReturnType<typeof setInterval>
 
 onMounted(() => {
+  checkMobile()
+  window.addEventListener('resize', checkMobile)
   interval = setInterval(() => {
     currentSlide.value = (currentSlide.value + 1) % hero.slides.length
   }, 3000)
 })
 
-onUnmounted(() => clearInterval(interval))
+onUnmounted(() => {
+  clearInterval(interval)
+  window.removeEventListener('resize', checkMobile)
+})
+
+function slideImage(i: number) {
+  if (isMobile.value && mobileImages[i]) return mobileImages[i]
+  return hero.slides[i].image
+}
 
 const heroReady = ref(false)
 onMounted(() => {
@@ -22,7 +44,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section class="hero relative h-screen overflow-hidden" id="hero">
+  <section class="hero relative overflow-hidden" id="hero" style="height: 100vh; height: 100dvh;"
     <!-- Slides -->
     <div
       v-for="(slide, i) in hero.slides"
@@ -33,7 +55,7 @@ onMounted(() => {
       <div
         class="absolute inset-0 bg-cover bg-center"
         :style="{
-          backgroundImage: `url(${slide.image})`,
+          backgroundImage: `url(${slideImage(i)})`,
           transform: currentSlide === i ? 'scale(1.05)' : 'scale(1)',
           transition: 'transform 3s ease-out'
         }"
