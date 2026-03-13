@@ -5,6 +5,10 @@ export default defineNuxtConfig({
   future: {
     compatibilityVersion: 4
   },
+  ssr: true,
+  nitro: {
+    preset: 'static'
+  },
   css: ['~/assets/css/main.scss'],
   app: {
     head: {
@@ -20,17 +24,17 @@ export default defineNuxtConfig({
         { property: 'og:site_name', content: 'Big Five' },
         { property: 'og:title', content: 'Big Five — Conseil en Marketing Stratégique & Digital' },
         { property: 'og:description', content: 'Agence de conseil en marketing stratégique, digital et solutions digitales sur-mesure basée à Abidjan.' },
-        { property: 'og:image', content: 'https://bigfiveabidjan.com/images/og-image.png' },
+        { property: 'og:image', content: 'https://bigfive.solutions/images/og-image.png' },
         { property: 'og:image:width', content: '1200' },
         { property: 'og:image:height', content: '630' },
         { property: 'og:image:type', content: 'image/png' },
-        { property: 'og:url', content: 'https://bigfiveabidjan.com' },
+        { property: 'og:url', content: 'https://bigfive.solutions' },
         { property: 'og:locale', content: 'fr_FR' },
         // Twitter Card
         { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:title', content: 'Big Five' },
+        { name: 'twitter:title', content: 'Big Five — Conseil en Marketing Stratégique & Digital' },
         { name: 'twitter:description', content: 'Agence de conseil en marketing stratégique, digital et solutions digitales sur-mesure basée à Abidjan.' },
-        { name: 'twitter:image', content: 'https://bigfiveabidjan.com/images/og-image.png' }
+        { name: 'twitter:image', content: 'https://bigfive.solutions/images/og-image.png' }
       ],
       link: [
         { rel: 'stylesheet', href: 'https://use.typekit.net/rfz7dco.css' },
