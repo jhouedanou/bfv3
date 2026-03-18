@@ -220,7 +220,8 @@
     "copyright": "Big Five. Tous droits réservés.",
     "socials":[
       { "name": "facebook", "label": "Facebook", "url": "https://www.facebook.com/agencebigfive/" },
-      { "name": "linkedin", "label": "LinkedIn", "url": "https://www.linkedin.com/company/big-five-solutions/posts/?feedView=all" }
+      { "name": "linkedin", "label": "LinkedIn", "url": "https://www.linkedin.com/company/big-five-solutions/posts/?feedView=all" },
+      { "name": "youtube", "label": "YouTube", "url": "https://www.youtube.com/channel/UCKe6vzOcThB8uzmwZhjK4QQ" }
     ]
   }
 }

@@ -41,7 +41,7 @@ function onMouseLeave() {
     <div class="deco-circle" aria-hidden="true" />
 
     <div class="max-w-[1440px] mx-auto px-6 lg:px-12 h-full flex items-center">
-      <div
+      <div id="village"
         class="flex flex-col lg:flex-row gap-8 lg:gap-16 items-center w-full"
       >
         <!-- Left content -->
@@ -209,6 +209,33 @@ function onMouseLeave() {
   .deco-circle {
     width: 250px;
     height: 250px;
+  }
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .agency-section .max-w-\[1440px\] {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+  .content-col {
+    flex: 0 0 100%;
+    text-align: center;
+  }
+  .image-col {
+    display: none;
+  }
+  .subtitle {
+    font-size: 1.25rem;
+    max-width: 100%;
+  }
+  .description {
+    font-size: 0.9rem;
+    max-width: 100%;
+  }
+  .deco-circle {
+    width: 180px;
+    height: 180px;
   }
 }
 </style>
