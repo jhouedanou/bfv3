@@ -91,15 +91,12 @@ $btn-gradient-end: #80368d;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
-  flex: 0 0 296px;
-  max-width: 296px;
 }
 
 /* === bg-section (cercle principal) === */
 .bg-section {
-  width: 296px;
-  height: 296px;
+  width: 100vw;max-width: 256px;
+  height: 100vh;max-height: 256px;
   border-radius: 50%;
   background-color: #160e44;
   position: relative;
@@ -141,7 +138,7 @@ $btn-gradient-end: #80368d;
 }
 
 .circle-label {
-  font-size: clamp(0.65rem, 35px, 35px);
+  font-size: clamp(0.65rem, 25px, 25px);
   color: var(--color-text-light);
   position: relative;
   font-weight: 100;
@@ -149,7 +146,7 @@ $btn-gradient-end: #80368d;
   z-index: 1;
 }
 .circle-highlight {
-  font-size: clamp(0.8rem, 35px, 35px);
+  font-size: clamp(0.65rem, 25px, 25px);
   font-weight: 100;
   font-family: var(--font-body);
   color: white;

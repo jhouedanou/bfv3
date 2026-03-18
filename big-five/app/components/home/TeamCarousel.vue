@@ -217,7 +217,7 @@ function onTouchEnd(e: TouchEvent) {
   font-size: clamp(0.75rem, 1.2vw, 0.85rem);
   color: white;
   text-align: center;
-   font-size: 20px;
+   font-size: 14px;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
