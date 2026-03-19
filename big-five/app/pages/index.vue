@@ -182,16 +182,15 @@ onUnmounted(() => {
         </div>
       </SwiperSlide>
 
-      <!-- Slide 5: Observations (+ footer sur desktop) -->
+      <!-- Slide 5: Observations -->
       <SwiperSlide id="observatoire" data-hash="observatoire">
-        <div class="slide-content slide-gradient" :class="{ 'slide-scrollable': !isMobile }">
+        <div class="slide-content slide-gradient slide-scrollable">
           <HomeInsightsSection />
-          <LayoutAppFooter v-if="!isMobile" />
         </div>
       </SwiperSlide>
 
-      <!-- Slide 6: Footer (mobile uniquement) -->
-      <SwiperSlide v-if="isMobile" id="contact" data-hash="contact">
+      <!-- Slide 6: Footer -->
+      <SwiperSlide id="contact" data-hash="contact">
         <div class="slide-content slide-footer-wrap">
           <LayoutAppFooter />
         </div>
@@ -230,11 +229,9 @@ onUnmounted(() => {
   overflow: auto !important;
   -webkit-overflow-scrolling: touch;
 }
-/* Sur mobile, observatoire n'a plus besoin de scroll (footer dans sa propre slide) */
-@media (max-width: 768px) {
-  .fullpage-swiper #observatoire {
-    overflow: hidden !important;
-  }
+/* Le footer a sa propre slide, observatoire peut scroller partout */
+.fullpage-swiper #contact {
+  overflow: hidden !important;
 }
 
 .slide-content {
@@ -247,7 +244,8 @@ onUnmounted(() => {
 }
 
 .slide-footer-wrap {
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: stretch;
   background: var(--color-footer-bg);
 }
 
