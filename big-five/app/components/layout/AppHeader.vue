@@ -171,7 +171,7 @@ function navigateTo(index: number) {
 }
 
 .logo {
-  width: 101px;
+  width: 70px;
   height:auto;
 }
 

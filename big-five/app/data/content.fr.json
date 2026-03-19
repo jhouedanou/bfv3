@@ -2,7 +2,7 @@
   "meta": {
     "siteUrl": "https://bigfive.solutions",
     "title": "Big Five — Conseil en Marketing Stratégique & Digital",
-    "description": "Big Five : agence de conseil en marketing stratégique, digital et solutions digitales sur-mesure. Abidjan, Paris, Cape Town. Transformer la performance en empreinte durable.",
+    "description": "Big Five : agence de conseil en marketing stratégique, digital et solutions digitales sur-mesure. Abidjan, Paris, Cape Town. Nous transformons votre ambition en performance durable.",
     "ogTitle": "Big Five — Conseil en Marketing Stratégique & Digital",
     "ogDescription": "Agence de conseil en marketing stratégique, digital et solutions digitales sur-mesure basée à Abidjan.",
     "ogImage": "/images/og-image.png",
@@ -25,7 +25,7 @@
   },
 
   "hero": {
-    "lines": ["TRANSFORMER", "LA PERFORMANCE", "EN EMPREINTE", "DURABLE"],
+    "lines": ["TRANSFORMER", "VOTRE AMBITION", "EN PERFORMANCE", "DURABLE"],
     "services": [
       "Marketing Stratégique",
       "Marketing Digital",

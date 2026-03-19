@@ -129,7 +129,7 @@ h6 {
 
 #rage,
 .lepiutan {
-  padding: 1em 0 !important;
+  padding: 1em 2em !important;
 }
 h1 {
   font-size: clamp(1.5rem, 5vw, 5rem);
@@ -290,6 +290,7 @@ html {
 }
 .agency-image {
   display: flex;
+  max-width:295px !important;
 }
 
 .imanotguoi {

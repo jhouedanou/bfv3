@@ -2,7 +2,7 @@
   "meta": {
     "siteUrl": "https://bigfive.solutions",
     "title": "Big Five — Strategic & Digital Marketing Consulting",
-    "description": "Big Five: strategic marketing, digital marketing and custom digital solutions consulting agency. Abidjan, Paris, Cape Town. Transforming performance into a lasting footprint.",
+    "description": "Big Five: strategic marketing, digital marketing and custom digital solutions consulting agency. Abidjan, Paris, Cape Town. From ambition to enduring performance.",
     "ogTitle": "Big Five — Strategic & Digital Marketing Consulting",
     "ogDescription": "Strategic marketing, digital marketing and custom digital solutions consulting agency based in Abidjan.",
     "ogImage": "/images/og-image.png",
@@ -25,7 +25,7 @@
   },
 
   "hero": {
-    "lines": ["TRANSFORMING", "PERFORMANCE", "INTO A LASTING", "FOOTPRINT"],
+    "lines": ["FROM AMBITION", "TO ENDURING", "PERFORMANCE"],
     "services": [
       "Strategic Marketing",
       "Digital Marketing",

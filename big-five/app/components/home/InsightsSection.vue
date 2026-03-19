@@ -133,7 +133,7 @@ const { insights } = useContent()
 }
 
 .insights-badge {
-  font-size: clamp(2rem, 5vw, 85px);
+  font-size: clamp(2rem, 3vw, 85px);
   font-weight: 800;
   color: white;
   line-height: 1.1;
@@ -185,7 +185,6 @@ const { insights } = useContent()
 .block-title {
   font-size: clamp(1.1rem, 2vw, 42px);
   font-weight: 800;
-    font-size: 42px;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
@@ -197,7 +196,7 @@ const { insights } = useContent()
 }
 
 .block-subtitle {
-  margin-top: 2.25rem;
+  margin-top: 0.25rem;
   font-size: clamp(0.95rem, 1.5vw, 1.15rem);
   font-weight: 700;
   color: white;
@@ -213,9 +212,8 @@ const { insights } = useContent()
 
 }
 
-.block-desc {  margin-top: 2.25rem;
+.block-desc {  margin-top: 0.25rem;
   font-family: var(--font-display);
-
   font-size: clamp(0.8rem, 1.2vw, 0.95rem);
   font-size: 19px;
   font-weight: normal;
@@ -260,7 +258,7 @@ const { insights } = useContent()
   margin-bottom: 0.4rem;
 }
 .bar-label {
-  margin-top: 1.25rem;
+  margin-top: 0.25rem;
   font-size: clamp(0.8rem, 1.2vw, 21px);
   font-weight: 700;
   font-weight: bold;
@@ -270,10 +268,10 @@ const { insights } = useContent()
   letter-spacing: normal;
   text-align: left;
   color: #bfb0ff;
-  margin-bottom:1.25rem;
+  margin-bottom:0.25rem;
 }
 .bar-value {
-   margin-top: 1.25rem;
+   margin-top: 0.25rem;
   font-size: clamp(0.8rem, 1.2vw, 21px);
   font-weight: 700;
   font-weight: bold;
@@ -283,7 +281,7 @@ const { insights } = useContent()
   letter-spacing: normal;
   text-align: left;
   color: #bfb0ff;
-  margin-bottom:1.25rem;
+  margin-bottom:0.25rem;
 }
 
 .bar-track {
