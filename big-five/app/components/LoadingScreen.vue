@@ -27,13 +27,6 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
-@font-face {
-  font-family: 'Century Gothic';
-  src: local('Century Gothic'), local('CenturyGothic');
-  font-weight: 400;
-  font-style: normal;
-}
-
 .loader-screen {
   position: fixed;
   inset: 0;
@@ -65,7 +58,7 @@ onMounted(() => {
 }
 
 .loader-tagline {
-  font-family: 'Century Gothic', 'CenturyGothic', 'AppleGothic', sans-serif;
+  font-family: var(--font-display);
   font-size: clamp(1rem, 2.5vw, 1.4rem);
   color: rgba(255, 255, 255, 0.85);
   letter-spacing: 0.2em;
