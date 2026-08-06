@@ -204,7 +204,8 @@
     "messageLabel": "Message",
     "messagePlaceholder": "Décrivez votre projet...",
     "submitLabel": "Envoyer",
-    "sending": "Envoi en cours..."
+    "sending": "Envoi en cours...",
+    "error": "L'envoi a échoué. Vérifiez votre connexion et réessayez, ou écrivez-nous directement."
   },
 
   "thankYou": {

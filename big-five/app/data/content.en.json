@@ -203,7 +203,8 @@
     "messageLabel": "Message",
     "messagePlaceholder": "Describe your project...",
     "submitLabel": "Send",
-    "sending": "Sending..."
+    "sending": "Sending...",
+    "error": "Sending failed. Check your connection and try again, or email us directly."
   },
 
   "thankYou": {

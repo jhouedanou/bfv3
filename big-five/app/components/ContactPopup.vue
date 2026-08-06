@@ -20,11 +20,13 @@ const form = ref({
 })
 
 const submitting = ref(false)
+const errorMessage = ref('')
 
 async function handleSubmit() {
   submitting.value = true
+  errorMessage.value = ''
   try {
-    await $fetch('https://public.herotofu.com/v1/437e1480-18cb-11f1-a65c-851e4752d29c', {
+    await $fetch('https://public.herotofu.com/v1/d905c0d0-91bf-11f1-aefa-935eda137144', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       body: {
@@ -36,10 +38,17 @@ async function handleSubmit() {
     })
     emit('close')
     navigateTo('/thank-you')
-  } catch (e) {
-    // En cas d'erreur réseau, on redirige quand même (HeroTofu renvoie parfois un CORS ok sans JSON)
-    emit('close')
-    navigateTo('/thank-you')
+  } catch (e: any) {
+    // HeroTofu accepte parfois la soumission en renvoyant un corps non-JSON :
+    // $fetch lève alors sur le parsing alors que le message est bien parti.
+    // On ne considère comme succès que si le serveur a répondu 2xx.
+    const status = e?.response?.status ?? e?.statusCode
+    if (status && status >= 200 && status < 300) {
+      emit('close')
+      navigateTo('/thank-you')
+    } else {
+      errorMessage.value = contactForm.error
+    }
   } finally {
     submitting.value = false
   }
@@ -105,6 +114,10 @@ async function handleSubmit() {
                 required
               />
             </div>
+
+            <p v-if="errorMessage" class="contact-popup__error" role="alert">
+              {{ errorMessage }}
+            </p>
 
             <button type="submit" class="contact-popup__submit" :disabled="submitting">
               {{ submitting ? contactForm.sending : contactForm.submitLabel }}
@@ -240,6 +253,18 @@ async function handleSubmit() {
       resize: vertical;
       min-height: 100px;
     }
+  }
+
+  &__error {
+    margin-top: 0.75rem;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(255, 138, 138, 0.5);
+    border-radius: 12px;
+    background: rgba(180, 30, 30, 0.25);
+    color: #ffd4d4;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    line-height: 1.4;
   }
 
   &__submit {

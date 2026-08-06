@@ -1,0 +1,24 @@
+# Redirection permanente de bigfive.dev/solutions vers bigfive.solutions
+#
+# A deposer dans le dossier /solutions de l'ancien domaine (bigfive.dev).
+# Intercepte TOUTES les requetes du dossier, y compris les fichiers existants
+# (.html, .php, images...), et les envoie vers la racine du nouveau domaine.
+#
+# Le 301 est permanent : il transfere le referencement et sera mis en cache
+# par les navigateurs. Tester d'abord avec 302 si un doute subsiste.
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /solutions/
+
+  # Ne pas rediriger la validation SSL Let's Encrypt (renouvellement du certificat)
+  RewriteRule ^\.well-known/ - [L]
+
+  # Tout le reste part vers le nouveau domaine
+  RewriteRule ^.*$ https://bigfive.solutions/ [R=301,L]
+</IfModule>
+
+# Repli si mod_rewrite est absent : couvre le dossier et ses sous-chemins
+<IfModule !mod_rewrite.c>
+  RedirectMatch 301 ^/solutions(/.*)?$ https://bigfive.solutions/
+</IfModule>
