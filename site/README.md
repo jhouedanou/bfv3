@@ -23,7 +23,7 @@ Tout le contenu se modifie dans l'admin (`/admin`), en français et en anglais (
 | E-mail de réception des demandes (CDC § 5) | Réglages → Paramètres |
 | Demandes reçues (copie de secours des e-mails) | Demandes |
 
-Pour une relecture hors de l'admin : `pnpm textes:exporter` écrit le texte de chaque page (FR puis EN) dans `../docs/textes-a-relire/`.
+Pour une relecture hors de l'admin : `pnpm textes:exporter` écrit le texte de chaque page (FR puis EN) dans `../docs/textes/textes-a-relire/`.
 
 Un texte vidé dans « Textes » reprend sa valeur d'origine (`src/i18n/dictionaries.ts`). Les fichiers de `src/seed/data/` ne servent qu'au premier remplissage (`pnpm seed`). Le logo et le badge restent dans `public/images/`.
 

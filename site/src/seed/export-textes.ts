@@ -1,5 +1,5 @@
 // Exporte le texte de chaque page (accueil, solutions, offres), FR puis EN, pour relecture hors de l'admin.
-// Usage : pnpm payload run src/seed/export-textes.ts   → ../docs/textes-a-relire/*.txt
+// Usage : pnpm payload run src/seed/export-textes.ts   → ../docs/textes/textes-a-relire/*.txt
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
@@ -10,7 +10,7 @@ import { getPayload } from 'payload'
 import { buildContent, fetchRaw } from '../lib/content-core'
 
 const dirname = path.dirname(fileURLToPath(import.meta.url))
-const OUT = path.resolve(dirname, '../../../docs/textes-a-relire')
+const OUT = path.resolve(dirname, '../../../docs/textes/textes-a-relire')
 
 type Node = { type: string; tag?: string; text?: string; children?: Node[] }
 const plain = (n: Node): string => (n.text ?? '') + (n.children ?? []).map(plain).join('')
