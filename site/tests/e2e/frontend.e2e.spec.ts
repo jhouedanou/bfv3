@@ -43,6 +43,59 @@ test.describe('Site public', () => {
     expect(min).toBeGreaterThanOrEqual(13)
   })
 
+  test('à 375 px : aucun débordement horizontal, aucun texte sous 13 px, un seul H1', async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 740 })
+    for (const path of [
+      '/',
+      '/solutions/solutions-digitales',
+      '/solutions/solutions-digitales/creation-de-site-web',
+      '/barometres',
+      '/barometres/telecoms-ci-2026-08',
+    ]) {
+      await page.goto(`${BASE}${path}`)
+      const r = await page.evaluate(() => {
+        let min = Infinity
+        const w = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT)
+        let n: Node | null
+        while ((n = w.nextNode())) {
+          const el = n.parentElement
+          if (!n.textContent?.trim() || !el || el.closest('.sr-only,.hp,[aria-hidden="true"]')) continue
+          if (el.getBoundingClientRect().width === 0) continue
+          min = Math.min(min, parseFloat(getComputedStyle(el).fontSize))
+        }
+        const root = document.documentElement
+        return { min, overflow: root.scrollWidth - root.clientWidth, h1: document.querySelectorAll('h1').length }
+      })
+      expect(r.overflow, path).toBe(0)
+      expect(r.min, path).toBeGreaterThanOrEqual(13)
+      expect(r.h1, path).toBe(1)
+    }
+  })
+
+  test('adresses traduites et anciennes adresses', async ({ request }) => {
+    const get = (p: string) => request.get(`${BASE}${p}`, { maxRedirects: 0 })
+    expect((await get('/en/barometers')).status()).toBe(200)
+    expect((await get('/en/privacy-policy')).status()).toBe(200)
+    const old = await get('/en/barometres')
+    expect(old.status()).toBe(301)
+    expect(old.headers().location).toContain('/en/barometers')
+    const obs = await get('/observatoire/telecoms-ci-2026-08')
+    expect(obs.status()).toBe(301)
+    expect(obs.headers().location).toContain('/barometres/telecoms-ci-2026-08')
+    expect((await get('/adresse-inconnue')).status()).toBe(404)
+  })
+
+  test('sitemap : XML, liste des baromètres, aucune offre non validée', async ({ request }) => {
+    const r = await request.get(`${BASE}/sitemap.xml`)
+    expect(r.headers()['content-type']).toContain('xml')
+    const xml = await r.text()
+    expect(xml).toContain('/barometres</loc>')
+    expect(xml).toContain('/en/privacy-policy</loc>')
+    expect(xml).not.toContain('/creation-de-site-web')
+    const robots = await (await request.get(`${BASE}/robots.txt`)).text()
+    expect(robots).toContain('Sitemap: ')
+  })
+
   test('redirections', async ({ request }) => {
     const r = await request.get(`${BASE}/thank-you`, { maxRedirects: 0 })
     expect(r.status()).toBe(301)

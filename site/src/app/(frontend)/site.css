@@ -2256,6 +2256,8 @@ a.circle:hover {
   }
 
   .sol-modal__media {
+    /* Largeur bornée : sans elle, la hauteur minimale élargit l’image au-delà de l’écran. */
+    width: 100%;
     min-height: 240px;
     aspect-ratio: 16 / 9;
   }
@@ -2508,7 +2510,8 @@ html.is-fullpage body {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  flex: 0 0 auto;
+  flex: 0 1 auto;
+  max-width: 100%;
 }
 
 .ftr__link {
