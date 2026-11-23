@@ -1,0 +1,111 @@
+BIG FIVE — Offre « CRM et collecte de données qualifiées » (Solutions Digitales)
+Adresse : https://bigfive.solutions/solutions/solutions-digitales/crm-collecte-de-donnees
+Texte rédigé pour BIG FIVE, à valider : aucun chiffre ni client ne doit être ajouté sans source.
+Corrigez directement dans ce fichier (ou indiquez vos corrections en réponse à l'e-mail).
+Ne modifiez pas les lignes « ===== ».
+
+========================================================================
+FRANÇAIS
+========================================================================
+
+Titre : CRM et collecte de données qualifiées
+Adresse : /solutions/solutions-digitales/crm-collecte-de-donnees
+Titre Google (60 caractères max) : CRM et collecte de données à Abidjan | BIG FIVE
+Accroche, aussi description Google (160 caractères max) : Un CRM sur mesure et des outils de collecte pensés pour le terrain : des contacts qualifiés, des données fiables et des tableaux de bord utiles.
+
+--- Texte de la page ---
+BIG FIVE conçoit des CRM sur mesure et des dispositifs de collecte de données qualifiées pour les marques et les organisations, à Abidjan et en Afrique francophone. L'objectif est simple : savoir qui sont vos prospects et vos clients, d'où ils viennent et comment les suivre. Nos outils sont adaptés aux réalités du terrain, des stands d'animation aux campagnes en ligne, et non calqués sur des usages pensés ailleurs.
+
+## Ce que nous réalisons
+
+Beaucoup d'entreprises collectent des contacts, mais peu les exploitent. Les données restent dispersées dans des fichiers, des carnets ou des messageries. Nous construisons l'outil qui les réunit et les rend utiles.
+
+  - CRM sur mesure, organisé autour de votre cycle de vente et de vos équipes
+  - Formulaires et parcours de collecte pour vos campagnes, sites et réseaux sociaux
+  - Outils de collecte pour les opérations terrain, les événements et les animations
+  - Qualification, déduplication et segmentation des contacts
+  - Gestion du consentement et des préférences de contact
+
+## Notre méthode
+
+Nous partons de vos usages, pas d'un logiciel. Un premier atelier permet de comprendre qui collecte, quelles informations comptent vraiment et ce que vous voulez en faire. Nous définissons ensuite un modèle de données clair : peu de champs, mais les bons. L'outil est construit par étapes et testé avec les personnes qui l'utiliseront au quotidien, commerciaux, animateurs ou équipes marketing.
+
+La qualité de la donnée se joue au moment de la saisie. Nous prévoyons des contrôles simples, des listes de choix et des règles de vérification pour limiter les doublons et les erreurs. La protection des données personnelles est traitée dès le départ : accès par profil, consentement tracé, conservation maîtrisée.
+
+## Pour qui
+
+Ce service s'adresse aux directions marketing et commerciales qui veulent mesurer l'effet de leurs actions, aux marques qui mènent des opérations terrain, et aux organisations qui gèrent un grand nombre de contacts. Si vous cherchez un CRM à Abidjan adapté à vos méthodes, ou si vos campagnes génèrent des contacts que personne ne suit, nous pouvons vous aider.
+
+## Ce que vous obtenez
+
+Vous disposez d'une solution déployée et maintenue, de données exploitables et de tableaux de bord de pilotage. Vos équipes savent où en est chaque contact, et vos décisions s'appuient sur des chiffres issus de votre propre activité.
+
+--- Ce que vous obtenez ---
+  - Un CRM sur mesure déployé et maintenu
+  - Des formulaires et outils de collecte en ligne et sur le terrain
+  - Une base de contacts qualifiée, dédupliquée et segmentée
+  - Des tableaux de bord de pilotage commercial et marketing
+  - La prise en main de l’outil par vos équipes
+
+--- Questions fréquentes ---
+Q : Pourquoi un CRM sur mesure plutôt qu’un logiciel du marché ?
+R : Un logiciel du marché convient quand vos processus correspondent à son modèle. Lorsque vos opérations terrain, vos circuits de vente ou vos contraintes de connexion sortent du cadre, un outil sur mesure évite de contourner le logiciel au quotidien. Nous vous aidons à trancher lors du cadrage.
+
+Q : Pouvez-vous reprendre nos fichiers de contacts existants ?
+R : Oui. Nous analysons vos fichiers, nettoyons les doublons et les données incomplètes, puis les importons dans le nouvel outil. Ce travail se cadre selon le volume et l'état des données.
+
+Q : Quel est le budget et le délai pour un projet de CRM ?
+R : Ils dépendent du périmètre : nombre d'utilisateurs, sources de collecte, reprise de données et tableaux de bord attendus. Nous les précisons lors d'un premier échange avant de vous remettre une proposition.
+
+========================================================================
+ENGLISH
+========================================================================
+
+Titre : CRM and qualified data collection
+Adresse : /en/solutions/digital-solutions/crm-data-collection
+Titre Google (60 caractères max) : CRM and data collection in Côte d'Ivoire | BIG FIVE
+Accroche, aussi description Google (160 caractères max) : A custom CRM and data collection tools built for the field: qualified contacts, reliable data and dashboards your team will actually use.
+
+--- Texte de la page ---
+BIG FIVE builds custom CRM systems and qualified data collection tools for brands and organisations in Abidjan, Côte d'Ivoire (Ivory Coast), and across French-speaking Africa. The goal is simple: know who your prospects and customers are, where they come from and how to follow up with them. Our tools are designed for conditions on the ground, from brand activation stands to online campaigns, rather than copied from software built for other markets.
+
+## What we build
+
+Many companies collect contacts. Far fewer put them to use. The data sits in spreadsheets, notebooks or messaging apps. We build the tool that brings it together and makes it useful.
+
+  - A custom CRM organised around your sales cycle and your teams
+  - Forms and data capture flows for your campaigns, website and social media
+  - Collection tools for field operations, events and brand activations
+  - Contact qualification, deduplication and segmentation
+  - Consent and contact preference management
+
+## How we work
+
+We start from how your teams work, not from a piece of software. A first workshop helps us understand who collects the data, which information really matters and what you want to do with it. We then define a clear data model: few fields, but the right ones. The tool is built in stages and tested with the people who will use it every day, whether sales reps, field staff or marketing teams.
+
+Data quality is decided at the point of entry. We add simple checks, drop-down lists and validation rules to limit duplicates and errors. Personal data protection is handled from the outset: role-based access, recorded consent and controlled retention.
+
+## Who it is for
+
+This service is for marketing and sales teams that want to measure the impact of their actions, for brands running field operations, and for organisations managing large contact bases. If you need a CRM in Côte d'Ivoire that fits the way you work, or if your campaigns generate leads that nobody follows up, we can help.
+
+## What you get
+
+You get a solution that is deployed and maintained, data you can act on, and dashboards to steer your activity. Your teams know where each contact stands, and your decisions rest on figures drawn from your own operations.
+
+--- What you get ---
+  - A custom CRM, deployed and maintained
+  - Online and field data collection forms and tools
+  - A qualified, deduplicated and segmented contact base
+  - Sales and marketing dashboards
+  - Hands-on training for your teams
+
+--- Frequently asked questions ---
+Q : Why a custom CRM rather than off-the-shelf software?
+R : Off-the-shelf software works well when your processes match its model. When your field operations, sales channels or connectivity constraints fall outside that model, a custom tool saves your team from working around the software every day. We help you make that call during scoping.
+
+Q : Can you migrate our existing contact files?
+R : Yes. We review your files, clean up duplicates and incomplete records, then import them into the new tool. The scope of this work depends on the volume and condition of the data.
+
+Q : What budget and timeline should we expect for a CRM project?
+R : Both depend on the scope: number of users, data sources, data migration and the dashboards you need. We clarify them in a first conversation before sending you a proposal.

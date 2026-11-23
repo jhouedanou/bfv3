@@ -1,0 +1,111 @@
+BIG FIVE — Offre « Applications web et mobile » (Solutions Digitales)
+Adresse : https://bigfive.solutions/solutions/solutions-digitales/applications-web-et-mobile
+Texte rédigé pour BIG FIVE, à valider : aucun chiffre ni client ne doit être ajouté sans source.
+Corrigez directement dans ce fichier (ou indiquez vos corrections en réponse à l'e-mail).
+Ne modifiez pas les lignes « ===== ».
+
+========================================================================
+FRANÇAIS
+========================================================================
+
+Titre : Applications web et mobile
+Adresse : /solutions/solutions-digitales/applications-web-et-mobile
+Titre Google (60 caractères max) : Applications web et mobile à Abidjan | BIG FIVE
+Accroche, aussi description Google (160 caractères max) : Des applications web et mobile sur mesure, conçues pour vos utilisateurs et vos contraintes de terrain, puis déployées et maintenues.
+
+--- Texte de la page ---
+BIG FIVE développe des applications web et mobile sur mesure pour les entreprises, les marques et les organisations, à Abidjan et en Afrique francophone. Outil interne pour vos équipes, application destinée à vos clients ou à vos partenaires : nous concevons des applications utiles, simples à prendre en main et adaptées aux conditions réelles d'usage. Notre Pôle Tech & Solutions les déploie et les maintient dans la durée.
+
+## Ce que nous réalisons
+
+Une application se justifie quand elle remplace une tâche lourde, rend un service à vos clients ou donne à vos équipes une information qu'elles n'avaient pas. Nous travaillons sur des projets de ce type :
+
+  - Applications métier pour vos équipes commerciales, terrain ou administratives
+  - Applications mobiles destinées à vos clients ou à votre communauté
+  - Espaces clients et portails partenaires accessibles depuis un navigateur
+  - Outils de suivi d'opérations, de demandes ou d'activité
+  - Connexion avec vos outils existants : CRM, site web, fichiers et bases de données
+
+## Notre méthode
+
+Nous commençons par les utilisateurs. Qui va se servir de l'application, sur quel appareil, avec quelle connexion et à quel moment de la journée ? Ces réponses orientent tout le reste. Nous cadrons ensuite les fonctions indispensables pour une première version, conçons les écrans et les testons avec de vrais utilisateurs avant de développer.
+
+Le développement avance par étapes courtes, avec des versions que vous pouvez essayer régulièrement. Nous prêtons une attention particulière à la légèreté, à la lisibilité sur petit écran et aux usages en connexion instable. La sécurité des accès et la protection des données sont prises en compte dès la conception.
+
+## Pour qui
+
+Nous accompagnons les directions qui veulent digitaliser un processus, les marques qui souhaitent offrir un service à leurs clients et les organisations qui coordonnent des équipes sur le terrain. Si vous cherchez un partenaire pour le développement d'une application mobile à Abidjan ou d'une application web sur mesure en Côte d'Ivoire, nous partons de votre besoin réel, pas d'une liste de fonctionnalités.
+
+## Ce que vous obtenez
+
+Vous obtenez une application déployée et maintenue, des données exploitables issues de son utilisation et des tableaux de bord pour suivre l'activité. Nous restons à vos côtés après la mise en ligne pour corriger, améliorer et faire évoluer l'outil avec vos besoins.
+
+--- Ce que vous obtenez ---
+  - Une application web ou mobile déployée et maintenue
+  - Des maquettes testées avec vos utilisateurs avant développement
+  - Un espace d’administration pour gérer contenus et utilisateurs
+  - Des tableaux de bord de suivi de l’activité
+  - La documentation et la prise en main par vos équipes
+
+--- Questions fréquentes ---
+Q : Faut-il une application mobile ou une application web ?
+R : Cela dépend de vos utilisateurs et de leurs usages. Une application web s'ouvre depuis un navigateur sans installation, une application mobile s'installe sur le téléphone et peut offrir des fonctions propres à l'appareil. Nous vous recommandons la formule la plus adaptée lors du cadrage.
+
+Q : Combien coûte une application et quel est le délai ?
+R : Le budget et le délai dépendent du périmètre : nombre de fonctions, types d'utilisateurs, connexions à d'autres outils. Nous les cadrons lors d'un premier échange, souvent en commençant par une première version ciblée.
+
+Q : Qui assure la maintenance après la mise en ligne ?
+R : Notre Pôle Tech & Solutions assure la maintenance, les correctifs et les évolutions. Nous convenons ensemble du niveau de suivi adapté à l'importance de l'application pour votre activité.
+
+========================================================================
+ENGLISH
+========================================================================
+
+Titre : Web and mobile apps
+Adresse : /en/solutions/digital-solutions/web-mobile-apps
+Titre Google (60 caractères max) : Web and mobile apps in Côte d'Ivoire | BIG FIVE
+Accroche, aussi description Google (160 caractères max) : Custom web and mobile apps, designed around your users and real-world constraints, then deployed and maintained by our team.
+
+--- Texte de la page ---
+BIG FIVE builds custom web and mobile apps for companies, brands and organisations in Abidjan, Côte d'Ivoire (Ivory Coast), and across French-speaking Africa. An internal tool for your teams or an app for your customers and partners: we design apps that are useful, easy to pick up and suited to the way people actually use them. Our Tech & Solutions Division deploys them and maintains them over time.
+
+## What we build
+
+An app earns its place when it replaces a tedious task, gives your customers a real service or puts information in your teams’ hands that they did not have before. Typical projects include:
+
+  - Business apps for sales, field or back-office teams
+  - Mobile apps for your customers or your community
+  - Customer areas and partner portals that run in a browser
+  - Tools to track operations, requests or activity
+  - Connections to your existing tools: CRM, website, files and databases
+
+## How we work
+
+We start with the users. Who will use the app, on which device, with what kind of connection and at what time of day? Those answers shape everything else. We then agree on the features a first version really needs, design the screens and test them with real users before writing code.
+
+Development moves in short steps, with versions you can try regularly. We pay close attention to lightweight design, readability on small screens and use on unstable connections. Access security and data protection are part of the design from the start.
+
+## Who it is for
+
+We work with teams that want to digitise a process, brands that want to offer a service to their customers, and organisations coordinating staff in the field. If you are looking for a mobile app development partner in Abidjan, or a custom web application in Côte d'Ivoire, we start from your actual need, not from a feature list.
+
+## What you get
+
+You get an app that is deployed and maintained, usable data generated by its everyday use, and dashboards to monitor activity. We stay involved after launch to fix, improve and adapt the tool as your needs change.
+
+--- What you get ---
+  - A web or mobile app, deployed and maintained
+  - Mock-ups tested with your users before development
+  - An admin area to manage content and users
+  - Activity dashboards
+  - Documentation and hands-on training for your team
+
+--- Frequently asked questions ---
+Q : Do we need a mobile app or a web app?
+R : It depends on your users and how they will use it. A web app opens in a browser with nothing to install, while a mobile app is installed on the phone and can use features specific to the device. We recommend the best fit during scoping.
+
+Q : How much does an app cost, and how long does it take?
+R : Budget and timeline depend on the scope: number of features, types of users and connections to other tools. We define them in a first conversation, often starting with a focused first version.
+
+Q : Who handles maintenance after launch?
+R : Our Tech & Solutions Division handles maintenance, fixes and new features. Together we agree on the level of support that matches how important the app is to your business.

@@ -1,0 +1,111 @@
+BIG FIVE — Offre « IA appliquée » (Solutions Digitales)
+Adresse : https://bigfive.solutions/solutions/solutions-digitales/ia-appliquee
+Texte rédigé pour BIG FIVE, à valider : aucun chiffre ni client ne doit être ajouté sans source.
+Corrigez directement dans ce fichier (ou indiquez vos corrections en réponse à l'e-mail).
+Ne modifiez pas les lignes « ===== ».
+
+========================================================================
+FRANÇAIS
+========================================================================
+
+Titre : IA appliquée
+Adresse : /solutions/solutions-digitales/ia-appliquee
+Titre Google (60 caractères max) : IA appliquée aux entreprises à Abidjan | BIG FIVE
+Accroche, aussi description Google (160 caractères max) : Automatiser des tâches, analyser textes et conversations, outiller vos équipes : une intelligence artificielle concrète et encadrée.
+
+--- Texte de la page ---
+BIG FIVE intègre l'intelligence artificielle dans les outils des entreprises et des organisations, à Abidjan et en Afrique francophone, pour des usages précis et mesurables. Nous ne vendons pas l'IA comme une promesse générale. Nous partons d'une tâche réelle, chronophage ou répétitive, et nous vérifions si l'IA peut la rendre plus simple, plus rapide ou plus fiable. C'est le sens de notre promesse : la technologie par la preuve.
+
+## Ce que nous réalisons
+
+L'IA appliquée prend tout son intérêt sur des tâches bien délimitées, avec un contrôle humain là où il compte. Nous travaillons notamment sur :
+
+  - Automatisation de tâches répétitives : tri, classement, extraction d'informations dans des documents
+  - Analyse de textes et de conversations : commentaires, avis, messages clients, retours terrain
+  - Assistants internes qui aident vos équipes à retrouver une information dans vos propres documents
+  - Aide à la rédaction et à la synthèse, toujours relue par vos équipes
+  - Intégration de ces fonctions dans vos outils existants : CRM, applications, plateformes
+
+## Notre méthode
+
+Nous commençons par identifier, avec vous, les tâches où l'IA peut réellement aider. Nous réalisons ensuite un essai limité sur vos propres données, pour juger sur pièces de la qualité des résultats. Si l'essai est concluant, nous intégrons la fonction dans vos outils, avec des règles claires sur ce que l'IA fait seule et ce qui reste validé par une personne.
+
+La protection des données est au cœur de chaque projet. Nous définissons quelles données peuvent être traitées, par quel service et dans quelles conditions. Nous limitons les accès, évitons d'exposer des informations sensibles et choisissons les outils en fonction du niveau de confidentialité requis. Vos données restent les vôtres.
+
+## Pour qui
+
+Cette offre s'adresse aux directions qui veulent utiliser l'intelligence artificielle en entreprise en Côte d'Ivoire sans se perdre dans les annonces, aux équipes marketing et relation client qui traitent de gros volumes de messages, et aux organisations qui veulent mieux exploiter leurs documents internes. Elle prolonge naturellement notre travail de veille et d'écoute social media.
+
+## Ce que vous obtenez
+
+Vous obtenez une solution déployée et maintenue, des données exploitables et des tableaux de bord pour suivre ce que l'IA traite et avec quelle qualité. Vos équipes gardent la main et savent ce que l'outil fait, et ce qu'il ne fait pas.
+
+--- Ce que vous obtenez ---
+  - Un cadrage des usages où l’IA apporte un gain réel
+  - Un essai sur vos propres données avant tout déploiement
+  - Une fonction d’IA intégrée à vos outils, déployée et maintenue
+  - Des règles de protection des données et de validation humaine
+  - Des tableaux de bord de suivi des traitements
+
+--- Questions fréquentes ---
+Q : Nos données sont-elles protégées ?
+R : Oui, c'est un point que nous cadrons avant tout développement. Nous définissons quelles données sont traitées, par quel service et avec quels accès, et nous adaptons le choix des outils au niveau de confidentialité requis. Les informations sensibles ne sont pas exposées sans votre accord.
+
+Q : L'IA va-t-elle remplacer nos équipes ?
+R : Notre approche vise à libérer vos équipes des tâches répétitives, pas à les remplacer. Les décisions importantes restent validées par une personne. L'outil prépare, trie ou résume, et vos équipes gardent la main.
+
+Q : Quel budget et quel délai pour un projet d’IA ?
+R : Ils dépendent de la tâche visée, du volume de données et des outils à connecter. Nous les cadrons lors d'un premier échange, en commençant souvent par un essai limité sur vos propres données.
+
+========================================================================
+ENGLISH
+========================================================================
+
+Titre : Applied AI
+Adresse : /en/solutions/digital-solutions/applied-ai
+Titre Google (60 caractères max) : Applied AI for businesses in Côte d'Ivoire | BIG FIVE
+Accroche, aussi description Google (160 caractères max) : Automate tasks, analyse text and conversations, support your teams: practical artificial intelligence, with your data kept under control.
+
+--- Texte de la page ---
+BIG FIVE brings artificial intelligence into the tools of companies and organisations in Abidjan, Côte d'Ivoire (Ivory Coast), and across French-speaking Africa, for specific uses you can measure. We do not sell AI as a broad promise. We start from a real task that is time-consuming or repetitive, and we check whether AI can make it simpler, faster or more reliable. That is what our promise means: technology, proven.
+
+## What we build
+
+Applied AI is most useful on well-defined tasks, with human review where it matters. Our work includes:
+
+  - Automating repetitive tasks: sorting, classifying and extracting information from documents
+  - Analysing text and conversations: comments, reviews, customer messages and field reports
+  - Internal assistants that help your teams find information in your own documents
+  - Drafting and summarising support, always reviewed by your teams
+  - Building these features into your existing tools: CRM, apps and platforms
+
+## How we work
+
+We first identify, with you, the tasks where AI can genuinely help. We then run a limited trial on your own data, so the quality of the results can be judged on evidence. If the trial is conclusive, we build the feature into your tools, with clear rules on what the AI does on its own and what a person still approves.
+
+Data protection is central to every project. We define which data can be processed, by which service and under which conditions. We restrict access, avoid exposing sensitive information and choose tools according to the level of confidentiality required. Your data stays yours.
+
+## Who it is for
+
+This offer is for leadership teams that want to use AI for business in Côte d'Ivoire without getting lost in the hype, for marketing and customer service teams handling large volumes of messages, and for organisations that want to make better use of their internal documents. It follows on naturally from our monitoring and social media listening work.
+
+## What you get
+
+You get a solution that is deployed and maintained, data you can act on, and dashboards showing what the AI processes and how well. Your teams stay in control and know what the tool does, and what it does not.
+
+--- What you get ---
+  - A scoping of the use cases where AI brings a real gain
+  - A trial on your own data before any rollout
+  - An AI feature built into your tools, deployed and maintained
+  - Data protection and human review rules
+  - Dashboards to monitor processing
+
+--- Frequently asked questions ---
+Q : Is our data protected?
+R : Yes, and we settle this before any development. We define which data is processed, by which service and with which access rights, and we choose tools according to the level of confidentiality required. Sensitive information is not exposed without your agreement.
+
+Q : Will AI replace our teams?
+R : Our approach aims to free your teams from repetitive tasks, not to replace them. Important decisions are still approved by a person. The tool prepares, sorts or summarises, and your teams stay in charge.
+
+Q : What budget and timeline should we expect for an AI project?
+R : Both depend on the task, the volume of data and the tools to connect. We define them in a first conversation, often starting with a limited trial on your own data.
