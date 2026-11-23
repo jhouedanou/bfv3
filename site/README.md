@@ -98,18 +98,48 @@ Mise en ligne sur `bigfive.solutions` :
    - la couverture (JPG ou PNG, moins de 500 Ko) ;
    - le lien interne du PDF.
 3. *Aperçu* pour vérifier, puis *Publier* ou *Programmer la publication*.
-4. Le dernier baromètre publié passe en tête de l'Observatoire, les autres dans « Baromètres précédents ». Chacun a sa page : `/observatoire/<identifiant>`.
+4. Le dernier baromètre publié passe en tête de l'Observatoire, les autres dans « Baromètres précédents ». Chacun a sa page : `/barometres/<identifiant>` (en anglais : `/en/barometers/<identifiant>`). La liste complète est sur `/barometres`.
+
+Guide pas à pas pour l'équipe : `../docs/guide-publier-un-barometre.md`.
 
 Le lien interne du PDF n'est jamais envoyé au navigateur. Le test `tests/e2e/frontend.e2e.spec.ts` le vérifie.
 
 ## Formulaires
 
 Chaque demande :
-- est contrôlée par validation (zod), champ piège invisible et Cloudflare Turnstile ;
+- est contrôlée par validation (zod), champ piège invisible, Cloudflare Turnstile et limite de débit (5 envois par adresse IP en 10 minutes, 3 par adresse e-mail en 1 heure) ;
 - est envoyée par e-mail via Resend à l'adresse de réception, avec l'objet du CDC (`[Contact]`, `[Veille]`, `[Baromètre] Nom — Entreprise — Titre`, `[Me notifier] adresse`…) ;
 - est copiée dans *Demandes*.
 
-Le demandeur reçoit un accusé de réception dans la langue de la page. Si la case « prochaines parutions » est cochée, un e-mail `[Me notifier]` part en plus.
+Le demandeur reçoit un accusé de réception dans la langue de la page. Son texte se modifie dans Textes : baromètre et origine des demandes → Accusés de réception. Il ne contient aucun texte saisi par le visiteur. Si la case « prochaines parutions » est cochée, un e-mail `[Me notifier]` part en plus.
+
+## Rôles
+
+- **Administrateur** : tout, y compris les comptes et Réglages → Paramètres.
+- **Éditeur** : contenu, baromètres, demandes. Il ne peut ni créer de compte ni modifier les paramètres.
+
+Le premier compte créé est administrateur. Les suivants sont éditeurs par défaut.
+
+## Mesure d'audience et cookies
+
+`NEXT_PUBLIC_GA_ID` (Google Analytics 4) et `NEXT_PUBLIC_META_PIXEL_ID` (Meta Pixel) dans `.env`.
+
+- Vides : aucun bandeau, aucun script.
+- Renseignés : bandeau Accepter / Refuser / Personnaliser. Les scripts ne sont ajoutés à la page qu'après accord (Consent Mode v2). « Gérer les cookies » dans le pied de page rouvre le bandeau.
+- Une demande envoyée par un formulaire déclenche l'événement `generate_lead` (Google) et `Lead` (Meta).
+- Ne pas renseigner les identifiants en production avant la mise à jour de la politique de confidentialité : `../docs/proposition-politique-confidentialite.md`.
+
+## Adresses
+
+| Français | Anglais |
+|---|---|
+| `/` | `/en` |
+| `/solutions/<solution>` | `/en/solutions/<solution>` (adresse traduite dans l'admin) |
+| `/solutions/<solution>/<offre>` | `/en/solutions/<solution>/<offre>` |
+| `/barometres`, `/barometres/<identifiant>` | `/en/barometers`, `/en/barometers/<identifiant>` |
+| `/politique-de-confidentialite` | `/en/privacy-policy` |
+
+Les rubriques traduites sont déclarées dans `src/lib/site.ts` (`ROUTES`). Les redirections 301 sont dans `redirects.ts`.
 
 ## Tests
 
