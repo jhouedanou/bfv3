@@ -28,6 +28,7 @@ const DEFS: Def[] = [
     label: 'Textes : observatoire',
     tabs: [
       ['Baromètres', ['eyObs', 'obsSub', 'latestBaro', 'takeaway', 'dlBaro', 'baro', 'baroOf', 'allBaros', 'prevBaros', 'frOnly', 'zoomLabel', 'zoomCover']],
+      ['Page « Tous les baromètres »', ['barosH1', 'barosMetaTitle']],
       ['Prochaines parutions', ['notifyCta', 'notifyTitle', 'notifyDesc', 'nlEy', 'nlTitle', 'workEmail', 'signUp', 'nlDone']],
       ['Étude sur mesure et Laveiye', ['orderEy', 'orderTitle', 'orderDesc', 'orderShort', 'orderAsk', 'orderCta', 'freeAccess', 'platform', 'laveiyeDesc', 'goLaveiye', 'poweredBy', 'laveiyeLine']],
     ],
@@ -38,7 +39,7 @@ const DEFS: Def[] = [
     tabs: [
       ['Formulaire', ['contactTitle', 'cIntro1', 'cIntro2', 'required', 'origin', 'fullName', 'emailPro', 'phone', 'phoneOpt', 'company', 'role', 'jobTitle', 'sector', 'which', 'need', 'consent', 'optin', 'submit', 'sending', 'invalid']],
       ['Exemples dans les champs', ['phName', 'phEmail', 'phCompany', 'phRole', 'phSector', 'phNeed', 'multi', 'unknown']],
-      ['Après l’envoi', ['okT', 'okP', 'okRec', 'seeBaro', 'errT', 'errP', 'retryL']],
+      ['Après l’envoi', ['okT', 'okP', 'okRec', 'seeBaro', 'errT', 'errP', 'errRate', 'retryL']],
     ],
   },
   {
@@ -47,12 +48,16 @@ const DEFS: Def[] = [
     tabs: [
       ['Obtenir le baromètre', ['gateIntro', 'gateNl', 'gateCta', 'gateDoneT', 'gateDoneP']],
       ['Origine des demandes', ['sources']],
+      ['Accusés de réception (e-mails)', ['ackSubject', 'ackBody', 'ackNotifySubject', 'ackNotifyBody']],
     ],
   },
   {
     slug: 'textes-divers',
     label: 'Textes : pied de page et divers',
-    tabs: [['Pied de page et politique', ['rights', 'legal', 'privacy', 'privacyUpdated', 'privacyIntro', 'privacyContact']]],
+    tabs: [
+      ['Pied de page et politique', ['rights', 'legal', 'privacy', 'privacyUpdated', 'privacyIntro', 'privacyContact']],
+      ['Bandeau cookies', ['ckText', 'ckAccept', 'ckRefuse', 'ckCustom', 'ckMore', 'ckManage', 'ckTitle', 'ckNeeded', 'ckNeededDesc', 'ckAudience', 'ckAudienceDesc', 'ckAds', 'ckAdsDesc', 'ckSave']],
+    ],
   },
 ]
 

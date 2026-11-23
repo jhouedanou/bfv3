@@ -5,7 +5,7 @@ const BASE = process.env.BASE_URL ?? 'http://localhost:3000'
 test.describe('Site public', () => {
   test('accueil FR : title, H1, hreflang', async ({ page }) => {
     await page.goto(BASE)
-    await expect(page).toHaveTitle(/Big Five — Conseil en Marketing/)
+    await expect(page).toHaveTitle('BIG FIVE | Cabinet de conseil en marketing digital à Abidjan')
     await expect(page.locator('h1')).toContainText('Maîtriser le digital')
     await expect(page.locator('html')).toHaveAttribute('lang', 'fr')
     await expect(page.locator('link[rel="alternate"][hreflang="en"]')).toHaveCount(1)
@@ -18,7 +18,7 @@ test.describe('Site public', () => {
   })
 
   test('le lien interne du baromètre ne fuit jamais (CDC § 6.2)', async ({ request }) => {
-    for (const path of ['/', '/en', '/observatoire/telecoms-ci-2026-08', '/api/barometres?depth=1']) {
+    for (const path of ['/', '/en', '/barometres', '/barometres/telecoms-ci-2026-08', '/api/barometres?depth=1']) {
       const body = await (await request.get(`${BASE}${path}`)).text()
       expect(body, path).not.toContain('cutt.ly')
       expect(body, path).not.toContain('ressourceInterne')

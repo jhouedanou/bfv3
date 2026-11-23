@@ -14,7 +14,7 @@ import { parution } from '../parution'
 
 export function BaroGateModal({ baro }: { baro: BarometreDTO }) {
   const { locale, t } = useSite()
-  const { state, setState, invalid, setInvalid, send, onToken } = useLead()
+  const { state, setState, invalid, setInvalid, send, onToken, rate } = useLead()
   const [website, setWebsite] = useState('')
   const err = (name: string) => invalid.includes(name)
 
@@ -45,7 +45,7 @@ export function BaroGateModal({ baro }: { baro: BarometreDTO }) {
           <p className="dlg-text">{t.gateDoneP}</p>
         </Success>
       ) : state === 'error' ? (
-        <Failure onRetry={() => setState('idle')} />
+        <Failure onRetry={() => setState('idle')} rate={rate} />
       ) : (
         <form className="form form--narrow" onSubmit={onSubmit} noValidate>
           <p className="eyebrow">

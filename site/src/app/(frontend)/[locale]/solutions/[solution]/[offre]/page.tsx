@@ -61,7 +61,7 @@ export default async function OffrePage({ params }: Props) {
   if (!isLocale(locale)) notFound()
   const o = await getOffre(locale, solution, offre)
   if (!o) notFound()
-  const [{ emailPublic }, { t, links }] = await Promise.all([getSettings(), getSiteContent(locale)])
+  const [{ emailPublic, telephone, adresse }, { t, links }] = await Promise.all([getSettings(), getSiteContent(locale)])
   const s = o.solution
   const paths = pathsOf(o)
   const home = localePath(locale)
@@ -145,7 +145,7 @@ export default async function OffrePage({ params }: Props) {
           )}
         </article>
       </main>
-      <Footer locale={locale} t={t} email={emailPublic} links={links} />
+      <Footer locale={locale} t={t} email={emailPublic} telephone={telephone} adresse={adresse} links={links} />
       {/* Données structurées après le contenu : le premier élément de la page reste visible (défilement en haut à la navigation). */}
       <JsonLd
         data={serviceJsonLd({ name: o.title, description: o.accroche, url, category: s.name })}

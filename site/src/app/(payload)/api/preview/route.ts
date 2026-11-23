@@ -14,5 +14,5 @@ export async function GET(request: NextRequest) {
   if (!user) return new Response('Connexion requise', { status: 401 })
 
   ;(await draftMode()).enable()
-  redirect(`/observatoire/${slug}`)
+  redirect(`/barometres/${slug}`)
 }

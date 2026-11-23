@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next'
 
 import { getPublishedBarometres } from '@/lib/barometres'
 import { getOffres, getSiteContent } from '@/lib/content'
-import { SITE_URL, localePath } from '@/lib/site'
+import { SITE_URL, localePath, routePath, routePaths } from '@/lib/site'
 
 export const revalidate = 3600
 
@@ -51,8 +51,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           { lastModified: o.updatedAt, changeFrequency: 'monthly', priority: 0.8 },
         )
       }),
-    ...pair(same('/politique-de-confidentialite'), { changeFrequency: 'yearly', priority: 0.2 }),
+    ...pair(routePaths('privacy'), { changeFrequency: 'yearly', priority: 0.2 }),
+    // Liste des baromètres, puis une page par baromètre.
     // Baromètres : version FR seulement (la version EN a un canonical vers la FR).
-    ...baros.map((b) => ({ url: `${SITE_URL}/observatoire/${b.identifiant}`, lastModified: b.publishedAt, changeFrequency: 'monthly' as const, priority: 0.7 })),
+    { url: `${SITE_URL}${routePath('barometres', 'fr')}`, lastModified: latest, changeFrequency: 'weekly' as const, priority: 0.9 },
+    ...baros.map((b) => ({ url: `${SITE_URL}${routePath('barometres', 'fr', `/${b.identifiant}`)}`, lastModified: b.publishedAt, changeFrequency: 'monthly' as const, priority: 0.7 })),
   ]
 }

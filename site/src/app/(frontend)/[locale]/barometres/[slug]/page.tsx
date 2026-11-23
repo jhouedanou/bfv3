@@ -12,7 +12,7 @@ import { getBarometre, getDraftBarometre, getPublishedBarometres } from '@/lib/b
 import { getSiteContent } from '@/lib/content'
 import { JsonLd, breadcrumbJsonLd, buildMetadata } from '@/lib/seo'
 import { getSettings } from '@/lib/settings'
-import { SITE_URL, localePath } from '@/lib/site'
+import { SITE_URL, localePath, routePath, routePaths } from '@/lib/site'
 
 export const revalidate = 3600
 // Un baromètre publié après le build doit être servi à la demande.
@@ -43,7 +43,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     )
   return buildMetadata({
     locale,
-    path: `/observatoire/${slug}`,
+    path: routePaths('barometres', `/${slug}`)[locale],
+    paths: routePaths('barometres', `/${slug}`),
     title: baro.metaTitle || `${baro.title} | BIG FIVE`,
     description,
     // Contenu publié en français uniquement (CDC § 1) : la page EN pointe vers la page FR.
@@ -65,21 +66,27 @@ export default async function BarometrePage({ params }: Props) {
   if (!isLocale(locale)) notFound()
   const baro = await load(slug)
   if (!baro) notFound()
-  const [{ emailPublic }, { t, links }] = await Promise.all([getSettings(), getSiteContent(locale)])
-  const path = `/observatoire/${slug}`
+  const [{ emailPublic, telephone, adresse }, { t, links }] = await Promise.all([getSettings(), getSiteContent(locale)])
+  const frUrl = `${SITE_URL}${routePath('barometres', 'fr', `/${slug}`)}`
+  const listPath = routePath('barometres', locale)
 
   return (
     <>
       <ScrollToTop />
-      <Header alternate={{ fr: localePath('fr', path), en: localePath('en', path) }} />
+      <Header
+        alternate={{
+          fr: routePath('barometres', 'fr', `/${slug}`),
+          en: routePath('barometres', 'en', `/${slug}`),
+        }}
+      />
       <main id="contenu" className="page page--baro">
         <nav className="crumbs" aria-label={t.crumbs}>
-          <Link href={`${localePath(locale)}#observatoire`}>← {t.allBaros}</Link>
+          <Link href={listPath}>← {t.allBaros}</Link>
         </nav>
         {locale === 'en' && <p className="note">{t.frOnly}</p>}
         <BaroCard baro={baro} headingLevel={1} eyebrow={t.baroOf} />
       </main>
-      <Footer locale={locale} t={t} email={emailPublic} links={links} />
+      <Footer locale={locale} t={t} email={emailPublic} telephone={telephone} adresse={adresse} links={links} />
       {/* Données structurées après le contenu : le premier élément de la page reste visible (défilement en haut à la navigation). */}
       <JsonLd
         data={{
@@ -88,7 +95,8 @@ export default async function BarometrePage({ params }: Props) {
           name: baro.title,
           inLanguage: 'fr',
           datePublished: baro.publishedAt,
-          url: `${SITE_URL}${localePath('fr', path)}`,
+          url: frUrl,
+          mainEntityOfPage: frUrl,
           image: baro.cover ? `${SITE_URL}${baro.cover.url}` : undefined,
           abstract: baro.takeaway,
           author: { '@type': 'Organization', name: 'BIG FIVE', url: SITE_URL },
@@ -98,8 +106,8 @@ export default async function BarometrePage({ params }: Props) {
       <JsonLd
         data={breadcrumbJsonLd([
           { name: 'BIG FIVE', url: `${SITE_URL}${localePath(locale)}` },
-          { name: t.eyObs, url: `${SITE_URL}${localePath(locale)}#observatoire` },
-          { name: baro.title, url: `${SITE_URL}${localePath('fr', path)}` },
+          { name: t.allBaros, url: `${SITE_URL}${listPath}` },
+          { name: baro.title, url: frUrl },
         ])}
       />
     </>

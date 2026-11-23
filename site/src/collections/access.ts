@@ -1,6 +1,10 @@
-import type { Access } from 'payload'
+import type { Access, FieldAccess } from 'payload'
 
 export const isLoggedIn: Access = ({ req }) => Boolean(req.user)
+
+export const isAdmin: Access = ({ req }) => req.user?.role === 'admin'
+
+export const isAdminField: FieldAccess = ({ req }) => req.user?.role === 'admin'
 
 // Le public ne lit que les versions publiées ; l'admin voit aussi les brouillons.
 export const publishedOrLoggedIn: Access = ({ req }) => (req.user ? true : { _status: { equals: 'published' } })

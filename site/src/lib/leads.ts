@@ -50,4 +50,4 @@ export const leadSchema = z.discriminatedUnion('type', [contactSchema, gateSchem
 export type LeadInput = z.input<typeof leadSchema>
 export type Lead = z.output<typeof leadSchema>
 
-export type LeadResult = { ok: true } | { ok: false; error: 'validation'; fields: string[] } | { ok: false; error: 'server' }
+export type LeadResult = { ok: true } | { ok: false; error: 'validation'; fields: string[] } | { ok: false; error: 'server' | 'rate' }

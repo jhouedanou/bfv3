@@ -2,7 +2,7 @@ import { revalidatePath } from 'next/cache'
 import type { CollectionAfterChangeHook, PayloadRequest } from 'payload'
 
 // Après chaque modification d'un baromètre : accueil, pages des baromètres et sitemap, dans les deux langues.
-// On cible la route interne, groupe compris : les adresses publiques « / » et « /observatoire/x »
+// On cible la route interne, groupe compris : les adresses publiques « / » et « /barometres/x »
 // sont des réécritures de /fr/… par src/proxy.ts, une adresse littérale ne suffirait pas.
 export const revalidateBarometre: CollectionAfterChangeHook = ({ doc, req }) => {
   if (req.context?.disableRevalidate) return doc

@@ -1,5 +1,7 @@
 'use server'
 
+import { createHash } from 'crypto'
+
 import { headers } from 'next/headers'
 
 import { getBarometre } from '@/lib/barometres'
@@ -8,7 +10,10 @@ import { leadSchema, type Lead, type LeadInput, type LeadResult } from '@/lib/le
 import { sendMail } from '@/lib/mail'
 import { getPayloadClient } from '@/lib/payload'
 import { getSettings } from '@/lib/settings'
+import { SITE_URL, localePath } from '@/lib/site'
 import { verifyTurnstile } from '@/lib/turnstile'
+
+import type { Where } from 'payload'
 
 // Étiquette de source en tête de l'objet (CDC § 4 et § 5).
 const SOURCE_TAG: Record<string, string> = {
@@ -39,32 +44,19 @@ const lines = (rows: [string, string | undefined][]) =>
     .map(([k, v]) => `${k} : ${v}`)
     .join('\n')
 
-// Accusés de réception (CDC § 4.5). Textes à faire valider par BIG FIVE (CDC § 8).
-const ACK = {
-  fr: {
-    subject: 'BIG FIVE — Nous avons bien reçu votre demande',
-    body: (name: string) =>
-      `Bonjour ${name},\n\nMerci pour votre message. Votre demande est bien reçue : un membre de l'équipe BIG FIVE vous recontacte rapidement.\n\nCordialement,\nL'équipe BIG FIVE\nhttps://bigfive.solutions`,
-  },
-  en: {
-    subject: 'BIG FIVE — We have received your request',
-    body: (name: string) =>
-      `Hello ${name},\n\nThank you for your message. Your request has been received: a member of the BIG FIVE team will get back to you shortly.\n\nBest regards,\nThe BIG FIVE team\nhttps://bigfive.solutions/en`,
-  },
-}
+// Limite de débit : au plus 5 envois par adresse IP en 10 minutes, et 3 par adresse e-mail en 1 heure.
+// Les envois sont comptés dans « Demandes » : la limite tient d'une fonction serverless à l'autre.
+const RATE = { ip: { max: 5, minutes: 10 }, email: { max: 3, minutes: 60 } }
 
-const ACK_NOTIFY = {
-  fr: {
-    subject: 'BIG FIVE — Inscription aux prochaines parutions',
-    body: `Bonjour,\n\nVotre adresse est bien enregistrée : vous recevrez un e-mail à chaque nouveau baromètre BIG FIVE Insights.\nPour ne plus recevoir ces annonces, répondez simplement à cet e-mail.\n\nCordialement,\nL'équipe BIG FIVE\nhttps://bigfive.solutions`,
-  },
-  en: {
-    subject: 'BIG FIVE — Subscribed to upcoming releases',
-    body: `Hello,\n\nYour address has been registered: you will receive an email with each new BIG FIVE Insights barometer.\nTo stop receiving these announcements, simply reply to this email.\n\nBest regards,\nThe BIG FIVE team\nhttps://bigfive.solutions/en`,
-  },
-}
+const hashIp = (ip: string) =>
+  createHash('sha256')
+    .update(`${process.env.PAYLOAD_SECRET ?? ''}:${ip}`)
+    .digest('hex')
+    .slice(0, 32)
 
-type Prepared = { subject: string; text: string; replyTo: string; name?: string; source: string }
+const since = (minutes: number) => new Date(Date.now() - minutes * 60_000).toISOString()
+
+type Prepared = { subject: string; text: string; replyTo: string; source: string }
 
 async function prepare(lead: Lead): Promise<Prepared | null> {
   const footer: [string, string][] = [
@@ -79,7 +71,6 @@ async function prepare(lead: Lead): Promise<Prepared | null> {
       subject: `[${tag}] ${lead.name} — ${lead.company}`,
       source: tag,
       replyTo: lead.email,
-      name: lead.name,
       text: lines([
         ['Source', tag],
         ['Nom complet', lead.name],
@@ -105,7 +96,6 @@ async function prepare(lead: Lead): Promise<Prepared | null> {
       subject: `[Baromètre] ${lead.name} — ${lead.company} — ${baro.title}`,
       source: 'Baromètre',
       replyTo: lead.email,
-      name: lead.name,
       text: lines([
         ['Source', 'Baromètre'],
         ['Baromètre', `${baro.title} (${baro.identifiant})`],
@@ -151,6 +141,20 @@ export async function submitLead(input: LeadInput): Promise<LeadResult> {
   const payload = await getPayloadClient()
   const { turnstile: _t, website: _w, ...fields } = lead
 
+  const ipHash = ip ? hashIp(ip) : null
+  const count = async (where: Where) =>
+    (await payload.count({ collection: 'demandes', overrideAccess: true, where })).totalDocs
+  const [byIp, byEmail] = await Promise.all([
+    ipHash
+      ? count({ and: [{ ipHash: { equals: ipHash } }, { createdAt: { greater_than: since(RATE.ip.minutes) } }] })
+      : 0,
+    count({ and: [{ email: { equals: lead.email } }, { createdAt: { greater_than: since(RATE.email.minutes) } }] }),
+  ])
+  if (byIp >= RATE.ip.max || byEmail >= RATE.email.max) {
+    console.warn('[lead] limite de débit atteinte')
+    return { ok: false, error: 'rate' }
+  }
+
   const record = await payload.create({
     collection: 'demandes',
     overrideAccess: true,
@@ -163,6 +167,7 @@ export async function submitLead(input: LeadInput): Promise<LeadResult> {
       page: lead.page,
       fields,
       emailStatus: 'pending',
+      ipHash,
     },
   })
 
@@ -191,11 +196,16 @@ export async function submitLead(input: LeadInput): Promise<LeadResult> {
     return { ok: false, error: 'server' }
   }
 
-  // L'accusé de réception ne doit pas faire échouer la demande.
-  const ack =
-    lead.type === 'notify' || !mail.name
-      ? ACK_NOTIFY[lead.locale]
-      : { subject: ACK[lead.locale].subject, body: ACK[lead.locale].body(mail.name) }
+  // Accusé de réception, dans la langue de la page. Textes : Admin → Textes : baromètre et origine
+  // des demandes → Accusés de réception. Aucun texte saisi par le visiteur n'y figure : l'adresse de
+  // destination n'est pas vérifiée, le message ne doit pas pouvoir servir de relais.
+  // L'accusé ne doit pas faire échouer la demande.
+  const { t } = await getSiteContent(lead.locale)
+  const notify = lead.type === 'notify'
+  const ack = {
+    subject: notify ? t.ackNotifySubject : t.ackSubject,
+    body: `${notify ? t.ackNotifyBody : t.ackBody}\n${SITE_URL}${localePath(lead.locale)}`,
+  }
   await sendMail({ to: lead.email, subject: ack.subject, text: ack.body }).catch(() => undefined)
 
   return { ok: true }

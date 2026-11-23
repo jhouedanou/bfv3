@@ -380,6 +380,7 @@ export interface Demande {
     | null;
   emailStatus?: ('pending' | 'sent' | 'failed') | null;
   emailError?: string | null;
+  ipHash?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -390,6 +391,10 @@ export interface Demande {
 export interface User {
   id: number;
   name?: string | null;
+  /**
+   * Éditeur : contenu, baromètres et demandes. Administrateur : en plus, comptes et paramètres.
+   */
+  role: 'admin' | 'editor';
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -740,6 +745,7 @@ export interface DemandesSelect<T extends boolean = true> {
   fields?: T;
   emailStatus?: T;
   emailError?: T;
+  ipHash?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -749,6 +755,7 @@ export interface DemandesSelect<T extends boolean = true> {
  */
 export interface UsersSelect<T extends boolean = true> {
   name?: T;
+  role?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;
@@ -1062,6 +1069,14 @@ export interface TextesObservatoire {
    */
   zoomCover?: string | null;
   /**
+   * Clé : barosH1
+   */
+  barosH1?: string | null;
+  /**
+   * Clé : barosMetaTitle
+   */
+  barosMetaTitle?: string | null;
+  /**
    * Clé : notifyCta
    */
   notifyCta?: string | null;
@@ -1289,6 +1304,10 @@ export interface TextesContact {
    */
   errP?: string | null;
   /**
+   * Clé : errRate
+   */
+  errRate?: string | null;
+  /**
    * Clé : retryL
    */
   retryL?: string | null;
@@ -1357,6 +1376,22 @@ export interface TextesFormulaire {
      */
     digitales?: string | null;
   };
+  /**
+   * Clé : ackSubject
+   */
+  ackSubject?: string | null;
+  /**
+   * Clé : ackBody
+   */
+  ackBody?: string | null;
+  /**
+   * Clé : ackNotifySubject
+   */
+  ackNotifySubject?: string | null;
+  /**
+   * Clé : ackNotifyBody
+   */
+  ackNotifyBody?: string | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -1392,6 +1427,62 @@ export interface TextesDiver {
    * Clé : privacyContact
    */
   privacyContact?: string | null;
+  /**
+   * Clé : ckText
+   */
+  ckText?: string | null;
+  /**
+   * Clé : ckAccept
+   */
+  ckAccept?: string | null;
+  /**
+   * Clé : ckRefuse
+   */
+  ckRefuse?: string | null;
+  /**
+   * Clé : ckCustom
+   */
+  ckCustom?: string | null;
+  /**
+   * Clé : ckMore
+   */
+  ckMore?: string | null;
+  /**
+   * Clé : ckManage
+   */
+  ckManage?: string | null;
+  /**
+   * Clé : ckTitle
+   */
+  ckTitle?: string | null;
+  /**
+   * Clé : ckNeeded
+   */
+  ckNeeded?: string | null;
+  /**
+   * Clé : ckNeededDesc
+   */
+  ckNeededDesc?: string | null;
+  /**
+   * Clé : ckAudience
+   */
+  ckAudience?: string | null;
+  /**
+   * Clé : ckAudienceDesc
+   */
+  ckAudienceDesc?: string | null;
+  /**
+   * Clé : ckAds
+   */
+  ckAds?: string | null;
+  /**
+   * Clé : ckAdsDesc
+   */
+  ckAdsDesc?: string | null;
+  /**
+   * Clé : ckSave
+   */
+  ckSave?: string | null;
   /**
    * Clé : menu
    */
@@ -1547,6 +1638,14 @@ export interface Parametre {
    * Pied de page, politique de confidentialité, message d’erreur des formulaires.
    */
   emailPublic: string;
+  /**
+   * Format international, ex. +225 … Affiché dans le pied de page et transmis à Google. Vide : non affiché.
+   */
+  telephone?: string | null;
+  /**
+   * Rue, quartier, boîte postale. Affichée dans le pied de page et transmise à Google. Vide : non affichée.
+   */
+  adresse?: string | null;
   updatedAt?: string | null;
   createdAt?: string | null;
 }
@@ -1615,6 +1714,8 @@ export interface TextesObservatoireSelect<T extends boolean = true> {
   frOnly?: T;
   zoomLabel?: T;
   zoomCover?: T;
+  barosH1?: T;
+  barosMetaTitle?: T;
   notifyCta?: T;
   notifyTitle?: T;
   notifyDesc?: T;
@@ -1678,6 +1779,7 @@ export interface TextesContactSelect<T extends boolean = true> {
   seeBaro?: T;
   errT?: T;
   errP?: T;
+  errRate?: T;
   retryL?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -1705,6 +1807,10 @@ export interface TextesFormulairesSelect<T extends boolean = true> {
         academy?: T;
         digitales?: T;
       };
+  ackSubject?: T;
+  ackBody?: T;
+  ackNotifySubject?: T;
+  ackNotifyBody?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;
@@ -1720,6 +1826,20 @@ export interface TextesDiversSelect<T extends boolean = true> {
   privacyUpdated?: T;
   privacyIntro?: T;
   privacyContact?: T;
+  ckText?: T;
+  ckAccept?: T;
+  ckRefuse?: T;
+  ckCustom?: T;
+  ckMore?: T;
+  ckManage?: T;
+  ckTitle?: T;
+  ckNeeded?: T;
+  ckNeededDesc?: T;
+  ckAudience?: T;
+  ckAudienceDesc?: T;
+  ckAds?: T;
+  ckAdsDesc?: T;
+  ckSave?: T;
   menu?: T;
   openMenu?: T;
   closeMenu?: T;
@@ -1825,6 +1945,8 @@ export interface PolitiqueSelect<T extends boolean = true> {
 export interface ParametresSelect<T extends boolean = true> {
   emailReception?: T;
   emailPublic?: T;
+  telephone?: T;
+  adresse?: T;
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

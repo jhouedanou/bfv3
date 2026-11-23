@@ -48,5 +48,7 @@ export const Demandes: CollectionConfig = {
       ],
     },
     { name: 'emailError', type: 'text', admin: { readOnly: true } },
+    // Empreinte de l'adresse IP (jamais l'adresse elle-même) : sert à limiter le nombre d'envois.
+    { name: 'ipHash', type: 'text', index: true, admin: { hidden: true } },
   ],
 }

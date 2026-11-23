@@ -5,11 +5,12 @@ import type { Locale } from '@/i18n/dictionaries'
 import type { Img, Links, SolutionDTO } from './content-types'
 import { SITE_URL, localePath } from './site'
 
-const OG_IMAGE = { url: `${SITE_URL}/images/cover-1.jpg`, width: 1400, height: 788, alt: 'BIG FIVE' }
+// Image de partage par défaut (1200 × 630), en attendant la nouvelle image fournie par BIG FIVE.
+const OG_IMAGE = { url: `${SITE_URL}/images/og-image.png`, width: 1200, height: 630, alt: 'BIG FIVE' }
 
 type Args = {
   locale: Locale
-  path: string // chemin sans préfixe de langue, ex. « / » ou « /observatoire/x »
+  path: string // chemin sans préfixe de langue, ex. « / » ou « /barometres/x »
   paths?: Record<Locale, string> // quand l'adresse diffère selon la langue (solutions, offres)
   title: string
   description: string
@@ -65,12 +66,16 @@ const AREA = [
 export const organizationJsonLd = ({
   locale,
   email,
+  telephone,
+  adresse,
   description,
   solutions,
   links,
 }: {
   locale: Locale
   email: string
+  telephone?: string
+  adresse?: string
   description: string
   solutions: SolutionDTO[]
   links: Links
@@ -81,7 +86,14 @@ export const organizationJsonLd = ({
   logo: `${SITE_URL}/images/logo-bigfive.png`,
   image: `${SITE_URL}/images/logo-bigfive.png`,
   email,
-  address: { '@type': 'PostalAddress', addressLocality: 'Abidjan', addressCountry: 'CI' },
+  // Téléphone et adresse postale : seulement s'ils sont renseignés dans Admin → Paramètres.
+  ...(telephone ? { telephone } : {}),
+  address: {
+    '@type': 'PostalAddress',
+    ...(adresse ? { streetAddress: adresse } : {}),
+    addressLocality: 'Abidjan',
+    addressCountry: 'CI',
+  },
   areaServed: AREA,
   sameAs: links.socials.map((s) => s.url),
   hasOfferCatalog: {
@@ -101,6 +113,17 @@ export const organizationJsonLd = ({
       })),
     })),
   },
+})
+
+// Accueil : le site lui-même, relié au cabinet.
+export const websiteJsonLd = (locale: Locale) => ({
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': `${SITE_URL}/#site`,
+  url: SITE_URL,
+  name: 'BIG FIVE',
+  inLanguage: locale,
+  publisher: { '@id': PROVIDER['@id'] },
 })
 
 export const serviceJsonLd = ({ name, description, url, category }: { name: string; description: string; url: string; category: string }) => ({

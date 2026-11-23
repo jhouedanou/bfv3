@@ -12,7 +12,7 @@ import { Solutions } from '@/components/sections/Solutions'
 import { isLocale } from '@/i18n/dictionaries'
 import { getPublishedBarometres } from '@/lib/barometres'
 import { getSiteContent } from '@/lib/content'
-import { JsonLd, absoluteImage, buildMetadata, organizationJsonLd } from '@/lib/seo'
+import { JsonLd, absoluteImage, buildMetadata, organizationJsonLd, websiteJsonLd } from '@/lib/seo'
 import { getSettings } from '@/lib/settings'
 
 export const revalidate = 3600
@@ -35,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function Home({ params }: Props) {
   const { locale } = await params
   if (!isLocale(locale)) notFound()
-  const [barometres, { emailPublic }, content] = await Promise.all([
+  const [barometres, { emailPublic, telephone, adresse }, content] = await Promise.all([
     getPublishedBarometres(),
     getSettings(),
     getSiteContent(locale),
@@ -71,7 +71,7 @@ export default async function Home({ params }: Props) {
               content: (
                 <>
                   <References t={t} clients={content.clients} />
-                  <Footer locale={locale} t={t} email={emailPublic} links={links} />
+                  <Footer locale={locale} t={t} email={emailPublic} telephone={telephone} adresse={adresse} links={links} />
                 </>
               ),
             },
@@ -83,11 +83,14 @@ export default async function Home({ params }: Props) {
         data={organizationJsonLd({
           locale,
           email: emailPublic,
+          telephone,
+          adresse,
           description: content.seo.description,
           solutions: content.solutions,
           links,
         })}
       />
+      <JsonLd data={websiteJsonLd(locale)} />
     </>
   )
 }

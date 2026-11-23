@@ -11,7 +11,7 @@ import { useLead } from './useLead'
 
 export function NotifyModal() {
   const { locale, t, setNotified } = useSite()
-  const { state, setState, invalid, setInvalid, send, onToken } = useLead()
+  const { state, setState, invalid, setInvalid, send, onToken, rate } = useLead()
   const [website, setWebsite] = useState('')
 
   useEffect(() => {
@@ -32,7 +32,7 @@ export function NotifyModal() {
           <p className="dlg-text">{t.nlDone}</p>
         </Success>
       ) : state === 'error' ? (
-        <Failure onRetry={() => setState('idle')} />
+        <Failure onRetry={() => setState('idle')} rate={rate} />
       ) : (
         <form className="form form--narrow" onSubmit={onSubmit} noValidate>
           <p className="eyebrow">Big Five Insights</p>

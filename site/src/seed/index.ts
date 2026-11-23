@@ -140,7 +140,8 @@ if (!accueil.couvertures?.length) {
 
 const seo = await payload.findGlobal({ slug: 'seo', locale: 'fr', fallbackLocale: false })
 if (!seo.titre) {
-  const image = await upload(HERO_COVERS[0], 'BIG FIVE')
+  // Image de partage : /images/og-image.png (1200 × 630), en attendant la nouvelle image de BIG FIVE.
+  const image = await upload('/images/og-image.png', 'BIG FIVE')
   for (const locale of ['fr', 'en'] as const) {
     await payload.updateGlobal({
       slug: 'seo',

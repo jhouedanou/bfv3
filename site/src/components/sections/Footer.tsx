@@ -2,19 +2,27 @@ import Image from 'next/image'
 
 import type { Dictionary, Locale } from '@/i18n/dictionaries'
 import type { Links } from '@/lib/content-types'
-import { localePath } from '@/lib/site'
+import { routePath } from '@/lib/site'
+
+import { CookieManage } from '../CookieConsent'
 
 export function Footer({
   locale,
   t,
   email,
   links,
+  telephone = '',
+  adresse = '',
 }: {
   locale: Locale
   t: Dictionary
   email: string
   links: Links
+  telephone?: string
+  adresse?: string
 }) {
+  // Hors production, un repère rappelle ce qui manque encore (Admin → Paramètres).
+  const todo = process.env.VERCEL_ENV !== 'production'
   return (
     // role explicite : sur l’accueil, le pied de page est dans la dernière section (dans <main>).
     <footer className="ftr" role="contentinfo">
@@ -31,6 +39,18 @@ export function Footer({
           <a href={`mailto:${email}`} className="ftr__mail">
             {email}
           </a>
+          {telephone ? (
+            <a href={`tel:${telephone.replace(/[^+\d]/g, '')}`} className="ftr__mail">
+              {telephone}
+            </a>
+          ) : (
+            todo && <p className="ftr__todo">[À COMPLÉTER : téléphone]</p>
+          )}
+          {adresse ? (
+            <address className="ftr__addr">{adresse}</address>
+          ) : (
+            todo && <p className="ftr__todo">[À COMPLÉTER : adresse postale]</p>
+          )}
         </div>
         <ul className="socials">
           {links.socials.map((s) => (
@@ -54,8 +74,12 @@ export function Footer({
             </a>
           </li>
           <li>
-            <a href={localePath(locale, '/politique-de-confidentialite')}>{t.privacy}</a>
+            <a href={routePath('barometres', locale)}>{t.allBaros}</a>
           </li>
+          <li>
+            <a href={routePath('privacy', locale)}>{t.privacy}</a>
+          </li>
+          <CookieManage label={t.ckManage} />
         </ul>
       </div>
     </footer>

@@ -2,6 +2,7 @@ import { Inter, Poppins } from 'next/font/google'
 import { notFound } from 'next/navigation'
 import type { ReactNode } from 'react'
 
+import { CookieConsent } from '@/components/CookieConsent'
 import { PageTransition } from '@/components/PageTransition'
 import { SiteProvider } from '@/components/SiteProvider'
 import { isLocale, locales } from '@/i18n/dictionaries'
@@ -52,6 +53,7 @@ export default async function LocaleLayout({
         >
           {children}
           <PageTransition />
+          <CookieConsent />
         </SiteProvider>
       </body>
     </html>

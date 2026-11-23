@@ -8,10 +8,10 @@ import { isLocale } from '@/i18n/dictionaries'
 import { getSiteContent } from '@/lib/content'
 import { buildMetadata } from '@/lib/seo'
 import { getSettings } from '@/lib/settings'
+import { routePath, routePaths } from '@/lib/site'
 
 type Props = { params: Promise<{ locale: string }> }
 
-const PATH = '/politique-de-confidentialite'
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params
@@ -19,8 +19,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { t } = await getSiteContent(locale)
   return buildMetadata({
     locale,
-    path: PATH,
-    title: `${t.privacy} — BIG FIVE`,
+    path: routePaths('privacy')[locale],
+    paths: routePaths('privacy'),
+    title: `${t.privacy} | BIG FIVE`,
     description: t.privacyIntro.slice(0, 158),
   })
 }
@@ -28,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function PrivacyPage({ params }: Props) {
   const { locale } = await params
   if (!isLocale(locale)) notFound()
-  const [{ emailPublic }, { t, privacy, links }] = await Promise.all([
+  const [{ emailPublic, telephone, adresse }, { t, privacy, links }] = await Promise.all([
     getSettings(),
     getSiteContent(locale),
   ])
@@ -36,7 +37,7 @@ export default async function PrivacyPage({ params }: Props) {
   return (
     <>
       <ScrollToTop />
-      <Header alternate={{ fr: PATH, en: `/en${PATH}` }} />
+      <Header alternate={{ fr: routePath('privacy', 'fr'), en: routePath('privacy', 'en') }} />
       <main id="contenu" className="page page--text">
         <p className="label pink">BIG FIVE</p>
         <h1 className="h2">{t.privacy}</h1>
@@ -58,7 +59,7 @@ export default async function PrivacyPage({ params }: Props) {
           {t.privacyContact} <a href={`mailto:${emailPublic}`}>{emailPublic}</a>
         </p>
       </main>
-      <Footer locale={locale} t={t} email={emailPublic} links={links} />
+      <Footer locale={locale} t={t} email={emailPublic} telephone={telephone} adresse={adresse} links={links} />
     </>
   )
 }

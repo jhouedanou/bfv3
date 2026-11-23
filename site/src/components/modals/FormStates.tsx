@@ -23,7 +23,7 @@ export function Success({ title, children, actions }: { title: string; children?
   )
 }
 
-export function Failure({ onRetry }: { onRetry: () => void }) {
+export function Failure({ onRetry, rate = false }: { onRetry: () => void; rate?: boolean }) {
   const { t, emailPublic } = useSite()
   return (
     <div className="state" role="alert">
@@ -31,9 +31,13 @@ export function Failure({ onRetry }: { onRetry: () => void }) {
         !
       </div>
       <h2 className="dlg-title">{t.errT}</h2>
-      <p className="dlg-text">
-        {t.errP} <a href={`mailto:${emailPublic}`}>{emailPublic}</a>.
-      </p>
+      {rate ? (
+        <p className="dlg-text">{t.errRate}</p>
+      ) : (
+        <p className="dlg-text">
+          {t.errP} <a href={`mailto:${emailPublic}`}>{emailPublic}</a>.
+        </p>
+      )}
       <div className="state__actions">
         <button type="button" className="btn btn--grad" onClick={onRetry}>
           {t.retryL}

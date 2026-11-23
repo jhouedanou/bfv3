@@ -551,12 +551,12 @@ export const SOCIALS = [
 // Title et description repris du site actuel bigfive.solutions (relevés le 12/10/2026).
 export const HOME_META = {
   fr: {
-    titre: 'Big Five — Conseil en Marketing Stratégique & Digital',
+    titre: 'BIG FIVE | Cabinet de conseil en marketing digital à Abidjan',
     description:
       'Big Five : agence de conseil en marketing stratégique, digital et solutions digitales sur-mesure. Abidjan, Paris, Cape Town. Nous transformons votre ambition en performance durable.',
   },
   en: {
-    titre: 'Big Five — Strategic & Digital Marketing Consultancy',
+    titre: 'BIG FIVE | Digital marketing consultancy in Abidjan',
     description:
       'Big Five: strategic and digital marketing consultancy and tailor-made digital solutions. Abidjan, Paris, Cape Town. We turn your ambition into lasting performance.',
   },

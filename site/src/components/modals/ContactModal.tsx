@@ -2,7 +2,7 @@
 
 import { useState, type FormEvent } from 'react'
 
-import { localePath } from '@/lib/site'
+import { localePath, routePath } from '@/lib/site'
 
 import { useSite, type ContactChoice, type ContactSource } from '../SiteProvider'
 import { Dialog } from './Dialog'
@@ -13,7 +13,7 @@ import { useLead } from './useLead'
 
 export function ContactModal({ source, initialChoice }: { source: ContactSource; initialChoice: ContactChoice }) {
   const { locale, t, solutions, close } = useSite()
-  const { state, setState, invalid, setInvalid, send, onToken } = useLead()
+  const { state, setState, invalid, setInvalid, send, onToken, rate } = useLead()
   const [choice, setChoice] = useState<ContactChoice>(initialChoice)
   const [website, setWebsite] = useState('')
 
@@ -67,7 +67,7 @@ export function ContactModal({ source, initialChoice }: { source: ContactSource;
           </p>
         </Success>
       ) : state === 'error' ? (
-        <Failure onRetry={() => setState('idle')} />
+        <Failure onRetry={() => setState('idle')} rate={rate} />
       ) : (
         <form className="form" onSubmit={onSubmit} noValidate>
           <h2 className="dlg-title">{t.contactTitle}</h2>
@@ -103,7 +103,7 @@ export function ContactModal({ source, initialChoice }: { source: ContactSource;
             <input type="checkbox" name="consent" required aria-invalid={err('consent') || undefined} />
             <span>
               {t.consent}{' '}
-              <a href={localePath(locale, '/politique-de-confidentialite')} target="_blank" rel="noopener">
+              <a href={routePath('privacy', locale)} target="_blank" rel="noopener">
                 {t.privacy}
               </a>
             </span>

@@ -54,7 +54,7 @@ export default async function SolutionPage({ params }: Props) {
   if (!isLocale(locale)) notFound()
   const s = await getSolution(locale, solution)
   if (!s) notFound()
-  const [{ emailPublic }, { t, links }, slugs] = await Promise.all([
+  const [{ emailPublic, telephone, adresse }, { t, links }, slugs] = await Promise.all([
     getSettings(),
     getSiteContent(locale),
     getSolutionSlugs(s.key),
@@ -74,7 +74,7 @@ export default async function SolutionPage({ params }: Props) {
           <SolutionDetail s={s} headingLevel={1} />
         </div>
       </main>
-      <Footer locale={locale} t={t} email={emailPublic} links={links} />
+      <Footer locale={locale} t={t} email={emailPublic} telephone={telephone} adresse={adresse} links={links} />
       {/* Données structurées après le contenu : le premier élément de la page reste visible (défilement en haut à la navigation). */}
       <JsonLd
         data={serviceJsonLd({

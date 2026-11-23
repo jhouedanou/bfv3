@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 import type { Dictionary, Locale } from '@/i18n/dictionaries'
 import type { BarometreDTO } from '@/lib/barometres'
-import { localePath } from '@/lib/site'
+import { routePath } from '@/lib/site'
 
 import { parution } from '../parution'
 import { BaroCard } from './BaroCard'
@@ -27,7 +27,7 @@ export function Observatoire({ locale, t, barometres, laveiye }: { locale: Local
             <ul className="archive__grid" lang="fr">
               {archive.map((a) => (
                 <li key={a.identifiant}>
-                  <Link href={localePath(locale, `/observatoire/${a.identifiant}`)} className="archive__item">
+                  <Link href={routePath('barometres', locale, `/${a.identifiant}`)} className="archive__item">
                     <span className="label pink">{parution(a.publishedAt)}</span>
                     <span className="archive__title">{a.title}</span>
                   </Link>
@@ -36,6 +36,11 @@ export function Observatoire({ locale, t, barometres, laveiye }: { locale: Local
             </ul>
           </div>
         )}
+        <p className="obs__all">
+          <Link href={routePath('barometres', locale)}>
+            {t.allBaros} <span aria-hidden="true">→</span>
+          </Link>
+        </p>
         <p className="laveiye">
           {t.laveiyeLine}{' '}
           <a href={laveiye} target="_blank" rel="noopener noreferrer">
