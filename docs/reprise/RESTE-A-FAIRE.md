@@ -128,7 +128,7 @@ Point au 12/10/2026 (mis à jour l'après-midi). Le plan d'origine (`~/.claude/p
 - **Incohérences** :
   - contact@ (CDC) contre contacts@ (site actuel) ;
   - la politique promet un lien de désinscription, alors que l'envoi prévu est manuel en copie cachée ;
-  - le lien vers le PDF interne (`cutt.ly/telcos-ci-aout26`) est dans le code public ;
+  - le lien vers le PDF interne est dans le code public ;
   - la chaîne « Payer avec FeexPay » subsiste.
 - **CMS** : Strapi ne tourne pas sur Vercel, il lui faut un serveur toujours allumé. D'où Payload 3, intégré à Next.js sur Vercel, avec Supabase Postgres et Storage, brouillons, aperçu, publication programmée (Vercel Cron), FR/EN, droits par champ. Formulaires : Turnstile et Resend.
 

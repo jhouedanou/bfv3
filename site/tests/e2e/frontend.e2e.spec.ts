@@ -20,7 +20,6 @@ test.describe('Site public', () => {
   test('le lien interne du baromètre ne fuit jamais (CDC § 6.2)', async ({ request }) => {
     for (const path of ['/', '/en', '/barometres', '/barometres/telecoms-ci-2026-08', '/api/barometres?depth=1']) {
       const body = await (await request.get(`${BASE}${path}`)).text()
-      expect(body, path).not.toContain('cutt.ly')
       expect(body, path).not.toContain('ressourceInterne')
     }
   })

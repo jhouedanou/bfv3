@@ -328,7 +328,7 @@ for (const b of BAROMETRES_SEED) {
       kpis: b.kpis.map((k) => ({ value: k.v, label: k.k, explanation: k.d })),
       takeaway: b.takeaway.charAt(0).toUpperCase() + b.takeaway.slice(1),
       cover: cover.id,
-      ressourceInterne: b.ressourceInterne,
+      // Lien interne du PDF : jamais dans le code. L’équipe le saisit dans l’admin.
       _status: 'published',
     },
   })

@@ -4,7 +4,6 @@ export const BAROMETRES_SEED = [
     "identifiant": "telecoms-ci-2026-08",
     "metaTitle": "Baromètre social media télécoms Côte d'Ivoire, août 2026",
     "cover": "assets/baro-telecoms-ci-2026-08-cover.jpeg",
-    "ressourceInterne": "https://cutt.ly/telcos-ci-aout26",
     "date": "Août 2026",
     "title": "Qui occupe vraiment l'espace social media des télécoms en Côte d'Ivoire ?",
     "scope": [
