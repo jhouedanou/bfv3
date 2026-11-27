@@ -2,7 +2,7 @@ import type { Img, Locale, SolutionDTO, Links } from '~/types'
 
 export const useSiteUrl = () => useRuntimeConfig().public.siteUrl as string
 
-// Adresse absolue. Accueil FR : https://bigfive.solutions, sans « / » final, comme le sitemap.
+// Adresse absolue. Accueil FR : https://www.bigfive.solutions, sans « / » final, comme le sitemap.
 export const absUrl = (siteUrl: string, path: string) => (path === '/' ? siteUrl : `${siteUrl}${path}`)
 
 type SeoArgs = {

@@ -60,11 +60,21 @@ Deux incohérences à corriger avec la politique de confidentialité :
 
 ## 5. Mise en ligne
 
+**État au 27 novembre 2026 (soir) : le domaine est déjà basculé.** `www.bigfive.solutions` sert le nouveau site, `bigfive.solutions` y redirige. Trois points restent ouverts sur le site en ligne :
+
+| Point | État | Conséquence |
+|---|---|---|
+| `NUXT_INDEXABLE=false` toujours présente | Le site dit à Google de ne pas l'indexer (`noindex`, `robots.txt` fermé) | Si cela dure, Google retire le site de ses résultats. À supprimer dès que le lancement est confirmé, puis redéployer. |
+| Clés Resend et Turnstile absentes | Les formulaires refusent toutes les demandes | Aucun contact n'arrive. Mise en place : `web/README.md`, section Vercel. |
+| URI de redirection Google | À ajouter pour `https://www.bigfive.solutions/__nuxt_studio/auth/google` | Sans elle, la connexion à Studio échoue sur le domaine réel. |
+
+Liste d'origine :
+
 À faire seulement après la validation sur la pré-production (https://bigfive-web-brown.vercel.app).
 
 1. Publier la politique de confidentialité mise à jour.
 2. Renseigner les identifiants GA4 et Meta Pixel en production.
-3. Ajouter `bigfive.solutions` au projet Vercel et basculer le DNS.
+3. Ajouter `bigfive.solutions` au projet Vercel et basculer le DNS. **Fait le 27/11.**
 4. Supprimer `NUXT_INDEXABLE=false` dans Vercel, puis redéployer.
 5. Vérifier en ligne : `/sitemap.xml`, `/robots.txt`, 301 de `/thank-you`.
 6. Déclarer le sitemap dans la Search Console.

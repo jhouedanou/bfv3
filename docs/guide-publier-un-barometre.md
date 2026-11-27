@@ -40,7 +40,7 @@ Pour alléger une image trop lourde, utilisez un outil gratuit comme [Squoosh](h
 
 ### 1. Se connecter
 
-1. Ouvrez `https://bigfive.solutions/_studio`.
+1. Ouvrez `https://www.bigfive.solutions/_studio`.
 2. Cliquez sur **Se connecter avec Google** et choisissez votre compte.
 
 ### 2. Envoyer la couverture
@@ -57,7 +57,7 @@ Pour alléger une image trop lourde, utilisez un outil gratuit comme [Squoosh](h
 ### 4. Remplir la fiche
 
 1. **Identifiant** : le nom du fichier, sans `.yml`. Exemple : `telecoms-ci-2026-08`.
-   Il devient l'adresse de la page : `bigfive.solutions/barometres/telecoms-ci-2026-08`.
+   Il devient l'adresse de la page : `www.bigfive.solutions/barometres/telecoms-ci-2026-08`.
    Ne le changez plus après la publication.
 2. **Date de parution** : au format AAAA-MM-JJ.
 3. **Titre** : la question.
@@ -80,7 +80,7 @@ Pour garder un brouillon, laissez **Publié** décoché.
 ### 6. Vérifier
 
 1. Attendez 2 minutes.
-2. Ouvrez `bigfive.solutions/barometres/<identifiant>`.
+2. Ouvrez `www.bigfive.solutions/barometres/<identifiant>`.
 3. Relisez la page : titre, chiffres, image.
 
 ## Corriger ou retirer un baromètre

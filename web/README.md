@@ -1,4 +1,4 @@
-# Site BIG FIVE — bigfive.solutions
+# Site BIG FIVE — www.bigfive.solutions
 
 Nuxt 4 + Nuxt Content + Nuxt Studio, hébergé sur Vercel. Aucune base de données : tout le contenu est dans `content/`, versionné dans Git.
 
@@ -74,7 +74,13 @@ pnpm build && node .output/server/index.mjs   # version de production
 - Pré-production : https://bigfive-web-brown.vercel.app (noindex, `NUXT_INDEXABLE=false`).
 - Projet `bigfive-web`, Root Directory `web`, framework Nuxt.
 - Déploiement manuel depuis `web/` : `npx vercel deploy --prod`. `.vercelignore` exclut les sorties locales (`.output`, `.nuxt`), sinon Vercel les reprendrait telles quelles.
+- Domaine : `www.bigfive.solutions` est l'adresse principale ; `bigfive.solutions` y redirige (308). `NUXT_PUBLIC_SITE_URL=https://www.bigfive.solutions`.
 - Variables : voir `.env.example`. En production, Resend et Turnstile sont obligatoires : sans eux, les formulaires refusent l'envoi.
+- Formulaires, mise en place :
+  1. **Resend** (resend.com) : Domains → Add Domain → `bigfiveabidjan.com` (le domaine de l'expéditeur `site@bigfiveabidjan.com`). Ajouter chez l'hébergeur DNS les enregistrements affichés (SPF, DKIM), attendre « Verified ». Puis API Keys → Create API Key, permission « Sending access » → `NUXT_RESEND_API_KEY`.
+  2. **Cloudflare Turnstile** (anti-robots) : Turnstile → Add widget, domaines `www.bigfive.solutions`, `bigfive.solutions` et `bigfive-web-brown.vercel.app`, mode « Managed ». Site Key → `NUXT_PUBLIC_TURNSTILE_SITE_KEY`, Secret Key → `NUXT_TURNSTILE_SECRET_KEY`.
+  3. Les demandes arrivent à l'e-mail de `content/reglages.yml` (`contact@bigfiveabidjan.com`), ou à `NUXT_LEADS_TO` si elle est renseignée.
+  4. Redéployer, puis envoyer une demande de test depuis le site.
 - Nuxt Studio :
   - Connexion des éditeurs avec **Google** (retenue pour l'équipe BIG FIVE) :
     1. Google Cloud Console → APIs & Services → Credentials → Create OAuth client ID (Web application).

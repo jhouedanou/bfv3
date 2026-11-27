@@ -1,7 +1,7 @@
-// BIG FIVE — bigfive.solutions. Nuxt 4 + Nuxt Content (fichiers dans content/) + Nuxt Studio (/_studio).
+// BIG FIVE — www.bigfive.solutions (bigfive.solutions y redirige). Nuxt 4 + Nuxt Content (fichiers dans content/) + Nuxt Studio (/_studio).
 // Toutes les pages sont générées au build (prerender) : HTML complet pour Google, aucune base à héberger.
 
-const siteUrl = (process.env.NUXT_PUBLIC_SITE_URL || 'https://bigfive.solutions').replace(/\/$/, '')
+const siteUrl = (process.env.NUXT_PUBLIC_SITE_URL || 'https://www.bigfive.solutions').replace(/\/$/, '')
 // Pré-production et aperçus Vercel : jamais indexés.
 // NUXT_INDEXABLE=false (variable de build) ferme aussi la production : pré-production sur
 // bigfive-web.vercel.app avant la bascule du domaine. À retirer au lancement, puis rebuild.
