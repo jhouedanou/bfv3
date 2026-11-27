@@ -38,7 +38,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     resendApiKey: '',
-    mailFrom: 'BIG FIVE <site@bigfiveabidjan.com>',
+    mailFrom: 'BIG FIVE <site@bigfive.solutions>',
     // Adresse qui reçoit les demandes des formulaires (sinon : email de content/reglages.yml).
     leadsTo: '',
     // Journal des connexions à Studio : adresse qui reçoit un e-mail à chaque connexion (NUXT_AUDIT_TO).
