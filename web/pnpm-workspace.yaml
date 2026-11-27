@@ -1,0 +1,9 @@
+allowBuilds:
+  esbuild: true
+  sharp: true
+
+# TEMPORAIRE (27/11/2026) : vue-router 5.5.2 plante en dev
+# (« __VUE_OPTIONS_API__ is not defined »). La 5.5.3 corrige le bug mais elle est
+# encore bloquée par minimumReleaseAge. À retirer dès que la 5.5.3 s'installe.
+overrides:
+  vue-router: 5.5.1
