@@ -58,8 +58,19 @@ type LeadResult = { ok: true } | { ok: false; error: 'validation'; fields: strin
 // ── Limite de débit : 5 envois par IP en 10 minutes, 3 par adresse e-mail en 1 heure ─────
 // En mémoire, par instance de fonction : un frein, pas une garantie (pas de base de données).
 
-const RATE = { ip: { max: 5, minutes: 10 }, email: { max: 3, minutes: 60 } }
+// Limites par instance de fonction (mémoire) : un frein, pas une garantie. La protection
+// principale contre les envois automatisés est Turnstile, obligatoire sur Vercel.
+// « ack » plafonne les accusés de réception envoyés à des adresses saisies par le visiteur.
+const RATE = { ip: { max: 5, minutes: 10 }, email: { max: 3, minutes: 60 }, ack: { max: 30, minutes: 60 } }
 const hits = new Map<string, number[]>()
+
+// Une même boîte sous plusieurs formes (Nom+tag@, n.o.m@gmail.com) compte pour une seule.
+const mailboxKey = (email: string) => {
+  const [local = '', domain = ''] = email.trim().toLowerCase().split('@')
+  const base = local.split('+')[0] ?? ''
+  const gmail = domain === 'gmail.com' || domain === 'googlemail.com'
+  return `email:${gmail ? base.replace(/\./g, '') : base}@${gmail ? 'gmail.com' : domain}`
+}
 
 const recent = (key: string, minutes: number) => {
   const now = Date.now()
@@ -247,17 +258,18 @@ export default defineEventHandler(async (event): Promise<LeadResult> => {
   }
 
   const ipKey = ip ? `ip:${ip}` : null
-  const emailKey = `email:${lead.email.toLowerCase()}`
+  const emailKey = mailboxKey(lead.email)
   if ((ipKey && recent(ipKey, RATE.ip.minutes).length >= RATE.ip.max) || recent(emailKey, RATE.email.minutes).length >= RATE.email.max) {
     console.warn('[lead] limite de débit atteinte')
     return reply(event, 429, { ok: false, error: 'rate' })
   }
+  // Créneaux réservés dès le contrôle, sans await entre les deux : des requêtes simultanées
+  // ne peuvent pas toutes passer avant que le compteur augmente.
+  if (ipKey) record(ipKey)
+  record(emailKey)
 
   const mail = await prepare(event, lead)
   if (!mail) return reply(event, 400, { ok: false, error: 'validation', fields: ['barometre'] })
-
-  if (ipKey) record(ipKey)
-  record(emailKey)
 
   const reglages = await queryCollection(event, 'reglages').first()
   const to = config.leadsTo || reglages?.email || 'contact@bigfiveabidjan.com'
@@ -286,7 +298,9 @@ export default defineEventHandler(async (event): Promise<LeadResult> => {
   const notify = lead.type === 'notify'
   const subject = notify ? t.ackNotifySubject : t.ackSubject
   const body = notify ? t.ackNotifyBody : t.ackBody
-  if (subject && body) {
+  // Plafond global : au-delà, la demande part quand même chez BIG FIVE, sans accusé.
+  if (subject && body && recent('ack', RATE.ack.minutes).length < RATE.ack.max) {
+    record('ack')
     const home = `${config.public.siteUrl}${lead.locale === 'en' ? '/en' : ''}`
     await sendMail(event, { to: lead.email, subject, text: `${body}\n${home}` }).catch(() => undefined)
   }
