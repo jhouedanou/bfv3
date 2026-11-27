@@ -60,13 +60,15 @@ Deux incohérences à corriger avec la politique de confidentialité :
 
 ## 5. Mise en ligne
 
-**État au 27 novembre 2026 (soir) : le domaine est déjà basculé.** `www.bigfive.solutions` sert le nouveau site, `bigfive.solutions` y redirige. Trois points restent ouverts sur le site en ligne :
+**État au 27 novembre 2026 (soir) : le site est en ligne.** `www.bigfive.solutions` sert le nouveau site, `bigfive.solutions` y redirige. Le site est ouvert à Google (`NUXT_INDEXABLE` supprimée, `robots.txt` ouvert, adresses canoniques en `www`).
+
+Restent ouverts sur le site en ligne :
 
 | Point | État | Conséquence |
 |---|---|---|
-| `NUXT_INDEXABLE=false` toujours présente | Le site dit à Google de ne pas l'indexer (`noindex`, `robots.txt` fermé) | Si cela dure, Google retire le site de ses résultats. À supprimer dès que le lancement est confirmé, puis redéployer. |
-| Clés Resend et Turnstile absentes | Les formulaires refusent toutes les demandes | Aucun contact n'arrive. Mise en place : `web/README.md`, section Vercel. |
+| Clé secrète Turnstile et clé Resend | Absentes (la clé de site Turnstile est en place) | Les formulaires refusent toutes les demandes : aucun contact n'arrive. Mise en place : `web/README.md`, section Vercel. |
 | URI de redirection Google | À ajouter pour `https://www.bigfive.solutions/__nuxt_studio/auth/google` | Sans elle, la connexion à Studio échoue sur le domaine réel. |
+| Search Console | Sitemap à déclarer : `https://www.bigfive.solutions/sitemap.xml` | Accélère la prise en compte par Google. |
 
 Liste d'origine :
 
