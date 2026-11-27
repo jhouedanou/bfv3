@@ -1,0 +1,18 @@
+key: veille
+locale: en
+order: 1
+slug: monitoring-intelligence
+name: Monitoring & Intelligence
+metaTitle: Monitoring & Intelligence in Côte d'Ivoire | BIG FIVE
+step: Collect · Decode
+heroSub: Audit, social media listening, competitive intelligence
+tag: Understand before others do.
+promise: Turn media noise into actionable weak signals. Understand before others do.
+gets:
+  - Monitoring dashboards
+  - Periodic analysis reports
+  - Alerts and recommendations
+lead: Cossi, Research & Monitoring Lead
+pole: intel
+image: /images/sol-veille-flip.jpg
+imagePosition: 42% center

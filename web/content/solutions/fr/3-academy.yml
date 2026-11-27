@@ -1,0 +1,18 @@
+key: academy
+locale: fr
+order: 3
+slug: big-five-academy
+name: Big Five Academy
+metaTitle: "Big Five Academy : formations à Abidjan | BIG FIVE"
+step: Activer vos équipes
+heroSub: Formation, renforcement des capacités, transfert de compétences
+tag: Rendre vos équipes autonomes.
+promise: Renforcement de capacité et transfert de compétences pour l'autonomie de vos équipes.
+gets:
+  - Des équipes autonomes
+  - Supports et outils réutilisables
+  - Évaluation des acquis
+lead: Yannick Boka, Directeur du pôle
+pole: intel
+image: /images/sol-academy-hd.jpg
+imagePosition: 55% center

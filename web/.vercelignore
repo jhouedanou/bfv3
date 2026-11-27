@@ -1,0 +1,9 @@
+# Sorties locales : ne jamais les envoyer (Vercel recompile tout).
+node_modules
+.nuxt
+.output
+.data
+.vercel
+.env
+.env.*
+!.env.example

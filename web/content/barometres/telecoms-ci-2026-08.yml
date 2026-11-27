@@ -1,0 +1,21 @@
+identifiant: telecoms-ci-2026-08
+published: true
+publishedAt: 2026-08-01
+title: Qui occupe vraiment l'espace social media des télécoms en Côte d'Ivoire ?
+metaTitle: Baromètre social media télécoms Côte d'Ivoire, août 2026
+cover: /images/baro-telecoms-ci-2026-08-cover.jpeg
+scope:
+  - 3 opérateurs télécoms
+  - Facebook + TikTok
+  - 299 posts · 36 013 commentaires analysés
+kpis:
+  - value: 76,59 %
+    label: Conversation
+    explanation: des commentaires captés par un seul opérateur
+  - value: 70,59 %
+    label: Visibilité TikTok
+    explanation: des vues obtenues avec seulement 14 vidéos
+  - value: 3,12 %
+    label: Brand love
+    explanation: "au mieux : l'attachement affiché reste rare"
+takeaway: volume, conversation et visibilité ne racontent pas la même histoire.

@@ -1,0 +1,3 @@
+<template>
+  <PrivacyView />
+</template>

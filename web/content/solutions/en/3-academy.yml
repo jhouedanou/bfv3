@@ -1,0 +1,18 @@
+key: academy
+locale: en
+order: 3
+slug: big-five-academy
+name: Big Five Academy
+metaTitle: "Big Five Academy: training in Côte d'Ivoire | BIG FIVE"
+step: Activate your teams
+heroSub: Training, capacity building, skills transfer
+tag: Make your teams self-sufficient.
+promise: Capacity building and skills transfer so your teams can work autonomously.
+gets:
+  - Self-sufficient teams
+  - Reusable materials and tools
+  - Learning assessment
+lead: Yannick Boka, Head of Division
+pole: intel
+image: /images/sol-academy-hd.jpg
+imagePosition: 55% center

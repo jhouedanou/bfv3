@@ -1,0 +1,33 @@
+locale: fr
+sections:
+  - title: Données collectées
+    paragraphs:
+      - Nous collectons des données personnelles uniquement lorsque vous nous les transmettez volontairement via les formulaires du site.
+      - "Formulaire de contact : nom complet, adresse e-mail professionnelle, entreprise, téléphone / WhatsApp, fonction et, de manière facultative, secteur d'activité, ainsi que l'accompagnement qui vous intéresse et la description de votre besoin."
+      - "Formulaire « Obtenir le baromètre » : nom complet, adresse e-mail professionnelle, entreprise, poste et, de manière facultative, téléphone, ainsi que le baromètre demandé."
+      - "Commande d'une étude sur mesure : les mêmes données que le formulaire de contact."
+      - "Notification des prochaines parutions (bouton « Me notifier » ou case à cocher dans un formulaire) : votre adresse e-mail."
+  - title: Finalités du traitement
+    paragraphs:
+      - "Vos données sont utilisées exclusivement pour : répondre à votre demande et vous orienter vers l'accompagnement adapté ; vous recontacter pour vous présenter un baromètre et ses conditions d'accès, ou établir un devis d'étude sur mesure ; assurer le suivi de nos échanges commerciaux ; vous informer par e-mail de la parution de nos prochains baromètres, si vous l'avez demandé."
+      - Elles ne sont en aucun cas cédées, louées ou vendues à des tiers.
+  - title: Base légale et consentement
+    paragraphs:
+      - La collecte repose sur votre consentement explicite, exprimé lors de l'envoi d'un formulaire. Vous pouvez retirer ce consentement à tout moment, notamment via le lien de désinscription présent dans chaque e-mail de notification.
+  - title: Destinataires des données
+    paragraphs:
+      - Vos données sont transmises à la boîte de réception de BIG FIVE et destinées aux seules équipes en charge de votre demande (équipe commerciale et pôle concerné). Elles peuvent être hébergées ou traitées par des prestataires techniques (hébergement du site, outil d'envoi d'e-mails, tableur de suivi) agissant pour notre compte et tenus à la confidentialité.
+      - Aucun paiement n'est effectué sur ce site. Le site Laveiye, accessible par un lien, dispose de sa propre politique de confidentialité.
+  - title: Durée de conservation
+    paragraphs:
+      - Les données issues des formulaires de contact, de demande de baromètre et de commande d'étude sont conservées au maximum 3 ans à compter de notre dernier échange. Votre adresse e-mail de notification est conservée jusqu'à votre désinscription. Au-delà, les données sont supprimées ou anonymisées.
+  - title: Vos droits
+    paragraphs:
+      - Conformément à la réglementation en vigueur, vous disposez d'un droit d'accès, de rectification, d'opposition, de suppression et de portabilité de vos données. Pour les exercer, écrivez-nous à contact@bigfiveabidjan.com ; nous vous répondons dans les meilleurs délais.
+      - Vous pouvez également adresser une réclamation à l'ARTCI (Autorité de Régulation des Télécommunications/TIC de Côte d'Ivoire), autorité de protection des données personnelles.
+  - title: Sécurité des données
+    paragraphs:
+      - BIG FIVE met en œuvre des mesures techniques et organisationnelles appropriées pour protéger vos données contre tout accès non autorisé, modification, divulgation ou destruction. Les échanges avec le site sont chiffrés via le protocole HTTPS.
+  - title: Cookies
+    paragraphs:
+      - Ce site utilise uniquement des cookies et un stockage local techniques, nécessaires à son bon fonctionnement (par exemple la mémorisation de la langue choisie). Aucun cookie publicitaire ou de pistage n'est utilisé. Vous pouvez configurer votre navigateur pour les refuser.

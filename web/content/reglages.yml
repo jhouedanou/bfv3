@@ -1,0 +1,81 @@
+email: contact@bigfiveabidjan.com
+telephone: ""
+adresse: ""
+laveiye: https://laveiye.com/
+ogImage: /images/og-image.png
+personnage: /images/perso-cabinet.png
+covers:
+  - /images/cover-1.jpg
+  - /images/cover-2.jpg
+  - /images/cover-3.jpg
+socials:
+  - label: LinkedIn
+    short: in
+    url: https://www.linkedin.com/company/big-five-solutions/
+  - label: Facebook
+    short: f
+    url: https://www.facebook.com/agencebigfive/
+  - label: YouTube
+    short: yt
+    url: https://www.youtube.com/channel/UCKe6vzOcThB8uzmwZhjK4QQ
+clients:
+  - name: AIN
+    logo: /images/clients/AIN.png
+  - name: Avegott
+    logo: /images/clients/AVEGOTT.png
+  - name: BGI
+    logo: /images/clients/BGI.png
+  - name: Bracongo
+    logo: /images/clients/BRACONGO.png
+  - name: Bralico
+    logo: /images/clients/BRALICO.png
+  - name: Bramali
+    logo: /images/clients/BRAMALI.png
+  - name: Brasimba
+    logo: /images/clients/BRASIMBA.png
+  - name: Canal+
+    logo: /images/clients/CANALPLUS.png
+  - name: Groupe Castel
+    logo: /images/clients/CASTEL.png
+  - name: Castel Angola
+    logo: /images/clients/CASTEL_ANGOLA.png
+  - name: Castel Malawi
+    logo: /images/clients/CASTEL_MALAWI.png
+  - name: Cémoi
+    logo: /images/clients/CEMOI.png
+  - name: CFAO Mobility
+    logo: /images/clients/CFAO_MOBILITY.png
+  - name: Ciprel
+    logo: /images/clients/CIPREL.png
+  - name: Eat is Family
+    logo: /images/clients/EAT_IS_FAMILY.png
+  - name: FeexPay
+    logo: /images/clients/FEEXPAY.png
+  - name: FrieslandCampina
+    logo: /images/clients/FRIESLANDCAMPINA.png
+  - name: iCube
+    logo: /images/clients/ICUBE.png
+  - name: Koura
+    logo: /images/clients/KOURA.png
+  - name: SABC
+    logo: /images/clients/SABC.png
+  - name: Sania
+    logo: /images/clients/SANIA.png
+  - name: Sobebra
+    logo: /images/clients/SOBEBRA.png
+  - name: Soboa
+    logo: /images/clients/SOBOA.png
+  - name: Sobraga
+    logo: /images/clients/SOBRAGA.png
+  - name: Sobragui
+    logo: /images/clients/SOBRAGUI.png
+  - name: Soeguibe
+    logo: /images/clients/SOEGUIBE.png
+  - name: Solibra
+    logo: /images/clients/SOLIBRA.png
+  - name: Star Madagascar
+    logo: /images/clients/STAR_MADAGASCAR.png
+  - name: Sunu
+    logo: /images/clients/SUNU.png
+  - name: Zerunorth
+    logo: /images/clients/ZERUNORTH.png

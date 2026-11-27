@@ -1,0 +1,33 @@
+locale: en
+sections:
+  - title: Data we collect
+    paragraphs:
+      - We only collect personal data that you voluntarily provide through the forms on this website.
+      - "Contact form: full name, work email, company, phone / WhatsApp, job title and, optionally, industry, as well as the service you are interested in and a description of your need."
+      - '"Get the barometer" form: full name, work email, company, job title and, optionally, phone, as well as the barometer requested.'
+      - "Custom study order: the same data as the contact form."
+      - 'Notification of upcoming releases ("Notify me" button or checkbox in a form): your email address.'
+  - title: Purposes of processing
+    paragraphs:
+      - "Your data is used exclusively to: respond to your request and point you to the right service; get back to you to present a barometer and its access terms, or to quote a custom study; follow up on our business exchanges; notify you by email when our next barometers are released, if you asked us to."
+      - It is never transferred, rented or sold to third parties.
+  - title: Legal basis and consent
+    paragraphs:
+      - Collection is based on your explicit consent, given when you submit a form. You may withdraw this consent at any time, in particular via the unsubscribe link included in every notification email.
+  - title: Who receives your data
+    paragraphs:
+      - Your data is sent to the BIG FIVE inbox and intended solely for the teams handling your request (sales team and relevant division). It may be hosted or processed by technical service providers (website hosting, email delivery tool, tracking spreadsheet) acting on our behalf and bound by confidentiality.
+      - No payment is made on this website. The Laveiye website, accessible via a link, has its own privacy policy.
+  - title: Retention period
+    paragraphs:
+      - Data from the contact, barometer request and custom study forms is kept for a maximum of 3 years from our last exchange. Your notification email address is kept until you unsubscribe. After that, data is deleted or anonymized.
+  - title: Your rights
+    paragraphs:
+      - In accordance with applicable regulations, you have the right to access, rectify, object to, delete and port your data. To exercise these rights, write to us at contact@bigfiveabidjan.com; we will respond as promptly as possible.
+      - You may also lodge a complaint with ARTCI (Autorité de Régulation des Télécommunications/TIC de Côte d'Ivoire), the personal data protection authority.
+  - title: Data security
+    paragraphs:
+      - BIG FIVE implements appropriate technical and organizational measures to protect your data against unauthorized access, alteration, disclosure or destruction. Communications with the website are encrypted via HTTPS.
+  - title: Cookies
+    paragraphs:
+      - This website only uses technical cookies and local storage needed for it to work properly (for example, remembering your chosen language). No advertising or tracking cookies are used. You can set your browser to refuse them.

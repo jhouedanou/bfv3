@@ -1,0 +1,38 @@
+{
+  "name": "bigfive-web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "import:textes": "tsx scripts/import-textes.ts"
+  },
+  "engines": {
+    "node": ">=20.19"
+  },
+  "dependencies": {
+    "@nuxt/content": "^3.17.0",
+    "@nuxt/fonts": "^1.2.1",
+    "@nuxt/image": "^2.2.1",
+    "nuxt": "^4.7.0",
+    "nuxt-studio": "^1.8.2",
+    "swiper": "^14.4.0",
+    "zod": "^3.25.76"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "better-sqlite3",
+      "sharp",
+      "esbuild",
+      "@parcel/watcher",
+      "vue-demi"
+    ]
+  },
+  "devDependencies": {
+    "tsx": "^4.23.15",
+    "yaml": "^2.9.1"
+  }
+}

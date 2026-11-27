@@ -1,0 +1,28 @@
+locale: en
+seo:
+  title: BIG FIVE | Digital marketing consultancy in Abidjan
+  description: "Big Five: strategic and digital marketing consultancy and tailor-made digital solutions. Abidjan, Paris, Cape Town. We turn your ambition into lasting performance."
+poles:
+  - pole: intel
+    name: Intelligence & Consulting Division
+    step: Collect · Decode · Analyze
+    promise: Understand the market and guide your decisions.
+    items:
+      - Social media audit and listening
+      - Competitive intelligence
+      - Strategic consulting
+      - Training – Big Five Academy
+    lead: Yannick Boka
+    role: Executive Director & Head of Division
+  - pole: tech
+    name: Tech & Solutions Division
+    step: Activate
+    promise: Build the tools that activate your strategy.
+    items:
+      - Website creation
+      - CRM and data collection
+      - Web and mobile apps
+      - SaaS platforms
+      - Applied AI
+    lead: Jean-Luc Houedanou
+    role: Director of Digital Solutions
