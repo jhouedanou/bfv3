@@ -1,0 +1,53 @@
+BIG FIVE — Solution « Solutions Digitales » (fiche et page)
+Adresse : https://bigfive.solutions/solutions/solutions-digitales
+
+Corrigez directement dans ce fichier (ou indiquez vos corrections en réponse à l'e-mail).
+Ne modifiez pas les lignes « ===== ».
+
+========================================================================
+FRANÇAIS
+========================================================================
+
+Nom : Solutions Digitales
+Adresse : /solutions/solutions-digitales
+Étape : Activer vos outils
+Phrase sous le cercle : Du CRM à la plateforme SaaS.
+Promesse : Développement sur-mesure et IA appliquée. La technologie par la preuve.
+
+Ce que nous faisons (une page par offre, fichiers 4-…) :
+  - Création de sites web
+  - CRM et collecte de données qualifiées
+  - Applications web et mobile
+  - Plateformes SaaS et marque blanche
+  - IA appliquée
+
+Ce que vous obtenez :
+  - Une solution déployée et maintenue
+  - Des données exploitables
+  - Des tableaux de bord de pilotage
+
+Porté par : Jean-Luc Houedanou, Directeur des Solutions digitales
+
+========================================================================
+ENGLISH
+========================================================================
+
+Nom : Digital Solutions
+Adresse : /en/solutions/digital-solutions
+Étape : Activate your tools
+Phrase sous le cercle : From CRM to SaaS platform.
+Promesse : Custom development and applied AI. Technology, proven.
+
+What we do (une page par offre, fichiers 4-…) :
+  - Website creation
+  - CRM and qualified data collection
+  - Web and mobile apps
+  - SaaS and white-label platforms
+  - Applied AI
+
+What you get :
+  - A deployed, maintained solution
+  - Actionable data
+  - Performance dashboards
+
+Led by : Jean-Luc Houedanou, Director of Digital Solutions

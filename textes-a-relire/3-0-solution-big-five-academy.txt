@@ -1,0 +1,51 @@
+BIG FIVE — Solution « Big Five Academy » (fiche et page)
+Adresse : https://bigfive.solutions/solutions/big-five-academy
+
+Corrigez directement dans ce fichier (ou indiquez vos corrections en réponse à l'e-mail).
+Ne modifiez pas les lignes « ===== ».
+
+========================================================================
+FRANÇAIS
+========================================================================
+
+Nom : Big Five Academy
+Adresse : /solutions/big-five-academy
+Étape : Activer vos équipes
+Phrase sous le cercle : Rendre vos équipes autonomes.
+Promesse : Renforcement de capacité et transfert de compétences pour l'autonomie de vos équipes.
+
+Ce que nous faisons (une page par offre, fichiers 3-…) :
+  - Formations social media et marketing digital
+  - Ateliers sur mesure pour vos équipes
+  - Coaching des équipes marketing
+  - Programmes en ligne (E-Masterclass)
+
+Ce que vous obtenez :
+  - Des équipes autonomes
+  - Supports et outils réutilisables
+  - Évaluation des acquis
+
+Porté par : Yannick Boka, Directeur du pôle
+
+========================================================================
+ENGLISH
+========================================================================
+
+Nom : Big Five Academy
+Adresse : /en/solutions/big-five-academy
+Étape : Activate your teams
+Phrase sous le cercle : Make your teams self-sufficient.
+Promesse : Capacity building and skills transfer so your teams can work autonomously.
+
+What we do (une page par offre, fichiers 3-…) :
+  - Social media and digital marketing training
+  - Tailored team workshops
+  - Marketing team coaching
+  - Online programs (E-Masterclass)
+
+What you get :
+  - Self-sufficient teams
+  - Reusable materials and tools
+  - Learning assessment
+
+Led by : Yannick Boka, Head of Division

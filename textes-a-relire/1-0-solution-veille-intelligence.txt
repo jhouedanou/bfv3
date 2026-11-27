@@ -1,0 +1,51 @@
+BIG FIVE — Solution « Veille & Intelligence » (fiche et page)
+Adresse : https://bigfive.solutions/solutions/veille-intelligence
+
+Corrigez directement dans ce fichier (ou indiquez vos corrections en réponse à l'e-mail).
+Ne modifiez pas les lignes « ===== ».
+
+========================================================================
+FRANÇAIS
+========================================================================
+
+Nom : Veille & Intelligence
+Adresse : /solutions/veille-intelligence
+Étape : Collecter · Décrypter
+Phrase sous le cercle : Comprendre avant les autres.
+Promesse : Transformez le bruit médiatique en signaux faibles exploitables. Comprendre avant les autres.
+
+Ce que nous faisons (une page par offre, fichiers 1-…) :
+  - Audit de présence digitale et de réputation
+  - Écoute social media (social listening)
+  - Veille concurrentielle
+  - Détection des tendances et signaux faibles
+
+Ce que vous obtenez :
+  - Tableaux de bord de veille
+  - Rapports d'analyse périodiques
+  - Alertes et recommandations
+
+Porté par : Cossi, Lead Études & Veille
+
+========================================================================
+ENGLISH
+========================================================================
+
+Nom : Monitoring & Intelligence
+Adresse : /en/solutions/monitoring-intelligence
+Étape : Collect · Decode
+Phrase sous le cercle : Understand before others do.
+Promesse : Turn media noise into actionable weak signals. Understand before others do.
+
+What we do (une page par offre, fichiers 1-…) :
+  - Digital presence and reputation audit
+  - Social media listening
+  - Competitive intelligence
+  - Trend and weak-signal detection
+
+What you get :
+  - Monitoring dashboards
+  - Periodic analysis reports
+  - Alerts and recommendations
+
+Led by : Cossi, Research & Monitoring Lead
