@@ -9,6 +9,14 @@ import YAML from 'yaml'
 import { dictionaries } from '../../site/src/i18n/dictionaries'
 import { BAROMETRES_SEED } from '../../site/src/seed/barometres'
 import {
+
+// OBSOLÈTE depuis le 27/11/2026 : content/ a été réorganisé (dossiers numérotés, textes regroupés
+// par section) et l'anglais a été relu directement dans content/. Ce script écrirait l'ancienne
+// arborescence et écraserait ces corrections. Il est gardé pour référence, mais ne s'exécute plus.
+console.error('import-textes est obsolète : content/ se modifie désormais dans Nuxt Studio. Voir web/README.md.')
+process.exit(1)
+
+
   CLIENTS,
   HERO_COVERS,
   HOME_META,

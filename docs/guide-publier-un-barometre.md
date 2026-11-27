@@ -50,32 +50,32 @@ Pour alléger une image trop lourde, utilisez un outil gratuit comme [Squoosh](h
 
 ### 3. Créer la fiche
 
-1. Ouvrez le dossier `barometres`.
+1. Ouvrez le dossier **Barometres**.
 2. Créez un fichier nommé `secteur-pays-annee-mois.yml`, en minuscules, sans accent.
    Exemple : `telecoms-ci-2026-08.yml`.
 
 ### 4. Remplir la fiche
 
-1. **identifiant** : le nom du fichier, sans `.yml`. Exemple : `telecoms-ci-2026-08`.
+1. **Identifiant** : le nom du fichier, sans `.yml`. Exemple : `telecoms-ci-2026-08`.
    Il devient l'adresse de la page : `bigfive.solutions/barometres/telecoms-ci-2026-08`.
    Ne le changez plus après la publication.
-2. **publishedAt** : la date de parution.
-3. **title** : la question.
-4. **metaTitle** : le titre pour Google, 60 caractères au maximum.
+2. **Date de parution** : au format AAAA-MM-JJ.
+3. **Titre** : la question.
+4. **Titre affiché dans Google** : 60 caractères au maximum.
    Mettez-y le secteur et le pays. Exemple : « Baromètre télécoms Côte d'Ivoire, août 2026 ».
-5. **scope** : les 3 éléments du périmètre.
-6. **kpis** : les 3 chiffres clés (valeur, libellé, explication).
-7. **takeaway** : la phrase à retenir.
-8. **cover** : choisissez l'image dans la médiathèque.
+5. **Périmètre** : les 3 éléments.
+6. **Chiffres clés** : les 3 chiffres (chiffre, libellé court, explication).
+7. **À retenir** : la phrase.
+8. **Image de couverture** : choisissez l'image dans la médiathèque.
 
 ### 5. Publier
 
 Vous avez deux choix :
 
-- **Publier tout de suite** : cochez **published**, puis cliquez sur **Publier**.
-- **Programmer** : cochez **published**, mettez une date future dans **publishedAt**, puis cliquez sur **Publier**. Le baromètre reste masqué jusqu'à cette date. Il apparaît le matin du jour prévu.
+- **Publier tout de suite** : cochez **Publié**, puis cliquez sur **Publier**.
+- **Programmer** : cochez **Publié**, mettez une date future dans **Date de parution**, puis cliquez sur **Publier**. Le baromètre reste masqué jusqu'à cette date. Il apparaît le matin du jour prévu.
 
-Pour garder un brouillon, laissez **published** décoché.
+Pour garder un brouillon, laissez **Publié** décoché.
 
 ### 6. Vérifier
 
@@ -86,12 +86,12 @@ Pour garder un brouillon, laissez **published** décoché.
 ## Corriger ou retirer un baromètre
 
 - **Corriger** : ouvrez le fichier, modifiez, publiez.
-- **Retirer** : décochez **published**, publiez. La page disparaît du site.
+- **Retirer** : décochez **Publié**, publiez. La page disparaît du site.
 
 ## En cas de problème
 
 | Symptôme | Que faire |
 |---|---|
-| La page n'apparaît pas après 5 minutes | Vérifiez que **published** est coché et que la date n'est pas future. Sinon, prévenez le développeur. |
+| La page n'apparaît pas après 5 minutes | Vérifiez que **Publié** est coché et que la date n'est pas future. Sinon, prévenez le développeur. |
 | Studio refuse la connexion | Votre adresse Google n'est pas autorisée : envoyez-la au développeur. |
 | Une erreur a été publiée | Corrigez et publiez à nouveau. Chaque version est conservée : le développeur peut revenir en arrière. |

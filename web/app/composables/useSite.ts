@@ -20,7 +20,18 @@ export const useLocale = () => {
 // ── Contenu commun à toutes les pages (libellés, solutions, réglages) ───────
 // Chargé une fois pour les deux langues : changer de langue ne recharge rien.
 
-const STRIP = new Set(['id', 'stem', 'extension', 'meta', 'locale', '__hash__'])
+// Les textes sont rangés par groupes dans content/1.accueil et content/6.textes (un groupe par
+// section, pour Studio). Le site les lit à plat, par leur clé : c.t.h1a, c.t.navHome…
+// « sources » reste un objet ; « seo » n'est pas un groupe de libellés.
+const flattenTexts = (doc: Record<string, unknown>): Record<string, unknown> => {
+  const out: Record<string, unknown> = {}
+  for (const [group, value] of Object.entries(doc)) {
+    if (!value || typeof value !== 'object' || Array.isArray(value) || group === 'seo' || group === 'meta') continue
+    if (group === 'sources') out.sources = value
+    else for (const [key, text] of Object.entries(value)) if (typeof text === 'string') out[key] = text
+  }
+  return out
+}
 
 const fetchSiteContent = async (): Promise<Record<Locale, SiteContent>> => {
   const [textes, accueil, solutions, offres, reglages, politique] = await Promise.all([
@@ -35,10 +46,8 @@ const fetchSiteContent = async (): Promise<Record<Locale, SiteContent>> => {
 
   const build = (locale: Locale): SiteContent => {
     const tRaw = textes.find((x) => x.locale === locale) ?? textes.find((x) => x.locale === 'fr')!
-    // Champs hors schéma (tous les libellés) : Nuxt Content les range dans « meta ».
-    const merged = { ...((tRaw as { meta?: Record<string, unknown> }).meta ?? {}), ...tRaw }
-    const t = Object.fromEntries(Object.entries(merged).filter(([k]) => !STRIP.has(k))) as Dictionary
     const home = accueil.find((x) => x.locale === locale)!
+    const t = { ...flattenTexts(home as Record<string, unknown>), ...flattenTexts(tRaw as Record<string, unknown>) } as Dictionary
     const sols: SolutionDTO[] = solutions
       .filter((s) => s.locale === locale)
       .map((s) => ({
@@ -65,7 +74,7 @@ const fetchSiteContent = async (): Promise<Record<Locale, SiteContent>> => {
       solutions: sols,
       covers: reglages.covers.map((c) => imageOf(c, '')!).filter(Boolean),
       personnage: imageOf(reglages.personnage, ''),
-      poles: home.poles,
+      poles: home.cabinet.poles,
       clients: reglages.clients.map((c) => ({ name: c.name, logo: imageOf(c.logo, c.name, [400, 200])! })),
       links: { laveiye: reglages.laveiye, socials: reglages.socials },
       settings: {

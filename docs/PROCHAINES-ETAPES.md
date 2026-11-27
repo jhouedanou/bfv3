@@ -17,29 +17,30 @@ Point au 27 novembre 2026. Branche `main`.
 
 | Point | Décision | Où |
 |---|---|---|
-| Nom de la 3e solution | « Big Five Academy » | `content/solutions/*/3-academy.yml` |
-| Paris / Cape Town | Cape Town retiré de la description Google. Paris conservé : à confirmer. | `content/accueil/fr.yml`, `en.yml` |
+| Nom de la 3e solution | « Big Five Academy » | `content/2.solutions/*/3.academy.yml` |
+| Paris / Cape Town | Cape Town retiré de la description Google. Paris conservé : à confirmer. | `content/1.accueil/` |
 | Adresse postale | Treichville, Zone 3, 01 BP 1608, Abidjan | `content/reglages.yml` |
 | Horaires | Du lundi au vendredi, de 9h00 à 18h00 | `content/reglages.yml` |
 | Lien Google Maps | Lien de l'adresse dans le pied de page, et `hasMap` dans les données structurées | `content/reglages.yml` (`carte`) |
-| Textes anglais | Relus le 27/11 : tournures calquées sur le français, orthographe américaine partout, vocabulaire harmonisé | `content/**/en*` |
+| Menu de Studio | En français, dossiers dans l'ordre du site, textes regroupés par section, libellés clairs, couleurs du site | `web/content.config.ts`, `web/README.md` |
+| Textes anglais | Relus le 27/11 : tournures calquées sur le français, orthographe américaine partout, vocabulaire harmonisé | `content/**/2.anglais*` |
 
-Attention : les corrections de l'anglais sont dans `web/content/` seulement. `pnpm import:textes` réimporte depuis `docs/textes/textes-a-relire/` et **écrase** ces corrections. Ne plus lancer cette commande, ou reporter d'abord les corrections dans les fichiers source.
+Le script `pnpm import:textes` est désactivé : il écraserait l'organisation actuelle de `web/content/` et les corrections de l'anglais.
 
 ## 3. À obtenir de BIG FIVE
 
 | Élément | Où il va |
 |---|---|
 | Numéro de téléphone | `content/reglages.yml` (`telephone`) |
-| Paris : garder ou retirer de la description Google | `content/accueil/` |
+| Paris : garder ou retirer de la description Google | `content/1.accueil/` |
 | Liste des personnes qui modifieront le site, avec leur adresse e-mail Google | Variable `STUDIO_GOOGLE_MODERATORS` (Vercel) |
 | Photos HD (4 solutions, personnage du Cabinet en PNG transparent) : Yadé | Médiathèque de Studio |
 | Image de partage 1200 × 630 : Yadé | `content/reglages.yml` (`ogImage`) |
-| Couverture du baromètre d'août 2026 sans lien imprimé | `content/barometres/` |
+| Couverture du baromètre d'août 2026 sans lien imprimé | `content/4.barometres/` |
 | Identifiants Google Analytics 4 et Meta Pixel | Variables Vercel |
 | Validation de la politique de confidentialité mise à jour | `docs/proposition-politique-confidentialite.md` |
 | Outil d'envoi des annonces de parution avec désinscription automatique (Brevo recommandé) | `docs/propositions.md` |
-| Nom complet de « Cossi, Lead Études & Veille » | `content/solutions/*/1-veille.yml` |
+| Nom complet de « Cossi, Lead Études & Veille » | `content/2.solutions/*/1.veille.yml` |
 | Accès DNS de `bigfive.solutions` et `bigfiveabidjan.com` | Mise en ligne, e-mails |
 | Export Search Console | Redirections dans `web/nuxt.config.ts` |
 

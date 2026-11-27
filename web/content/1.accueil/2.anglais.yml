@@ -1,0 +1,84 @@
+locale: en
+hero:
+  h1a: Mastering digital
+  h1b: in Africa,
+  h1c: from data
+  h1d: to performance
+  m1: Collect
+  m2: Decode
+  m3: Analyze
+  m4: Activate
+cabinet:
+  eyFirm: The firm
+  firmTitleA: A digital marketing consultancy.
+  firmTitleB: Over 15 years of field experience.
+  firmP1a: "Rooted in hands-on operational work, we help brands in French-speaking Africa master digital: collect, decode, analyze, activate."
+  firmP1b: "Our conviction: your teams don't need hired hands, but a partner who makes them autonomous and high-performing."
+  firmP2a: Our strength is innovation.
+  firmP2b: Our technology department designs digital solutions suited to realities on the ground and to our clients' ambitions, from CRM to SaaS platforms. And we continuously track how algorithms and African internet users' habits evolve, to keep your strategies one step ahead.
+  poles:
+    - pole: intel
+      name: Intelligence & Consulting Division
+      step: Collect · Decode · Analyze
+      promise: Understand the market and guide your decisions.
+      items:
+        - Social media audit and listening
+        - Competitive intelligence
+        - Strategic consulting
+        - Training – Big Five Academy
+      lead: Yannick Boka
+      role: Executive Director & Head of Division
+    - pole: tech
+      name: Tech & Solutions Division
+      step: Activate
+      promise: Build the tools that activate your strategy.
+      items:
+        - Website design and development
+        - CRM and data collection
+        - Web and mobile apps
+        - SaaS platforms
+        - Applied AI
+      lead: Jean-Luc Houedanou
+      role: Director of Digital Solutions
+solutions:
+  eySol: Our solutions
+  solTitle: "One method, four areas of expertise: from data to performance."
+  poleIntel: Intelligence & Consulting Division
+  poleTech: Tech & Solutions Division
+  discover: Discover
+  letsTalk: Let's talk about your project
+observatoire:
+  eyObs: Observatory
+  obsSub: Every week, we publish a sector barometer on an African country. Discover our latest release.
+  latestBaro: Latest release
+  takeaway: "Key takeaway:"
+  dlBaro: Get the barometer
+  notifyCta: Notify me
+  prevBaros: Previous barometers
+etude:
+  orderEy: Custom study
+  orderTitle: ""
+  orderDesc: "Your sector, your country, your brand, your product, your competitors: we produce a study dedicated to your challenges."
+  orderShort: A study dedicated to your industry, country and brand.
+  orderAsk: A study dedicated to your industry, country, brand, product or competitors?
+  orderCta: Order a study
+parutions:
+  nlEy: Upcoming releases
+  nlTitle: "Get notified of upcoming releases:"
+  workEmail: Your work email
+  signUp: Notify me
+  nlDone: Thank you — you'll be notified as soon as the next one is released.
+laveiye:
+  platform: Big Five platform
+  laveiyeDesc: "The library of advertising campaigns in Africa: explore, compare, get inspired."
+  goLaveiye: Explore laveiye.com
+  poweredBy: powered by Big Five
+  freeAccess: Free
+references:
+  eyRef: Clients
+  refTitle: They trust us
+  refSub: Selected clients
+  clientLogo: Client logo
+seo:
+  title: BIG FIVE | Digital marketing consultancy in Abidjan
+  description: "Big Five: a strategic and digital marketing consultancy that builds tailor-made digital solutions. Abidjan, Paris. We turn your ambition into lasting performance."

@@ -1,0 +1,132 @@
+locale: en
+navigation:
+  navHome: Home
+  navAgence: The Firm
+  navSolutions: Our solutions
+  navObservatoire: Observatory
+  navReferences: Clients
+  contactUs: Contact us
+  backHome: Back to home
+  close: Close
+  closeBtn: Close
+  menu: Menu
+  openMenu: Open menu
+  closeMenu: Close menu
+  langGroup: Language
+  skip: Skip to content
+  homeAria: BIG FIVE — back to home
+  sectionsAria: Site sections
+  logoAlt: BIG FIVE — Leave your mark
+  crumbs: Breadcrumb
+  slide: Slide
+  slideshow: Slideshow
+pagesSolution:
+  weDo: What we do
+  youGet: What you get
+  ledBy: Led by
+  otherOffers: Other services
+  faqTitle: Frequently asked questions
+  multi: Several areas of expertise
+  unknown: I don't know yet
+pagesBarometre:
+  barosH1: BIG FIVE Insights sector barometers
+  barosMetaTitle: Sector barometers in Africa | BIG FIVE
+  allBaros: All barometers
+  baroOf: BIG FIVE Insights barometer
+  baro: Barometer
+  frOnly: Barometers are published in French.
+  laveiyeLine: "This barometer was produced with Laveiye, the library of advertising campaigns in Africa, powered by Big Five. Discover it:"
+  zoomLabel: Enlarge
+  zoomCover: Enlarge the barometer cover
+  seeBaro: See the latest barometer
+contact:
+  contactTitle: Let's talk about your project
+  cIntro1: Do you have a need, a goal or a challenge to solve?
+  cIntro2: Tell us about it. We'll point you to the BIG FIVE service best suited to you.
+  required: Fields marked * are required
+  fullName: Full name *
+  phName: First and last name
+  emailPro: Work email *
+  phEmail: name@company.com
+  company: Company *
+  phCompany: Your company name
+  phone: Phone / WhatsApp *
+  phoneOpt: Phone
+  role: Job title *
+  jobTitle: Job title *
+  phRole: Your role
+  sector: Industry
+  phSector: Banking, FMCG, telecoms…
+  which: Which service are you interested in? *
+  need: Tell us briefly what you need *
+  phNeed: Context, objective, timeline…
+  consent: I agree to be contacted about my request.
+  optin: I'd like to be notified of upcoming releases (optional).
+  submit: Send my request
+  sending: Sending…
+  invalid: Required or invalid field.
+  origin: "Source:"
+  okT: Thank you, your request has been sent.
+  okP: Our team will get back to you shortly.
+  okRec: "Request logged — service:"
+  errT: Your request could not be sent.
+  errP: Please try again, or email us directly at
+  retryL: Try again
+  errRate: Too many requests in a short time. Please try again in a few minutes.
+formulaireBarometre:
+  gateIntro: "Fill in your details: a member of our team will get back to you to present the barometer and its access terms."
+  gateNl: I'd like to be notified of upcoming releases.
+  gateCta: Contact me
+  gateDoneT: Thank you, we have received your request.
+  gateDoneP: Our team will get back to you shortly to present the barometer.
+  notifyTitle: Get notified of upcoming releases
+  notifyDesc: Get an email every time a new barometer is released.
+emails:
+  ackSubject: BIG FIVE — We have received your request
+  ackBody: |-
+    Hello,
+
+    Thank you for your message. Your request has been received: a member of the BIG FIVE team will get back to you shortly.
+
+    Best regards,
+    The BIG FIVE team
+  ackNotifySubject: BIG FIVE — You are subscribed to upcoming releases
+  ackNotifyBody: |-
+    Hello,
+
+    Your email address has been added to our list: you will receive an email with each new BIG FIVE Insights barometer.
+    To stop receiving these announcements, simply reply to this email.
+
+    Best regards,
+    The BIG FIVE team
+cookies:
+  ckText: This website uses audience measurement cookies to see which pages and services interest you. They are only set with your consent.
+  ckAccept: Accept
+  ckRefuse: Decline
+  ckCustom: Customize
+  ckMore: Learn more
+  ckManage: Manage cookies
+  ckTitle: Cookies
+  ckNeeded: Necessary cookies
+  ckNeededDesc: Remember your language and your cookie choice. Always active.
+  ckAudience: Audience measurement (Google Analytics)
+  ckAudienceDesc: To see which pages and services are viewed.
+  ckAds: Advertising measurement (Meta Pixel)
+  ckAdsDesc: To measure how our Facebook and Instagram campaigns perform.
+  ckSave: Save my choices
+piedDePage:
+  rights: © 2026 BIG FIVE — All rights reserved
+  legal: Legal notice
+  privacy: Privacy policy
+  privacyUpdated: "Last updated: 9 October 2026"
+  privacyIntro: BIG FIVE, a digital marketing consultancy based in Abidjan (Côte d'Ivoire), takes the protection of your personal data seriously. This policy explains what data we collect on this website, why, and how to exercise your rights. It is governed by Ivorian Law No. 2013-450 of 19 June 2013 on the protection of personal data.
+  privacyContact: For any question about your personal data, write to us at
+sources:
+  observatoire: Observatory · Custom study
+  header: Header · Contact us
+  hero: Home
+  solutions: Our solutions
+  veille: Monitoring & Intelligence page
+  conseil: Consulting & Strategy page
+  academy: Big Five Academy page
+  digitales: Digital Solutions page

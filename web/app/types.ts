@@ -6,7 +6,7 @@ export const LOCALES: Locale[] = ['fr', 'en']
 export type SolutionKey = 'veille' | 'conseil' | 'academy' | 'digitales'
 export const SOLUTION_KEYS: SolutionKey[] = ['veille', 'conseil', 'academy', 'digitales']
 
-// Libellés de l'interface (content/textes/<langue>.yml).
+// Libellés de l'interface (content/1.accueil et content/6.textes).
 export type Dictionary = Record<string, string> & { sources: Record<string, string> }
 
 export type Img = { url: string; width: number; height: number; alt: string }

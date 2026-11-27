@@ -21,7 +21,8 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      htmlAttrs: { lang: 'fr' },
+      // « dark » : le site est sombre, et Nuxt Studio s'affiche alors en mode sombre (plugins/studio-theme).
+      htmlAttrs: { lang: 'fr', class: 'dark' },
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1, viewport-fit=cover' },
         { name: 'theme-color', content: '#101228' },
@@ -67,6 +68,8 @@ export default defineNuxtConfig({
 
   studio: {
     route: '/_studio',
+    // Interface de Studio en français : les éditeurs ne sont pas des développeurs.
+    i18n: { defaultLocale: 'fr' },
     repository: {
       provider: 'github',
       owner: 'jhouedanou',

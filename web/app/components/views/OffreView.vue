@@ -1,5 +1,5 @@
 <script setup lang="ts">
-// Page d'une offre (content/offres/<langue>/<solution>/*.md). Hors de Google tant que
+// Page d'une offre (content/3.offres/<langue>/<solution>/*.md). Hors de Google tant que
 // « validated » n'est pas coché dans Studio.
 const route = useRoute()
 const c = useSiteContent()

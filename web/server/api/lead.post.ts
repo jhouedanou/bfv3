@@ -126,13 +126,24 @@ const sendMail = async (event: H3Event, mail: Mail) => {
 
 // ── Contenu (content/) ──────────────────────────────────────────────────────
 
-// Les champs hors schéma d'une collection « data » sont rangés dans meta : on lit les deux.
-const flatten = (doc: Record<string, unknown> | null | undefined) =>
-  doc ? ({ ...((doc.meta as Record<string, unknown>) ?? {}), ...doc } as Record<string, unknown>) : {}
+// Les libellés sont rangés par groupes (un par section) dans content/1.accueil et content/6.textes :
+// on les relit à plat, par leur clé.
+const flatten = (doc: Record<string, unknown> | null | undefined) => {
+  const out: Record<string, unknown> = {}
+  for (const [group, value] of Object.entries(doc ?? {})) {
+    if (!value || typeof value !== 'object' || Array.isArray(value) || group === 'seo' || group === 'meta') continue
+    if (group === 'sources') out.sources = value
+    else for (const [key, text] of Object.entries(value)) if (typeof text === 'string') out[key] = text
+  }
+  return out
+}
 
 const labels = async (event: H3Event, locale: 'fr' | 'en') => {
-  const doc = await queryCollection(event, 'textes').where('locale', '=', locale).first()
-  return flatten(doc as Record<string, unknown> | null) as Record<string, string>
+  const [home, textes] = await Promise.all([
+    queryCollection(event, 'accueil').where('locale', '=', locale).first(),
+    queryCollection(event, 'textes').where('locale', '=', locale).first(),
+  ])
+  return { ...flatten(home as Record<string, unknown> | null), ...flatten(textes as Record<string, unknown> | null) } as Record<string, string>
 }
 
 // Étiquette de source en tête de l'objet (CDC § 4 et § 5).
@@ -147,7 +158,7 @@ const SOURCE_TAG: Record<string, string> = {
   digitales: 'Solutions digitales',
 }
 
-// Libellés français des solutions, tels que saisis dans content/solutions/fr.
+// Libellés français des solutions, tels que saisis dans content/2.solutions/fr.
 const choiceLabel = async (event: H3Event, choice: string) => {
   const fixed: Record<string, string> = { multi: 'Plusieurs expertises', unknown: 'Je ne sais pas encore' }
   if (fixed[choice]) return fixed[choice]
@@ -291,7 +302,7 @@ export default defineEventHandler(async (event): Promise<LeadResult> => {
     return reply(event, 502, { ok: false, error: 'server' })
   }
 
-  // Accusé de réception, dans la langue de la page (content/textes/<langue>.yml : ackSubject, ackBody…).
+  // Accusé de réception, dans la langue de la page (content/1.accueil et content/6.textes : ackSubject, ackBody…).
   // Aucun texte saisi par le visiteur n'y figure : l'adresse de destination n'est pas vérifiée, le
   // message ne doit pas pouvoir servir de relais. L'accusé ne fait pas échouer la demande.
   const t = await labels(event, lead.locale).catch(() => ({}) as Record<string, string>)

@@ -9,11 +9,11 @@ Nuxt 4 + Nuxt Content + Nuxt Studio, hébergé sur Vercel. Aucune base de donné
 
 | Adresse FR | Adresse EN | Source |
 |---|---|---|
-| `/` | `/en` | `content/accueil/`, `content/textes/`, `content/reglages.yml` |
-| `/solutions/<solution>` | `/en/solutions/<solution>` | `content/solutions/<langue>/*.yml` |
-| `/solutions/<solution>/<offre>` (17 offres) | `/en/solutions/<solution>/<offer>` | `content/offres/<langue>/<solution>/*.md` |
-| `/barometres`, `/barometres/<id>` | `/en/barometers…` (canonical vers FR) | `content/barometres/*.yml` |
-| `/politique-de-confidentialite` | `/en/privacy-policy` | `content/politique/` |
+| `/` | `/en` | `content/1.accueil/`, `content/6.textes/`, `content/reglages.yml` |
+| `/solutions/<solution>` | `/en/solutions/<solution>` | `content/2.solutions/<langue>/*.yml` |
+| `/solutions/<solution>/<offre>` (17 offres) | `/en/solutions/<solution>/<offer>` | `content/3.offres/<langue>/<solution>/*.md` |
+| `/barometres`, `/barometres/<id>` | `/en/barometers…` (canonical vers FR) | `content/4.barometres/*.yml` |
+| `/politique-de-confidentialite` | `/en/privacy-policy` | `content/5.politique/` |
 
 Sur l'accueil, la fiche d'une solution s'ouvre en fenêtre et prend l'adresse `/solutions/<slug>` : on peut la partager, et « Retour » la ferme.
 
@@ -21,15 +21,26 @@ Sur l'accueil, la fiche d'une solution s'ouvre en fenêtre et prend l'adresse `/
 
 | Contenu | Fichier |
 |---|---|
-| Libellés : menus, boutons, formulaires, pied de page, titres de l'accueil | `content/textes/fr.yml`, `en.yml` |
-| Title et description Google de l'accueil, pôles du Cabinet | `content/accueil/fr.yml`, `en.yml` |
-| Les 4 solutions (nom, adresse, promesse, image) | `content/solutions/…` |
-| Offres : texte, FAQ, title Google. **`validated: true`** pour les proposer à Google | `content/offres/…` |
-| Baromètres : `published`, `publishedAt` (AAAA-MM-JJ), KPI, couverture | `content/barometres/…` |
+| Page d'accueil : textes de chaque section dans l'ordre de la page, pôles du Cabinet, title et description Google | `content/1.accueil/1.francais.yml`, `2.anglais.yml` |
+| Menus, formulaires, e-mails automatiques, bandeau cookies, pied de page | `content/6.textes/1.francais.yml`, `2.anglais.yml` |
+| Les 4 solutions (nom, adresse, promesse, image) | `content/2.solutions/…` |
+| Offres : texte, FAQ, title Google. **`validated: true`** pour les proposer à Google | `content/3.offres/…` |
+| Baromètres : `published`, `publishedAt` (AAAA-MM-JJ), KPI, couverture | `content/4.barometres/…` |
 | E-mail, téléphone, adresse, réseaux, logos clients, image de partage | `content/reglages.yml` |
 | Images | `public/images/` (médiathèque de Studio) |
 
-Les textes de départ viennent de `docs/textes/textes-a-relire/` (validés par BIG FIVE). Pour les réimporter après correction : `pnpm import:textes`. Attention, la commande écrase `content/`.
+Les textes de départ viennent de `docs/textes/textes-a-relire/` (validés par BIG FIVE). Le script `pnpm import:textes` est désormais désactivé : `content/` a été réorganisé et se modifie dans Studio.
+
+### Organisation de `content/` pour Studio
+
+Les éditeurs ne sont pas des développeurs. `content/` est donc organisé pour eux :
+
+- **Dossiers et fichiers numérotés** (`1.accueil`, `2.solutions`…) : Studio les affiche dans l'ordre du site, sans le numéro.
+- **Textes regroupés par section**, dans l'ordre où ils apparaissent à l'écran (« 1. Accueil : titre principal », « 2. Le Cabinet »…). Le site lit chaque texte par sa clé (`c.t.h1a`) : on peut déplacer une clé d'un groupe à l'autre dans `content.config.ts`, pas la renommer.
+- **Libellés en français** sur chaque champ, via `.editor({ label, description })` dans `content.config.ts`.
+- **Champs techniques** (langue, clé, ordre, adresse de page) en fin de formulaire, marqués « Technique · … ne pas modifier ».
+- **Ne jamais masquer un champ** avec `.editor({ hidden: true })` : Studio 1.8 supprime du fichier tout champ masqué au premier niveau lors de l'enregistrement, ce qui casse le site.
+- **Habillage** : Studio est en français (`studio.i18n`), en mode sombre (`class="dark"` sur `<html>`) et aux couleurs du site (`app/plugins/studio-theme.client.ts`).
 
 **Le dépôt est public.** Rien de confidentiel dans `content/`, et notamment jamais le lien interne du PDF d'un baromètre.
 
