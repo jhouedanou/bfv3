@@ -79,7 +79,7 @@ pnpm build && node .output/server/index.mjs   # version de production
 - Formulaires, mise en place :
   1. **Resend** (resend.com) : Domains → le domaine de l'expéditeur doit être « Verified ». Le compte utilise `bigfive.solutions`, donc `NUXT_MAIL_FROM="BIG FIVE <site@bigfive.solutions>"`. Si l'expéditeur est sur un autre domaine que celui de la clé, Resend répond 403 et le formulaire renvoie 502. Ajouter chez l'hébergeur DNS les enregistrements affichés (SPF, DKIM), attendre « Verified ». Puis API Keys → Create API Key, permission « Sending access » → `NUXT_RESEND_API_KEY`.
   2. **Cloudflare Turnstile** (anti-robots) : Turnstile → Add widget, domaines `www.bigfive.solutions`, `bigfive.solutions` et `bigfive-web-brown.vercel.app`, mode « Managed ». Site Key → `NUXT_PUBLIC_TURNSTILE_SITE_KEY`, Secret Key → `NUXT_TURNSTILE_SECRET_KEY`.
-  3. Les demandes arrivent à l'e-mail de `content/reglages.yml` (`contact@bigfiveabidjan.com`), ou à `NUXT_LEADS_TO` si elle est renseignée.
+  3. Les demandes arrivent à l'e-mail de `content/reglages.yml` (`contacts@bigfiveabidjan.com`), ou à `NUXT_LEADS_TO` si elle est renseignée.
   4. Redéployer, puis envoyer une demande de test depuis le site.
 - Nuxt Studio :
   - Connexion des éditeurs avec **Google** (retenue pour l'équipe BIG FIVE) :

@@ -10,7 +10,7 @@ Point au 27 novembre 2026. Branche `main`.
 - Mise en page adaptative sur mobile et tablette, zoom du navigateur fonctionnel.
 - Version anglaise sous `/en`, plan du site, `robots.txt`, données structurées, redirection des anciennes adresses.
 - Administration : **Nuxt Studio** sur `/_studio` (voir `docs/guide-publier-un-barometre.md`).
-- Formulaires envoyés à `contact@bigfiveabidjan.com` (Resend). L'équipe gère la liste « Me notifier » à partir des e-mails reçus.
+- Formulaires envoyés à `contacts@bigfiveabidjan.com` (Resend). L'équipe gère la liste « Me notifier » à partir des e-mails reçus.
 - Mesure d'audience : Google Analytics 4 et Meta Pixel, chargés seulement après accord du visiteur.
 
 ## 2. Points tranchés le 27 novembre

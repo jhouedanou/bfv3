@@ -10,7 +10,7 @@ Prix relevés le 23 novembre 2026. Ils changent souvent : revérifier sur les pa
 - Un lien de désinscription automatique dans chaque e-mail.
 - Une liste gérée par l'équipe, sans développeur.
 
-Aujourd'hui, chaque inscription arrive par e-mail à `contact@bigfiveabidjan.com`, et l'équipe tient la liste à la main. Ce fonctionnement ne change pas : la politique de confidentialité reste telle quelle.
+Aujourd'hui, chaque inscription arrive par e-mail à `contacts@bigfiveabidjan.com`, et l'équipe tient la liste à la main. Ce fonctionnement ne change pas : la politique de confidentialité reste telle quelle.
 
 ### Comparaison des offres gratuites
 

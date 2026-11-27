@@ -283,7 +283,7 @@ export default defineEventHandler(async (event): Promise<LeadResult> => {
   if (!mail) return reply(event, 400, { ok: false, error: 'validation', fields: ['barometre'] })
 
   const reglages = await queryCollection(event, 'reglages').first()
-  const to = config.leadsTo || reglages?.email || 'contact@bigfiveabidjan.com'
+  const to = config.leadsTo || reglages?.email || 'contacts@bigfiveabidjan.com'
 
   try {
     await sendMail(event, { to, subject: mail.subject, text: mail.text, replyTo: mail.replyTo })
