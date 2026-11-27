@@ -22,11 +22,11 @@ faq:
 validated: true
 ---
 
-BIG FIVE runs social media and digital marketing training in Abidjan and across French-speaking Africa for marketing, communication and sales teams who want to run their online presence without relying on an agency. The training is part of Big Five Academy, the firm's capacity-building offer, and draws on over 15 years of field experience.
+BIG FIVE runs social media and digital marketing training in Abidjan and across French-speaking Africa for marketing, communications and sales teams who want to run their online presence without relying on an agency. The training is part of Big Five Academy, the firm's capacity-building offering, and draws on over 15 years of field experience.
 
 ## What the training covers
 
-We start from your challenges, not from a fixed catalogue. Depending on your needs, a digital marketing training program in Abidjan can cover:
+We start from your challenges, not from a fixed catalog. Depending on your needs, a digital marketing training program in Abidjan can cover:
 
 - Digital strategy fundamentals: objectives, audiences, messages and customer journey.
 - Community management: editorial line, publishing calendar, moderation and comment handling.
@@ -36,16 +36,16 @@ We start from your challenges, not from a fixed catalogue. Depending on your nee
 
 ## How we work
 
-We were born in operations. What we teach, we do for brands every day. Every concept is tied to a real case, ideally from your own brand or industry. Participants work on their own content, their own objectives and their own results.
+We are practitioners first. What we teach, we do for brands every day. Every concept is tied to a real case, ideally from your own brand or industry. Participants work on their own content, their own objectives and their own results.
 
-Examples come from African markets, not from textbooks written for somewhere else. The firm's monitoring work, such as the sector barometers of the Observatoire or Laveiye, the library of advertising campaigns in Africa, can feed the exercises with real cases from the region.
+Examples come from African markets, not from textbooks written for somewhere else. The firm's monitoring work, such as the Observatory's sector barometers or Laveiye, the library of advertising campaigns in Africa, can feed the exercises with real cases from the region.
 
 ## Who it is for
 
-Marketing and communication managers, community managers at any level, content officers, sales teams who run an online presence, and executives who want to understand what they oversee. Social media training in Côte d'Ivoire (Ivory Coast) for a team that is just starting out has different needs from a session for experienced staff, so the level and content are adjusted to each group.
+Marketing and communications managers, community managers at any level, content specialists, sales teams who run an online presence, and executives who want to understand what they oversee. Social media training in Côte d'Ivoire (Ivory Coast) for a team that is just starting out has different needs from a session for experienced staff, so the level and content are adjusted to each group.
 
 ## What you get
 
-The goal is not to have attended a course, but to leave able to do the work. Our conviction: your teams don't need executors, but a partner who makes them autonomous and high-performing. Every program ends with a learning assessment and reusable materials and tools that your teams keep after the training.
+The goal is not to have attended a course, but to leave able to do the work. Our conviction: your teams don't need hired hands, but a partner who makes them autonomous and high-performing. Every program ends with a learning assessment and reusable materials and tools that your teams keep after the training.
 
 Big Five Academy is led by Yannick Boka, Head of the Intelligence & Consulting Division. He makes sure each training serves a clear objective for your organization.

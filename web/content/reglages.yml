@@ -1,6 +1,15 @@
 email: contact@bigfiveabidjan.com
 telephone: ""
-adresse: ""
+adresse: |-
+  Treichville, Zone 3
+  01 BP 1608, Abidjan
+# Lien « Itinéraire » du pied de page et fiche Google (données structurées).
+carte: https://www.google.com/maps/search/?api=1&query=Big+Five+Abidjan
+# Horaires : texte affiché dans chaque langue, et format lu par Google (schema.org).
+horaires:
+  fr: Du lundi au vendredi, de 9h00 à 18h00
+  en: Monday to Friday, 9:00 am to 6:00 pm
+  schema: Mo-Fr 09:00-18:00
 laveiye: https://laveiye.com/
 ogImage: /images/og-image.png
 personnage: /images/perso-cabinet.png

@@ -23,13 +23,13 @@ faq:
 validated: true
 ---
 
-BIG FIVE builds custom CRM systems and qualified data collection tools for brands and organisations in Abidjan, Côte d'Ivoire (Ivory Coast), and across French-speaking Africa. The goal is simple: know who your prospects and customers are, where they come from and how to follow up with them. Our tools are designed for conditions on the ground, from brand activation stands to online campaigns, rather than copied from software built for other markets.
+BIG FIVE builds custom CRM systems and qualified data collection tools for brands and organizations in Abidjan, Côte d'Ivoire (Ivory Coast), and across French-speaking Africa. The goal is simple: know who your prospects and customers are, where they come from and how to follow up with them. Our tools are designed for conditions on the ground, from brand activation stands to online campaigns, rather than copied from software built for other markets.
 
 ## What we build
 
 Many companies collect contacts. Far fewer put them to use. The data sits in spreadsheets, notebooks or messaging apps. We build the tool that brings it together and makes it useful.
 
-- A custom CRM organised around your sales cycle and your teams
+- A custom CRM organized around your sales cycle and your teams
 - Forms and data capture flows for your campaigns, website and social media
 - Collection tools for field operations, events and brand activations
 - Contact qualification, deduplication and segmentation
@@ -43,8 +43,8 @@ Data quality is decided at the point of entry. We add simple checks, drop-down l
 
 ## Who it is for
 
-This service is for marketing and sales teams that want to measure the impact of their actions, for brands running field operations, and for organisations managing large contact bases. If you need a CRM in Côte d'Ivoire that fits the way you work, or if your campaigns generate leads that nobody follows up, we can help.
+This service is for marketing and sales teams that want to measure the impact of their activities, for brands running field operations, and for organizations managing large contact bases. If you need a CRM in Côte d'Ivoire that fits the way you work, or if your campaigns generate leads that nobody follows up, we can help.
 
 ## What you get
 
-You get a solution that is deployed and maintained, data you can act on, and dashboards to steer your activity. Your teams know where each contact stands, and your decisions rest on figures drawn from your own operations.
+You get a solution that is deployed and maintained, data you can act on, and dashboards to manage your activity. Your teams know where each contact stands, and your decisions rest on figures drawn from your own operations.

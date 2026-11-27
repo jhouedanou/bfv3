@@ -38,11 +38,11 @@ A good roadmap is short and quick to read. It is precise enough to guide this we
 
 We start from your existing strategy, or from the findings of a positioning audit. With your teams, we list the possible actions, then we make choices. That trade-off step is what matters most: a roadmap that keeps everything prioritizes nothing. We apply the firm's logic of collect, decode, analyze, activate, so that every action is backed by a finding.
 
-Our firm was born in operations. We know how much a team can realistically take on alongside its regular work. When a workstream calls for a tool, such as a CRM or a data collection platform, our Tech & Solutions Division can assess its technical feasibility.
+Our firm grew out of hands-on operational work. We know how much a team can realistically take on alongside its regular work. When a workstream calls for a tool, such as a CRM or a data collection platform, our Tech & Solutions Division can assess its technical feasibility.
 
 ## Who it is for
 
-This offer is for companies and institutions that have set their direction but see a gap between plan and execution. It is also useful during a reorganization, a change of marketing leadership or a ramp-up of digital activity. It suits organizations in Côte d'Ivoire looking for a digital marketing consultancy that can speak both strategy and execution.
+This service is for companies and institutions that have set their direction but see a gap between plan and execution. It is also useful during a reorganization, a change of marketing leadership or a ramp-up of digital activity. It suits organizations in Côte d'Ivoire looking for a digital marketing consultancy that can speak both strategy and execution.
 
 ## What you get
 

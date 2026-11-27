@@ -45,4 +45,4 @@ Competitive intelligence is designed for marketing teams, senior management and 
 
 ## What you get
 
-You receive periodic analysis reports summarizing your competitors' moves and their likely impact. A dashboard gives you the overall picture, and alerts flag important developments between two reports. Each analysis ends with recommendations: what to watch, what to respond to and what you can safely ignore.
+You receive periodic analysis reports summarizing your competitors' moves and their likely impact. A dashboard gives you the overall picture, and alerts flag important developments between reports. Each analysis ends with recommendations: what to watch, what to respond to and what you can safely ignore.

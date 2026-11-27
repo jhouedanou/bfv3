@@ -24,8 +24,14 @@ const tel = computed(() => c.value.settings.telephone.replace(/[^+\d]/g, ''))
         <a :href="`mailto:${c.settings.email}`" class="ftr__mail">{{ c.settings.email }}</a>
         <a v-if="c.settings.telephone" :href="`tel:${tel}`" class="ftr__mail">{{ c.settings.telephone }}</a>
         <p v-else-if="todo" class="ftr__todo">[À COMPLÉTER : téléphone]</p>
-        <address v-if="c.settings.adresse" class="ftr__addr">{{ c.settings.adresse }}</address>
+        <address v-if="c.settings.adresse" class="ftr__addr">
+          <a v-if="c.settings.carte" :href="c.settings.carte" target="_blank" rel="noopener noreferrer">{{
+            c.settings.adresse
+          }}</a>
+          <template v-else>{{ c.settings.adresse }}</template>
+        </address>
         <p v-else-if="todo" class="ftr__todo">[À COMPLÉTER : adresse postale]</p>
+        <p v-if="c.settings.horaires" class="ftr__addr">{{ c.settings.horaires }}</p>
       </div>
       <ul class="socials">
         <li v-for="s in c.links.socials" :key="s.url">

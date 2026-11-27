@@ -10,11 +10,11 @@ ackBody: |-
 
   Best regards,
   The BIG FIVE team
-ackNotifySubject: BIG FIVE — Subscribed to upcoming releases
+ackNotifySubject: BIG FIVE — You are subscribed to upcoming releases
 ackNotifyBody: |-
   Hello,
 
-  Your address has been registered: you will receive an email with each new BIG FIVE Insights barometer.
+  Your email address has been added to our list: you will receive an email with each new BIG FIVE Insights barometer.
   To stop receiving these announcements, simply reply to this email.
 
   Best regards,
@@ -53,10 +53,10 @@ navHome: Home
 navAgence: The Firm
 navSolutions: Our solutions
 navObservatoire: Observatory
-navReferences: References
+navReferences: Clients
 logoAlt: BIG FIVE — Leave your mark
 crumbs: Breadcrumb
-otherOffers: Other offers
+otherOffers: Other services
 faqTitle: Frequently asked questions
 h1a: Mastering digital
 h1b: in Africa,
@@ -69,8 +69,8 @@ m4: Activate
 eyFirm: The firm
 firmTitleA: A digital marketing consultancy.
 firmTitleB: Over 15 years of field experience.
-firmP1a: "Born in operations, we help brands in French-speaking Africa master their digital: collect, decode, analyze, activate."
-firmP1b: "Our conviction: your teams don't need executors, but a partner who makes them autonomous and high-performing."
+firmP1a: "Rooted in hands-on operational work, we help brands in French-speaking Africa master digital: collect, decode, analyze, activate."
+firmP1b: "Our conviction: your teams don't need hired hands, but a partner who makes them autonomous and high-performing."
 firmP2a: Our strength is innovation.
 firmP2b: Our technology department designs digital solutions suited to realities on the ground and to our clients' ambitions, from CRM to SaaS platforms. And we continuously track how algorithms and African internet users' habits evolve, to keep your strategies one step ahead.
 eySol: Our solutions
@@ -108,8 +108,8 @@ workEmail: Your work email
 signUp: Notify me
 nlDone: Thank you — you'll be notified as soon as the next one is released.
 prevBaros: Previous barometers
-eyRef: References
-refTitle: They trusted us
+eyRef: Clients
+refTitle: They trust us
 refSub: Selected clients
 clientLogo: Client logo
 rights: © 2026 BIG FIVE — All rights reserved
@@ -134,7 +134,7 @@ phEmail: name@company.com
 gateNl: I'd like to be notified of upcoming releases.
 gateDoneT: Thank you, we have received your request.
 gateDoneP: Our team will get back to you shortly to present the barometer.
-gateCta: Get contacted
+gateCta: Contact me
 sending: Sending…
 contactTitle: Let's talk about your project
 cIntro1: Do you have a need, a goal or a challenge to solve?
@@ -147,7 +147,7 @@ phRole: Your role
 sector: Industry
 phSector: Banking, FMCG, telecoms…
 which: Which service are you interested in? *
-need: Briefly tell us about your need *
+need: Tell us briefly what you need *
 phNeed: Context, objective, timeline…
 consent: I agree to be contacted about my request.
 optin: I'd like to be notified of upcoming releases (optional).

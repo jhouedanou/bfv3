@@ -1,7 +1,7 @@
 locale: en
 seo:
   title: BIG FIVE | Digital marketing consultancy in Abidjan
-  description: "Big Five: strategic and digital marketing consultancy and tailor-made digital solutions. Abidjan, Paris, Cape Town. We turn your ambition into lasting performance."
+  description: "Big Five: a strategic and digital marketing consultancy that builds tailor-made digital solutions. Abidjan, Paris. We turn your ambition into lasting performance."
 poles:
   - pole: intel
     name: Intelligence & Consulting Division
@@ -19,7 +19,7 @@ poles:
     step: Activate
     promise: Build the tools that activate your strategy.
     items:
-      - Website creation
+      - Website design and development
       - CRM and data collection
       - Web and mobile apps
       - SaaS platforms

@@ -36,7 +36,7 @@ Support is shaped around your organization. It can cover your entire roadmap or 
 
 ## Our approach
 
-Our conviction shapes this offer: your teams don't need executors, they need a partner who makes them autonomous and high-performing. We do not stand in for your staff. We work with them, share our tracking tools and explain our recommendations so they can take them over on their own.
+Our conviction shapes this service: your teams don't need hired hands, they need a partner who makes them autonomous and high-performing. We do not stand in for your staff. We work with them, share our tracking tools and explain our recommendations so they can take them over on their own.
 
 We apply the collect, decode, analyze, activate method at every review cycle. Data from your teams and from our Monitoring & Intelligence work is read, analyzed and turned into decisions. When a workstream needs a digital tool, our Tech & Solutions Division can step in to build it, from CRM to SaaS platforms.
 
@@ -46,4 +46,4 @@ This support suits marketing and digital leaders who already have a strategy or 
 
 ## What you get
 
-You get an action plan that actually moves, performance indicators (KPIs) tracked over time and teams that are more confident in their decisions. Drawing on over 15 years of field experience, our Intelligence & Consulting Division, led by Yannick Boka, brings an operational eye to your decisions until your teams no longer need us.
+You get an action plan that actually moves forward, performance indicators (KPIs) tracked over time and teams that are more confident in their decisions. Drawing on over 15 years of field experience, our Intelligence & Consulting Division, led by Yannick Boka, brings an operational eye to your decisions until your teams no longer need us.

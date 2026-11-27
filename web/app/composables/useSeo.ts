@@ -103,6 +103,8 @@ export const organizationJsonLd = (o: {
   email: string
   telephone?: string
   adresse?: string
+  carte?: string
+  horaires?: string
   description: string
   solutions: SolutionDTO[]
   links: Links
@@ -116,10 +118,12 @@ export const organizationJsonLd = (o: {
   ...(o.telephone ? { telephone: o.telephone } : {}),
   address: {
     '@type': 'PostalAddress',
-    ...(o.adresse ? { streetAddress: o.adresse } : {}),
+    ...(o.adresse ? { streetAddress: o.adresse.replace(/\s*\n\s*/g, ', ') } : {}),
     addressLocality: 'Abidjan',
     addressCountry: 'CI',
   },
+  ...(o.carte ? { hasMap: o.carte } : {}),
+  ...(o.horaires ? { openingHours: o.horaires } : {}),
   areaServed: AREA,
   knowsLanguage: ['fr', 'en'],
   sameAs: o.links.socials.map((s) => s.url),

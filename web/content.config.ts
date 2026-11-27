@@ -102,6 +102,10 @@ export default defineContentConfig({
         email: z.string(),
         telephone: z.string(),
         adresse: z.string(),
+        // Lien Google Maps de l'établissement.
+        carte: z.string().default(''),
+        // Horaires d'ouverture : texte affiché (fr, en) et format schema.org (ex. « Mo-Fr 09:00-18:00 »).
+        horaires: z.object({ fr: z.string(), en: z.string(), schema: z.string() }).default({ fr: '', en: '', schema: '' }),
         laveiye: z.string(),
         ogImage: z.string().editor({ input: 'media' }),
         personnage: z.string().editor({ input: 'media' }),

@@ -18,6 +18,8 @@ useJsonLd(() => [
     email: c.value.settings.email,
     telephone: c.value.settings.telephone,
     adresse: c.value.settings.adresse,
+    carte: c.value.settings.carte,
+    horaires: c.value.settings.horairesSchema,
     description: c.value.seo.description,
     solutions: c.value.solutions,
     links: c.value.links,

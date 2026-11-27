@@ -34,7 +34,15 @@ export type PoleDTO = { pole: 'intel' | 'tech'; name: string; step: string; prom
 
 export type Links = { laveiye: string; socials: { label: string; short: string; url: string }[] }
 
-export type Settings = { email: string; telephone: string; adresse: string; ogImage: string }
+export type Settings = {
+  email: string
+  telephone: string
+  adresse: string
+  carte: string
+  horaires: string
+  horairesSchema: string
+  ogImage: string
+}
 
 export type SiteContent = {
   locale: Locale

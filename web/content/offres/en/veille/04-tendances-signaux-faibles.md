@@ -31,7 +31,7 @@ We look at your market from several angles to bring out what is changing before 
 - New digital habits and new ways of consuming.
 - Conversation topics gaining ground in your sector.
 - Creative codes and advertising formats that are spreading.
-- New consumer expectations towards brands.
+- New consumer expectations of brands.
 
 ## Our method
 

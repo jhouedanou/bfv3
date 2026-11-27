@@ -22,7 +22,7 @@ faq:
 validated: true
 ---
 
-BIG FIVE designs marketing and digital strategies for brands and organizations that want clear choices grounded in their real market, in Abidjan, Côte d'Ivoire (Ivory Coast), and across French-speaking Africa. The strategy sets your objectives, your target audiences, your messages and the role of each channel. It connects your marketing to business results, instead of piling up actions with no common thread.
+BIG FIVE designs marketing and digital strategies for brands and organizations that want clear choices grounded in their real market, in Abidjan, Côte d'Ivoire (Ivory Coast), and across French-speaking Africa. The strategy sets your objectives, your target audiences, your messages and the role of each channel. It connects your marketing to business results, instead of piling up initiatives with no common thread.
 
 ## What the strategy covers
 
@@ -42,8 +42,8 @@ The engagement is led by the Intelligence & Consulting Division, headed by Execu
 
 ## Who it is for
 
-This offer is for CEOs and marketing directors who want to bring coherence back to their actions, prepare a budget cycle, launch a brand or product, or structure a scattered digital presence. It suits companies and institutions alike that are looking for digital marketing consulting rooted in field reality.
+This service is for CEOs and marketing directors who want to bring coherence back to their marketing efforts, prepare a budget cycle, launch a brand or product, or structure a scattered digital presence. It suits companies and institutions alike that are looking for digital marketing consulting rooted in field reality.
 
 ## What you get
 
-You get a clear strategy document, well-argued directions and performance indicators (KPIs) to measure progress. The strategy then becomes a prioritized action plan, which we can detail further in an operational roadmap. Our conviction, built over more than 15 years of field experience: your teams don't need executors, they need a partner who makes them autonomous.
+You get a clear strategy document, well-argued directions and performance indicators (KPIs) to measure progress. The strategy then becomes a prioritized action plan, which we can detail further in an operational roadmap. Our conviction, built over more than 15 years of field experience: your teams don't need hired hands, they need a partner who makes them autonomous.

@@ -23,7 +23,7 @@ faq:
 validated: true
 ---
 
-BIG FIVE builds custom web and mobile apps for companies, brands and organisations in Abidjan, Côte d'Ivoire (Ivory Coast), and across French-speaking Africa. An internal tool for your teams or an app for your customers and partners: we design apps that are useful, easy to pick up and suited to the way people actually use them. Our Tech & Solutions Division deploys them and maintains them over time.
+BIG FIVE builds custom web and mobile apps for companies, brands and organizations in Abidjan, Côte d'Ivoire (Ivory Coast), and across French-speaking Africa. An internal tool for your teams or an app for your customers and partners: we design apps that are useful, easy to pick up and suited to the way people actually use them. Our Tech & Solutions Division deploys them and maintains them over time.
 
 ## What we build
 
@@ -43,7 +43,7 @@ Development moves in short steps, with versions you can try regularly. We pay cl
 
 ## Who it is for
 
-We work with teams that want to digitise a process, brands that want to offer a service to their customers, and organisations coordinating staff in the field. If you are looking for a mobile app development partner in Abidjan, or a custom web application in Côte d'Ivoire, we start from your actual need, not from a feature list.
+We work with teams that want to digitize a process, brands that want to offer a service to their customers, and organizations coordinating staff in the field. If you are looking for a mobile app development partner in Abidjan, or a custom web application in Côte d'Ivoire, we start from your actual need, not from a feature list.
 
 ## What you get
 

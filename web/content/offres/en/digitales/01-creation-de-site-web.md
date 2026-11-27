@@ -4,11 +4,11 @@ locale: en
 solution: digitales
 order: 1
 slug: website-creation
-title: Website creation
-metaTitle: Website creation in Côte d'Ivoire | BIG FIVE
-description: "Corporate and showcase websites, redesigns, French/English versions: fast, accessible sites your teams can update on their own."
+title: Website design and development
+metaTitle: Website design in Côte d'Ivoire | BIG FIVE
+description: "Corporate and brochure websites, redesigns, French/English versions: fast, accessible sites your teams can update on their own."
 gets:
-  - A live corporate or showcase website, built for mobile
+  - A live corporate or brochure website, built for mobile
   - An admin interface and hands-on training for your team
   - Technical SEO built in from the design stage
   - A bilingual French / English version when your project needs it
@@ -23,21 +23,21 @@ faq:
 validated: true
 ---
 
-BIG FIVE designs and builds corporate and showcase websites for companies, brands and organisations in Abidjan, Côte d'Ivoire (Ivory Coast), and across French-speaking Africa. Whether you need a new website or a redesign of an existing one, we deliver a site that loads fast, reads well on mobile, ranks properly and can be updated by your own teams. Our Tech & Solutions Division draws on over 15 years of field experience in digital marketing to connect your website to your business goals, not just to a brand guide.
+BIG FIVE designs and builds corporate and brochure websites for companies, brands and organizations in Abidjan, Côte d'Ivoire (Ivory Coast), and across French-speaking Africa. Whether you need a new website or a redesign of an existing one, we deliver a site that loads fast, reads well on mobile, ranks well and can be updated by your own teams. Our Tech & Solutions Division draws on over 15 years of field experience in digital marketing to connect your website to your business goals, not just to a brand guide.
 
 ## What we build
 
 We handle the project from start to finish, from content structure to launch. Every site is designed for the people who will actually use it, often on a smartphone and on a connection that is not always stable.
 
-- Showcase websites for a brand, a product range or an event
-- Corporate websites for companies, foundations and organisations
+- Brochure websites for a brand, a product range or an event
+- Corporate websites for companies, foundations and organizations
 - Website redesigns: content migration, new structure, redirects
 - Bilingual French / English websites, with both versions easy to manage
 - An admin interface so your team can publish pages, news and media without a developer
 
 ## How we work
 
-We start with a conversation about your goals, your audiences and your content. We then define the site map and key pages, design the mock-ups and build the site. Search engine optimisation is part of the design from day one: page structure, tags, readable URLs, sitemap and loading speed. It is not bolted on at the end.
+We start with a conversation about your goals, your audiences and your content. We then define the site map and key pages, design the mock-ups and build the site. Search engine optimization is part of the design from day one: page structure, tags, readable URLs, sitemap and loading speed. It is not bolted on at the end.
 
 Performance and accessibility get the same attention: readable contrast, keyboard navigation, alternative text and lightweight images. A lean site loads better on mobile networks and stays comfortable for every visitor.
 

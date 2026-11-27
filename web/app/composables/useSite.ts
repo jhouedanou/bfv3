@@ -68,7 +68,15 @@ const fetchSiteContent = async (): Promise<Record<Locale, SiteContent>> => {
       poles: home.poles,
       clients: reglages.clients.map((c) => ({ name: c.name, logo: imageOf(c.logo, c.name, [400, 200])! })),
       links: { laveiye: reglages.laveiye, socials: reglages.socials },
-      settings: { email: reglages.email, telephone: reglages.telephone, adresse: reglages.adresse, ogImage: reglages.ogImage },
+      settings: {
+        email: reglages.email,
+        telephone: reglages.telephone,
+        adresse: reglages.adresse,
+        carte: reglages.carte,
+        horaires: reglages.horaires[locale],
+        horairesSchema: reglages.horaires.schema,
+        ogImage: reglages.ogImage,
+      },
       seo: home.seo,
       privacy: (politique.find((p) => p.locale === locale)?.sections ?? []).map((s) => ({ title: s.title, body: s.paragraphs })),
     }
