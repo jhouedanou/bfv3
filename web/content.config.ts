@@ -207,6 +207,7 @@ const TEXTES: Group[] = [
   { key: 'emails', label: "E-mails envoyés automatiquement", fields: [
     ['ackSubject', "Accusé de réception : objet"],
     ['ackBody', "Accusé de réception : message", true],
+    ['ackCopyTitle', "Accusé de réception : titre de la copie de la demande"],
     ['ackNotifySubject', "Inscription aux parutions : objet"],
     ['ackNotifyBody', "Inscription aux parutions : message", true],
   ] },

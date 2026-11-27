@@ -101,7 +101,7 @@ const verifyTurnstile = async (secret: string, token: string, ip: string | undef
   return Boolean(data.success)
 }
 
-type Mail = { to: string; subject: string; text: string; replyTo?: string }
+type Mail = { to: string; subject: string; text: string; html?: string; replyTo?: string }
 
 // Sans clé Resend en local, l'e-mail est écrit dans la console. Sur Vercel, la clé est obligatoire.
 const sendMail = async (event: H3Event, mail: Mail) => {
@@ -109,6 +109,11 @@ const sendMail = async (event: H3Event, mail: Mail) => {
   if (!resendApiKey) {
     if (onVercel) throw new Error('NUXT_RESEND_API_KEY manquante')
     console.info(`\n[mail] À : ${mail.to}\n[mail] Objet : ${mail.subject}\n${mail.text}\n`)
+    // Aperçu local de la version HTML : MAIL_PREVIEW_DIR=/un/dossier pnpm dev
+    if (mail.html && process.env.MAIL_PREVIEW_DIR) {
+      const { writeFile } = await import('node:fs/promises')
+      await writeFile(`${process.env.MAIL_PREVIEW_DIR}/${Date.now()}-${mail.to.replace(/[^a-z0-9@.-]/gi, '_')}.html`, mail.html)
+    }
     return
   }
   await $fetch('https://api.resend.com/emails', {
@@ -119,9 +124,45 @@ const sendMail = async (event: H3Event, mail: Mail) => {
       to: [mail.to],
       subject: mail.subject,
       text: mail.text,
+      ...(mail.html ? { html: mail.html } : {}),
       ...(mail.replyTo ? { reply_to: mail.replyTo } : {}),
     },
   })
+}
+
+// ── Mise en forme des e-mails ────────────────────────────────────────────────
+// Version HTML sobre, toujours accompagnée de la version texte : tableaux et styles en ligne
+// (seule mise en forme fiable dans les messageries), aucune image distante, aucun lien de suivi.
+// Tout texte saisi par le visiteur est échappé : il ne peut pas injecter de HTML.
+
+type Row = [label: string, value: string | undefined]
+
+const esc = (s: string) => s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!)
+
+const htmlMail = (o: { locale: 'fr' | 'en'; title: string; paragraphs?: string[]; rowsTitle?: string; rows?: Row[]; siteUrl: string }) => {
+  const rows = (o.rows ?? []).filter(([, v]) => v !== undefined && v.trim() !== '')
+  const cell = 'padding:10px 0;border-bottom:1px solid #e6e6ee;vertical-align:top;font-size:15px;line-height:1.5;'
+  const table = rows.length
+    ? `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;margin:8px 0 0;">${rows
+        .map(
+          ([k, v]) =>
+            `<tr><td style="${cell}width:38%;padding-right:16px;color:#5a5d7a;">${esc(k)}</td><td style="${cell}color:#14162f;white-space:pre-wrap;word-break:break-word;">${esc(v!.trim())}</td></tr>`,
+        )
+        .join('')}</table>`
+    : ''
+  const paragraphs = (o.paragraphs ?? [])
+    .map((p) => `<p style="margin:0 0 14px;font-size:16px;line-height:1.6;color:#14162f;">${esc(p).replace(/\n/g, '<br>')}</p>`)
+    .join('')
+  const rowsTitle = o.rowsTitle && rows.length ? `<p style="margin:22px 0 4px;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#5a5d7a;font-weight:bold;">${esc(o.rowsTitle)}</p>` : ''
+  const host = o.siteUrl.replace(/^https?:\/\//, '')
+  return `<!doctype html><html lang="${o.locale}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${esc(o.title)}</title></head>
+<body style="margin:0;padding:0;background:#f2f2f7;font-family:Arial,Helvetica,sans-serif;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f2f2f7;"><tr><td align="center" style="padding:24px 12px;">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px;max-width:100%;background:#ffffff;border-radius:10px;overflow:hidden;">
+<tr><td style="background:#14162f;padding:22px 28px;border-bottom:4px solid #e05aa8;"><span style="font-size:22px;font-weight:bold;letter-spacing:.04em;color:#ffffff;">BIG FIVE</span></td></tr>
+<tr><td style="padding:28px;"><h1 style="margin:0 0 18px;font-size:20px;line-height:1.35;color:#14162f;">${esc(o.title)}</h1>${paragraphs}${rowsTitle}${table}</td></tr>
+<tr><td style="padding:18px 28px;background:#f7f7fb;font-size:13px;line-height:1.5;color:#5a5d7a;">BIG FIVE · <a href="${esc(o.siteUrl)}" style="color:#14162f;">${esc(host)}</a></td></tr>
+</table></td></tr></table></body></html>`
 }
 
 // ── Contenu (content/) ──────────────────────────────────────────────────────
@@ -159,10 +200,10 @@ const SOURCE_TAG: Record<string, string> = {
 }
 
 // Libellés français des solutions, tels que saisis dans content/2.solutions/fr.
-const choiceLabel = async (event: H3Event, choice: string) => {
-  const fixed: Record<string, string> = { multi: 'Plusieurs expertises', unknown: 'Je ne sais pas encore' }
+const choiceLabel = async (event: H3Event, choice: string, locale: 'fr' | 'en' = 'fr', t: Record<string, string> = {}) => {
+  const fixed: Record<string, string> = { multi: t.multi || 'Plusieurs expertises', unknown: t.unknown || 'Je ne sais pas encore' }
   if (fixed[choice]) return fixed[choice]
-  const s = await queryCollection(event, 'solutions').where('locale', '=', 'fr').where('key', '=', choice).first()
+  const s = await queryCollection(event, 'solutions').where('locale', '=', locale).where('key', '=', choice).first()
   return s?.name ?? choice
 }
 
@@ -176,13 +217,13 @@ const publishedBarometre = async (event: H3Event, identifiant: string) => {
 const stamp = () =>
   new Intl.DateTimeFormat('fr-FR', { dateStyle: 'full', timeStyle: 'short', timeZone: 'Africa/Abidjan' }).format(new Date())
 
-const lines = (rows: [string, string | undefined][]) =>
+const lines = (rows: Row[]) =>
   rows
     .filter(([, v]) => v !== undefined && v !== '')
     .map(([k, v]) => `${k} : ${v}`)
     .join('\n')
 
-type Prepared = { subject: string; text: string; replyTo: string; source: string }
+type Prepared = { subject: string; rows: Row[]; replyTo: string; source: string }
 
 async function prepare(event: H3Event, lead: Lead): Promise<Prepared | null> {
   const footer: [string, string][] = [
@@ -197,7 +238,7 @@ async function prepare(event: H3Event, lead: Lead): Promise<Prepared | null> {
       subject: `[${tag}] ${lead.name} — ${lead.company}`,
       source: tag,
       replyTo: lead.email,
-      text: lines([
+      rows: [
         ['Source', tag],
         ['Nom complet', lead.name],
         ['E-mail professionnel', lead.email],
@@ -210,7 +251,7 @@ async function prepare(event: H3Event, lead: Lead): Promise<Prepared | null> {
         ['Consentement à être recontacté', 'oui'],
         ['Notifié des prochaines parutions', lead.optin ? 'oui' : 'non'],
         ...footer,
-      ]),
+      ],
     }
   }
 
@@ -221,7 +262,7 @@ async function prepare(event: H3Event, lead: Lead): Promise<Prepared | null> {
       subject: `[Baromètre] ${lead.name} — ${lead.company} — ${baro.title}`,
       source: 'Baromètre',
       replyTo: lead.email,
-      text: lines([
+      rows: [
         ['Source', 'Baromètre'],
         ['Baromètre', `${baro.title} (${baro.identifiant})`],
         ['Nom complet', lead.name],
@@ -231,7 +272,7 @@ async function prepare(event: H3Event, lead: Lead): Promise<Prepared | null> {
         ['Téléphone', lead.phone],
         ['Notifié des prochaines parutions', lead.optin ? 'oui' : 'non'],
         ...footer,
-      ]),
+      ],
     }
   }
 
@@ -239,7 +280,7 @@ async function prepare(event: H3Event, lead: Lead): Promise<Prepared | null> {
     subject: `[Me notifier] ${lead.email}`,
     source: 'Me notifier',
     replyTo: lead.email,
-    text: lines([['Source', 'Me notifier'], ['E-mail', lead.email], ...footer]),
+    rows: [['Source', 'Me notifier'], ['E-mail', lead.email], ...footer],
   }
 }
 
@@ -286,14 +327,22 @@ export default defineEventHandler(async (event): Promise<LeadResult> => {
   const to = config.leadsTo || reglages?.email || 'contacts@bigfiveabidjan.com'
 
   try {
-    await sendMail(event, { to, subject: mail.subject, text: mail.text, replyTo: mail.replyTo })
+    await sendMail(event, {
+      to,
+      subject: mail.subject,
+      text: lines(mail.rows),
+      html: htmlMail({ locale: 'fr', title: mail.subject, rows: mail.rows, siteUrl: config.public.siteUrl }),
+      replyTo: mail.replyTo,
+    })
 
     // Case « prochaines parutions » cochée : même liste que « Me notifier » (CDC § 4.2).
     if (lead.type !== 'notify' && lead.optin) {
+      const optinRows: Row[] = [['Source', `Case « prochaines parutions » (${mail.source})`], ['E-mail', lead.email]]
       await sendMail(event, {
         to,
         subject: `[Me notifier] ${lead.email}`,
-        text: lines([['Source', `Case « prochaines parutions » (${mail.source})`], ['E-mail', lead.email]]),
+        text: lines(optinRows),
+        html: htmlMail({ locale: 'fr', title: `[Me notifier] ${lead.email}`, rows: optinRows, siteUrl: config.public.siteUrl }),
         replyTo: lead.email,
       })
     }
@@ -302,9 +351,11 @@ export default defineEventHandler(async (event): Promise<LeadResult> => {
     return reply(event, 502, { ok: false, error: 'server' })
   }
 
-  // Accusé de réception, dans la langue de la page (content/1.accueil et content/6.textes : ackSubject, ackBody…).
-  // Aucun texte saisi par le visiteur n'y figure : l'adresse de destination n'est pas vérifiée, le
-  // message ne doit pas pouvoir servir de relais. L'accusé ne fait pas échouer la demande.
+  // Accusé de réception au visiteur, dans la langue de la page (content/6.textes, groupe « emails »),
+  // avec une copie de sa demande. L'adresse de destination n'est pas vérifiée : pour que le
+  // formulaire ne serve pas de relais, le texte saisi est échappé, l'envoi est protégé par
+  // Turnstile et limité (3 demandes par adresse et par heure, 30 accusés par heure au total).
+  // L'accusé ne fait pas échouer la demande.
   const t = await labels(event, lead.locale).catch(() => ({}) as Record<string, string>)
   const notify = lead.type === 'notify'
   const subject = notify ? t.ackNotifySubject : t.ackSubject
@@ -313,7 +364,42 @@ export default defineEventHandler(async (event): Promise<LeadResult> => {
   if (subject && body && recent('ack', RATE.ack.minutes).length < RATE.ack.max) {
     record('ack')
     const home = `${config.public.siteUrl}${lead.locale === 'en' ? '/en' : ''}`
-    await sendMail(event, { to: lead.email, subject, text: `${body}\n${home}` }).catch(() => undefined)
+    // Libellés du formulaire, sans l'astérisque des champs obligatoires.
+    const label = (key: string, fallback: string) => (t[key] || fallback).replace(/\s*[*?:]+\s*$/, '')
+    let copy: Row[] = []
+    if (lead.type === 'contact') {
+      copy = [
+        [label('fullName', 'Nom complet'), lead.name],
+        [label('emailPro', 'E-mail'), lead.email],
+        [label('phone', 'Téléphone'), lead.phone],
+        [label('company', 'Entreprise'), lead.company],
+        [label('role', 'Fonction'), lead.role],
+        [label('sector', 'Secteur'), lead.sector],
+        [label('which', 'Accompagnement souhaité'), await choiceLabel(event, lead.choice, lead.locale, t)],
+        [label('need', 'Votre besoin'), lead.need],
+      ]
+    } else if (lead.type === 'barometre') {
+      const baro = await publishedBarometre(event, lead.barometre)
+      copy = [
+        [label('baro', 'Baromètre'), baro?.title],
+        [label('fullName', 'Nom complet'), lead.name],
+        [label('emailPro', 'E-mail'), lead.email],
+        [label('company', 'Entreprise'), lead.company],
+        [label('jobTitle', 'Poste'), lead.role],
+        [label('phoneOpt', 'Téléphone'), lead.phone],
+      ]
+    }
+    const copyTitle = t.ackCopyTitle || (lead.locale === 'en' ? 'A copy of your request' : 'Copie de votre demande')
+    const text = [body, ...(copy.length ? [`${copyTitle}\n${lines(copy)}`] : []), home].join('\n\n')
+    const html = htmlMail({
+      locale: lead.locale,
+      title: subject,
+      paragraphs: body.split(/\n{2,}/),
+      rowsTitle: copyTitle,
+      rows: copy,
+      siteUrl: home,
+    })
+    await sendMail(event, { to: lead.email, subject, text, html }).catch(() => undefined)
   }
 
   return { ok: true }

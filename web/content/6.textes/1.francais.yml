@@ -82,6 +82,7 @@ formulaireBarometre:
   notifyTitle: Être notifié des prochaines parutions
   notifyDesc: Recevez un e-mail à chaque nouveau baromètre.
 emails:
+  ackCopyTitle: Copie de votre demande
   ackSubject: BIG FIVE — Nous avons bien reçu votre demande
   ackBody: |-
     Bonjour,

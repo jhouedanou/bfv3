@@ -82,6 +82,7 @@ formulaireBarometre:
   notifyTitle: Get notified of upcoming releases
   notifyDesc: Get an email every time a new barometer is released.
 emails:
+  ackCopyTitle: A copy of your request
   ackSubject: BIG FIVE — We have received your request
   ackBody: |-
     Hello,
