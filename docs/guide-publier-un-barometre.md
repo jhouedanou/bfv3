@@ -8,7 +8,7 @@ Le site s'administre avec **Nuxt Studio**. Chaque enregistrement est mis en lign
 
 ## Avant de commencer
 
-Il vous faut un compte GitHub invité sur le projet. Si ce n'est pas fait, envoyez votre identifiant GitHub au développeur.
+Vous vous connectez avec votre compte Google. Votre adresse doit être autorisée : si ce n'est pas fait, envoyez-la au développeur.
 
 Préparez ces éléments :
 
@@ -41,7 +41,7 @@ Pour alléger une image trop lourde, utilisez un outil gratuit comme [Squoosh](h
 ### 1. Se connecter
 
 1. Ouvrez `https://bigfive.solutions/_studio`.
-2. Cliquez sur **Se connecter avec GitHub**.
+2. Cliquez sur **Se connecter avec Google** et choisissez votre compte.
 
 ### 2. Envoyer la couverture
 
@@ -93,5 +93,5 @@ Pour garder un brouillon, laissez **published** décoché.
 | Symptôme | Que faire |
 |---|---|
 | La page n'apparaît pas après 5 minutes | Vérifiez que **published** est coché et que la date n'est pas future. Sinon, prévenez le développeur. |
-| Studio refuse la connexion | Votre compte GitHub n'est pas invité : envoyez votre identifiant au développeur. |
+| Studio refuse la connexion | Votre adresse Google n'est pas autorisée : envoyez-la au développeur. |
 | Une erreur a été publiée | Corrigez et publiez à nouveau. Chaque version est conservée : le développeur peut revenir en arrière. |

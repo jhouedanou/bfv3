@@ -40,6 +40,8 @@ export default defineNuxtConfig({
     mailFrom: 'BIG FIVE <site@bigfiveabidjan.com>',
     // Adresse qui reçoit les demandes des formulaires (sinon : email de content/reglages.yml).
     leadsTo: '',
+    // Journal des connexions à Studio : adresse qui reçoit un e-mail à chaque connexion (NUXT_AUDIT_TO).
+    auditTo: '',
     turnstileSecretKey: '',
     // Publication programmée : Vercel Cron appelle /api/cron/publish, qui relance un build.
     // Vercel Cron envoie « Authorization: Bearer $CRON_SECRET ».

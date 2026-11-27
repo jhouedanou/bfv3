@@ -32,7 +32,7 @@ Attention : les corrections de l'anglais sont dans `web/content/` seulement. `pn
 |---|---|
 | Numéro de téléphone | `content/reglages.yml` (`telephone`) |
 | Paris : garder ou retirer de la description Google | `content/accueil/` |
-| Liste des personnes qui modifieront le site, avec leur identifiant GitHub | Collaborateurs du dépôt GitHub |
+| Liste des personnes qui modifieront le site, avec leur adresse e-mail Google | Variable `STUDIO_GOOGLE_MODERATORS` (Vercel) |
 | Photos HD (4 solutions, personnage du Cabinet en PNG transparent) : Yadé | Médiathèque de Studio |
 | Image de partage 1200 × 630 : Yadé | `content/reglages.yml` (`ogImage`) |
 | Couverture du baromètre d'août 2026 sans lien imprimé | `content/barometres/` |
@@ -50,7 +50,7 @@ Deux incohérences à corriger avec la politique de confidentialité :
 
 ## 4. À faire côté développement
 
-1. **Nuxt Studio en production** : créer l'OAuth App GitHub (callback `https://<domaine>/_studio/auth/github`), renseigner `STUDIO_GITHUB_CLIENT_ID` et `STUDIO_GITHUB_CLIENT_SECRET` dans Vercel, inviter les éditeurs sur le dépôt.
+1. **Nuxt Studio en production, connexion Google** : créer le client OAuth Google (URI de redirection `https://<domaine>/__nuxt_studio/auth/google`) et un jeton GitHub limité au dépôt, puis renseigner `STUDIO_GOOGLE_CLIENT_ID`, `STUDIO_GOOGLE_CLIENT_SECRET`, `STUDIO_GITHUB_TOKEN` et `STUDIO_GOOGLE_MODERATORS` dans Vercel. Détail dans `web/README.md`.
 2. **Formulaires** : `NUXT_RESEND_API_KEY`, `NUXT_TURNSTILE_SECRET_KEY`, `NUXT_PUBLIC_TURNSTILE_SITE_KEY`. Vérifier le domaine dans Resend (SPF, DKIM, DMARC), puis tester la réception.
 3. **Parutions programmées** : Deploy Hook Vercel, `NUXT_VERCEL_DEPLOY_HOOK` et `CRON_SECRET`.
 4. **Comparer le site à la maquette du 3 novembre** (`docs/maquette/`) et corriger les écarts.

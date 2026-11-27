@@ -65,7 +65,26 @@ pnpm build && node .output/server/index.mjs   # version de production
 - Déploiement manuel depuis `web/` : `npx vercel deploy --prod`. `.vercelignore` exclut les sorties locales (`.output`, `.nuxt`), sinon Vercel les reprendrait telles quelles.
 - Variables : voir `.env.example`. En production, Resend et Turnstile sont obligatoires : sans eux, les formulaires refusent l'envoi.
 - Nuxt Studio :
-  1. Créer une OAuth App GitHub. Callback : `https://<domaine>/_studio/auth/github`.
-  2. Renseigner `STUDIO_GITHUB_CLIENT_ID` et `STUDIO_GITHUB_CLIENT_SECRET`.
-  3. Studio enregistre sur la branche `STUDIO_BRANCH` (par défaut `main`). Elle doit être la branche de production du projet Vercel.
+  - Connexion des éditeurs avec **Google** (retenue pour l'équipe BIG FIVE) :
+    1. Google Cloud Console → APIs & Services → Credentials → Create OAuth client ID (Web application).
+       Authorized redirect URI : `https://<domaine>/__nuxt_studio/auth/google`.
+    2. GitHub → Settings → Developer settings → Fine-grained tokens : jeton limité au dépôt `bfv3`, permission « Contents : Read and write ». C'est lui qui enregistre les modifications des éditeurs.
+    3. Renseigner `STUDIO_GOOGLE_CLIENT_ID`, `STUDIO_GOOGLE_CLIENT_SECRET`, `STUDIO_GITHUB_TOKEN` et `STUDIO_GOOGLE_MODERATORS`.
+    4. `STUDIO_GOOGLE_MODERATORS` : adresses e-mail autorisées, séparées par des virgules, **sans espace**. Seules ces adresses entrent dans Studio. Ajouter ou retirer quelqu'un = modifier la variable, puis redéployer.
+  - Connexion avec **GitHub** (pour le développeur, facultatif) : OAuth App GitHub, callback `https://<domaine>/__nuxt_studio/auth/github`, puis `STUDIO_GITHUB_CLIENT_ID` et `STUDIO_GITHUB_CLIENT_SECRET`.
+  - Studio enregistre sur la branche `STUDIO_BRANCH` (par défaut `main`), lue au build. Elle doit être la branche de production du projet Vercel.
+  - Tester en local : voir « Tester Studio en local » ci-dessous.
 - Publication programmée : créer un Deploy Hook (Settings → Git), puis renseigner `NUXT_VERCEL_DEPLOY_HOOK` et `CRON_SECRET`. Le cron de `vercel.json` passe chaque matin et relance un build s'il y a une parution datée du jour.
+
+## Tester Studio en local
+
+**Sans connexion (édition directe des fichiers)** : `pnpm dev`, puis le bouton en bas à gauche. Pas de bouton « Publier » : les fichiers de `content/` sont modifiés sur le disque.
+
+**Avec la connexion Google, comme en production** :
+
+1. Dans le client OAuth Google, ajouter l'URI `http://localhost:3000/__nuxt_studio/auth/google`.
+2. Créer une branche de test, pour ne rien publier sur `main` : `git switch -c studio-test && git push -u origin studio-test`.
+3. Copier `.env.example` en `.env`, remplir les quatre variables Studio et `STUDIO_BRANCH=studio-test`.
+4. `STUDIO_BRANCH=studio-test pnpm build && node --env-file=.env .output/server/index.mjs`
+5. Ouvrir http://localhost:3000/_studio, se connecter avec Google, modifier un texte, publier : le commit doit arriver sur `studio-test`.
+6. Supprimer la branche de test.

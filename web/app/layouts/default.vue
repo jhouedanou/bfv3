@@ -10,4 +10,5 @@ useHead({ htmlAttrs: { lang: locale } })
   <PageTransition />
   <CookieConsent />
   <SiteModals />
+  <ClientOnly><StudioSession /></ClientOnly>
 </template>
